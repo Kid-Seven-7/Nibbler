@@ -6,7 +6,7 @@
 #    By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/20 15:28:13 by amatshiy          #+#    #+#              #
-#    Updated: 2018/07/20 15:39:46 by amatshiy         ###   ########.fr        #
+#    Updated: 2018/07/20 16:20:48 by amatshiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,12 +26,10 @@ CMP_DLL = clang++ -shared -fPIC -framework sfml-graphics -framework sfml-window 
 
 CMP = clang++
 
-all: sfml
+all:
+	export $(SFML_EXP)
 	$(CMP_DLL) $(SRC_DLL) -o $(LIB_1_NAME) $(HEADER)
 	$(CMP) $(SRC) -o $(NAME) $(HEADER)
-
-sfml:
-	export $(SFML_EXP)
 
 clean:
 	rm -rf $(LIB_1_NAME)
