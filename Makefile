@@ -5,38 +5,29 @@
 #                                                     +:+ +:+         +:+      #
 #    By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/07/20 15:28:13 by amatshiy          #+#    #+#              #
-#    Updated: 2018/07/20 16:57:36 by amatshiy         ###   ########.fr        #
+#    Created: 2018/07/21 09:06:50 by amatshiy          #+#    #+#              #
+#    Updated: 2018/07/21 09:18:36 by amatshiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 42_nibbler
 
-LIB_1_NAME = sfml.so
-
-SFML_EXP = DYLD_FRAMEWORK_PATH="$(PWD)/SFML/Frameworks"
-
 SRC = main.cpp
 
-SRC_DLL = Sfml.lib.cpp
+LIB_1_HEADER = -I includes -I ./LIB_1/SFML/include
 
-HEADER = -I includes -I ./SFML/include
-
-CMP_DLL = clang++ -shared -fPIC -framework sfml-graphics -framework sfml-window -framework sfml-system -F SFML/Frameworks
+SFML_EXP = DYLD_FRAMEWORK_PATH="$(PWD)/LIB_1/SFML/Frameworks" 
 
 CMP = clang++
 
 all:
-	$(CMP) $(SRC) -o $(NAME) $(HEADER)
-
-sfml:
+	+$(MAKE) -C LIB_1
+	$(CMP) $(SRC) -o $(NAME) $(LIB_1_HEADER)
 	export $(SFML_EXP)
-	$(CMP_DLL) $(SRC_DLL) -o $(LIB_1_NAME) $(HEADER)
 
 clean:
-	rm -rf $(LIB_1_NAME)
+	rm -rf $(NAME)
 
 fclean: clean
-	rm -rf $(NAME)
 
 re: fclean all

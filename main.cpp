@@ -6,12 +6,12 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 11:47:02 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/20 16:01:21 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/21 09:10:15 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <dlfcn.h>
-#include "GraphicsMain.hpp"
+#include "LIB_1/GraphicsMain.hpp"
 #include <string>
 
 void    dlerror_wrapper(void)
