@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sfml.lib.hpp                                       :+:      :+:    :+:   */
+/*   Sdl.lib.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/20 10:30:14 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/23 08:25:27 by amatshiy         ###   ########.fr       */
+/*   Created: 2018/07/23 08:11:28 by amatshiy          #+#    #+#             */
+/*   Updated: 2018/07/23 08:25:31 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SFML_LIB_HPP
-#define SFML_LIB_HPP
+#ifndef SDL_LIB_HPP
+#define SDL_LIB_HPP
 
-#include "ISfml.lib.hpp"
+#include "ISdl.lib.hpp"
 
-class Sfml_Class : public ISfml_Class
+class Sdl_Class : public ISdl_Class
 {
     private:
         int         _width;
         int         _height;
         std::string _name;
-        Sfml_Class(void);
+        Sdl_Class(void);
 
     public:
-        Sfml_Class(std::string name, int width, int height);
-        ~Sfml_Class(void);
+        Sdl_Class(std::string name, int width, int height);
+        ~Sdl_Class(void);
 
         int             getWidth() const;
         int             getHeight() const;
         std::string     getName() const;
-        void            createSfmlWindow();
+        void            createSdlWindow();
 };
 
 extern "C"
 {
-    Sfml_Class  *createSFMLWindow(std::string name, int width, int height);
-    void        deleteWindow(Sfml_Class *sfml_class);
+    Sdl_Class  *createSDLWindow(std::string name, int width, int height);
+    void        deleteWindow(Sdl_Class *sdl_class);
 }
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 10:36:57 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/20 15:12:03 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/23 08:25:26 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void        Sfml_Class::createSfmlWindow()
     }
 }
 
-Sfml_Class      *createWindow(std::string name, int width, int height)
+Sfml_Class      *createSFMLWindow(std::string name, int width, int height)
 {
     return new Sfml_Class(name, width, height);
 }
