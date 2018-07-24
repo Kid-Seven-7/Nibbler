@@ -23,14 +23,10 @@ LIB_3_HEADER = -I ~/.brew/include
 CMP_DLL = clang++ -shared -fPIC -framework sfml-graphics -framework sfml-window -framework sfml-system -F SFML/Frameworks
 
 sfml: clean
-<<<<<<< HEAD
 	$(CMP_DLL) $(SRC_DLL) -o $(LIB_1_NAME) $(HEADER) $(LIB_2_HEADER) $(LIB_3_HEADER)
-=======
-	@$(CMP_DLL) $(SRC_DLL) -o $(LIB_1_NAME) $(HEADER)
->>>>>>> origin
 
 clean:
-	@rm -rf $(LIB_1_NAME)
+	rm -rf $(LIB_1_NAME)
 
 fclean: clean
 

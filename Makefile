@@ -6,7 +6,7 @@
 #    By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 09:06:50 by amatshiy          #+#    #+#              #
-#    Updated: 2018/07/24 17:43:52 by amatshiy         ###   ########.fr        #
+#    Updated: 2018/07/24 17:34:45 by amatshiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,12 +27,14 @@ SFML_EXP = DYLD_FRAMEWORK_PATH="$(PWD)/LIB_1/SFML/Frameworks"
 
 CMP = clang++
 
-all:
+all: run_scripts
 	+$(MAKE) -C LIB_1
 	+$(MAKE) -C LIB_2
 	+$(MAKE) -C LIB_3
 	$(CMP) $(SRC) -o $(NAME) $(LIB_1_HEADER) $(LIB_2_HEADER) $(LIB_3_HEADER)
-	sh scripts/export_sfml.sh
+
+run_scripts:
+	$(shell ./scripts/export_sfml.sh)
 
 clean:
 	rm -rf $(LIB_1_NAME)
@@ -40,6 +42,6 @@ clean:
 	rm -rf $(LIB_3_NAME)
 
 fclean: clean
-	@rm -rf $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
