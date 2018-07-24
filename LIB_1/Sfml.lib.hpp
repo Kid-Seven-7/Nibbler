@@ -15,8 +15,12 @@
 
 #include "../include/IGraphicsMain.hpp"
 
+<<<<<<< HEAD
 class Sfml_Class : public IGraphicsMain
 {
+=======
+class Sfml_Class : public ISfml_Class{
+>>>>>>> origin
     private:
         int         _width;
         int         _height;
@@ -35,8 +39,7 @@ class Sfml_Class : public IGraphicsMain
         void            updateWindow();
 };
 
-extern "C"
-{
+extern "C"{
     Sfml_Class  *createSFMLWindow(std::string name, int width, int height);
     void        deleteWindow(Sfml_Class *sfml_class);
 }

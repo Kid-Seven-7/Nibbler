@@ -23,10 +23,14 @@ LIB_3_HEADER = -I ~/.brew/include
 CMP_DLL = clang++ -shared -fPIC SDL/SDL2.framework/SDL2
 
 sdl: clean
+<<<<<<< HEAD
 	$(CMP_DLL) $(SRC_DLL) -o $(LIB_2_NAME) $(HEADER) $(LIB_1_HEADER) $(LIB_3_HEADER)
+=======
+	@$(CMP_DLL) $(SRC_DLL) -o $(LIB_2_NAME) $(HEADER)
+>>>>>>> origin
 
 clean:
-	rm -rf $(LIB_2_NAME)
+	@rm -rf $(LIB_2_NAME)
 
 fclean: clean
 
