@@ -17,7 +17,7 @@ LIB_1_NAME = LIB_1/sfml.so
 LIB_2_NAME = LIB_2/sdl.so
 LIB_3_NAME = LIB_3/glfw.so
 
-SRC = main.cpp
+SRC = src/main.cpp
 
 LIB_1_HEADER = -I includes -I ./LIB_1/SFML/include
 LIB_2_HEADER = -I LIB_2/SDL/SDL2.framework/Headers
