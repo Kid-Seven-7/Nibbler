@@ -13,40 +13,32 @@
 #include "Sfml.lib.hpp"
 
 Sfml_Class::Sfml_Class(std::string name, int width, int height)
-{
-    this->_name = name;
-    this->_width = width;
-    this->_height = height;
-}
+:_width(width), _height(height), _name(name)
+{}
 
-Sfml_Class::~Sfml_Class() {}
+Sfml_Class::~Sfml_Class()
+{}
 
-int         Sfml_Class::getWidth() const
-{
+int         Sfml_Class::getWidth() const{
     return this->_width;
 }
 
-int         Sfml_Class::getHeight() const
-{
+int         Sfml_Class::getHeight() const{
     return this->_height;
 }
 
-std::string Sfml_Class::getName() const
-{
+std::string Sfml_Class::getName() const{
     return this->_name;
 }
 
-void        Sfml_Class::createSfmlWindow()
-{
+void        Sfml_Class::createSfmlWindow(){
     sf::Window window(sf::VideoMode(this->getWidth(), this->getHeight()), this->getName());
 
     // run the program as long as the window is open
-    while (window.isOpen())
-    {
+    while (window.isOpen()){
         // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
-        while (window.pollEvent(event))
-        {
+        while (window.pollEvent(event)){
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window.close();
@@ -54,12 +46,10 @@ void        Sfml_Class::createSfmlWindow()
     }
 }
 
-Sfml_Class      *createSFMLWindow(std::string name, int width, int height)
-{
+Sfml_Class      *createSFMLWindow(std::string name, int width, int height){
     return new Sfml_Class(name, width, height);
 }
 
-void            deleteWindow(Sfml_Class *sfml_class)
-{
+void            deleteWindow(Sfml_Class *sfml_class){
     delete  sfml_class;
 }
