@@ -15,8 +15,7 @@
 
 #include "ISfml.lib.hpp"
 
-class Sfml_Class : public ISfml_Class
-{
+class Sfml_Class : public ISfml_Class{
     private:
         int         _width;
         int         _height;
@@ -33,8 +32,7 @@ class Sfml_Class : public ISfml_Class
         void            createSfmlWindow();
 };
 
-extern "C"
-{
+extern "C"{
     Sfml_Class  *createSFMLWindow(std::string name, int width, int height);
     void        deleteWindow(Sfml_Class *sfml_class);
 }
