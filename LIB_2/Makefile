@@ -19,10 +19,10 @@ HEADER = -I SDL/SDL2.framework/Headers
 CMP_DLL = clang++ -shared -fPIC SDL/SDL2.framework/SDL2
 
 sdl: clean
-	$(CMP_DLL) $(SRC_DLL) -o $(LIB_2_NAME) $(HEADER)
+	@$(CMP_DLL) $(SRC_DLL) -o $(LIB_2_NAME) $(HEADER)
 
 clean:
-	rm -rf $(LIB_2_NAME)
+	@rm -rf $(LIB_2_NAME)
 
 fclean: clean
 

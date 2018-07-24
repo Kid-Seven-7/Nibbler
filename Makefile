@@ -27,16 +27,17 @@ SFML_EXP = DYLD_FRAMEWORK_PATH="$(PWD)/LIB_1/SFML/Frameworks"
 CMP = clang++
 
 all:
-	+$(MAKE) -C LIB_1
-	+$(MAKE) -C LIB_2
-	$(CMP) $(SRC) -o $(NAME) $(LIB_1_HEADER) $(LIB_2_HEADER)
-	export $(SFML_EXP)
+	@sh scripts/setup.sh
+	@+$(MAKE) -C LIB_1
+	@+$(MAKE) -C LIB_2
+	@$(CMP) $(SRC) -o $(NAME) $(LIB_1_HEADER) $(LIB_2_HEADER)
+	@export $(SFML_EXP)
 
 clean:
-	rm -rf $(LIB_1_NAME)
-	rm -rf $(LIB_2_NAME)
+	@rm -rf $(LIB_1_NAME)
+	@rm -rf $(LIB_2_NAME)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
