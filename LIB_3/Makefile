@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jngoma <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/23 09:51:26 by jngoma            #+#    #+#              #
-#    Updated: 2018/07/23 09:51:28 by jngoma           ###   ########.fr        #
+#    Updated: 2018/07/24 16:21:05 by amatshiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,18 @@ CXX = -Wall -Werror -Wextra -std=c++11
 
 HEADER = -I ~/.brew/include
 
+LIB_1_HEADER = -I includes -I ../LIB_1/SFML/include
+
+LIB_2_HEADER = -I ../LIB_2/SDL/SDL2.framework/Headers
+
 LIB = -L ~/.brew/lib
 
 LD_FLAG = -shared -fPIC -lglfw3 -framework Cocoa -framework OpenGL -framework IOKit -framework CoreFoundation -framework CoreVideo
 
 gflw: clean
 	@echo compiling glfw.so
-	@$(COMPILER) $(CXX) glfw.lib.cpp -o $(LIB_3_NAME) $(LD_FLAG) $(HEADER) $(LIB)
+	@$(COMPILER) $(CXX) glfw.lib.cpp -o $(LIB_3_NAME) $(LD_FLAG) $(HEADER) \
+	$(LIB_1_HEADER) $(LIB_2_HEADER) $(LIB)
 
 clean:
 	@echo deleting glfw.so

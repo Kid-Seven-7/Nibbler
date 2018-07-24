@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:11:23 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/24 15:23:01 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/24 16:25:38 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ Sdl_Class      *createSDLWindow(std::string name, int width, int height)
     return new Sdl_Class(name, width, height);
 }
 
-void            deleteWindow(Sdl_Class *sdl_Class)
+void            deleteWindow(Sdl_Class *sdl_class)
 {
-    delete  sdl_Class;
+    delete  sdl_class;
 }

@@ -6,7 +6,7 @@
 #    By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/20 15:28:13 by amatshiy          #+#    #+#              #
-#    Updated: 2018/07/24 15:33:10 by amatshiy         ###   ########.fr        #
+#    Updated: 2018/07/24 16:18:13 by amatshiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,12 @@ HEADER = -I includes -I ./SFML/include
 
 LIB_2_HEADER = -I ../LIB_2/SDL/SDL2.framework/Headers
 
+LIB_3_HEADER = -I ~/.brew/include
+
 CMP_DLL = clang++ -shared -fPIC -framework sfml-graphics -framework sfml-window -framework sfml-system -F SFML/Frameworks
 
 sfml: clean
-	$(CMP_DLL) $(SRC_DLL) -o $(LIB_1_NAME) $(HEADER) $(LIB_2_HEADER)
+	$(CMP_DLL) $(SRC_DLL) -o $(LIB_1_NAME) $(HEADER) $(LIB_2_HEADER) $(LIB_3_HEADER)
 
 clean:
 	rm -rf $(LIB_1_NAME)
