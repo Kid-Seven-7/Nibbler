@@ -6,16 +6,16 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 10:30:14 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/23 08:25:27 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/24 15:18:39 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SFML_LIB_HPP
 #define SFML_LIB_HPP
 
-#include "ISfml.lib.hpp"
+#include "../include/IGraphicsMain.hpp"
 
-class Sfml_Class : public ISfml_Class
+class Sfml_Class : public IGraphicsMain
 {
     private:
         int         _width;
@@ -30,7 +30,9 @@ class Sfml_Class : public ISfml_Class
         int             getWidth() const;
         int             getHeight() const;
         std::string     getName() const;
-        void            createSfmlWindow();
+        void            createWindow();
+        void            destroyWindow();
+        void            updateWindow();
 };
 
 extern "C"

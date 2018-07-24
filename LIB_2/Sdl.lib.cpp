@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:11:23 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/23 10:06:50 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/24 15:23:01 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ std::string Sdl_Class::getName() const
     return this->_name;
 }
 
-void        Sdl_Class::createSdlWindow()
+void        Sdl_Class::createWindow()
 {
     SDL_Window * window = NULL;
     SDL_Surface * screenSurface = NULL;
@@ -61,6 +61,10 @@ void        Sdl_Class::createSdlWindow()
         }
     }
 }
+
+void        Sdl_Class::destroyWindow() {}
+
+void        Sdl_Class::updateWindow() {}
 
 Sdl_Class      *createSDLWindow(std::string name, int width, int height)
 {

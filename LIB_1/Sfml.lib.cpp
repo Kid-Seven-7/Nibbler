@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 10:36:57 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/23 08:25:26 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/24 15:13:04 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ std::string Sfml_Class::getName() const
     return this->_name;
 }
 
-void        Sfml_Class::createSfmlWindow()
+void        Sfml_Class::createWindow()
 {
     sf::Window window(sf::VideoMode(this->getWidth(), this->getHeight()), this->getName());
 
@@ -53,6 +53,10 @@ void        Sfml_Class::createSfmlWindow()
         }
     }
 }
+
+void        Sfml_Class::destroyWindow() {}
+
+void        Sfml_Class::updateWindow() {}
 
 Sfml_Class      *createSFMLWindow(std::string name, int width, int height)
 {

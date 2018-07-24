@@ -6,15 +6,14 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 11:47:02 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/23 10:06:33 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/24 15:24:32 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <dlfcn.h>
 #include <string>
 #include <iostream>
-#include "../LIB_1/ISfml.lib.hpp"
-#include "../LIB_2/ISdl.lib.hpp"
+#include "../include/IGraphicsMain.hpp"
 
 
 void    dlerror_wrapper(void)
@@ -35,18 +34,18 @@ int main(int ac, char **av)
         if (!dl_handler)
             dlerror_wrapper();
 
-        ISfml_Class    *(*WindowCreator)(std::string, int width, int height);
-        WindowCreator = (ISfml_Class *(*)(std::string, int width, int height)) dlsym(dl_handler, "createSFMLWindow");
+        IGraphicsMain    *(*WindowCreator)(std::string, int width, int height);
+        WindowCreator = (IGraphicsMain *(*)(std::string, int width, int height)) dlsym(dl_handler, "createSFMLWindow");
 
         if (!WindowCreator)
             dlerror_wrapper();
 
-        ISfml_Class *newWindow;
+        IGraphicsMain *newWindow;
         newWindow = WindowCreator("Sfml Window", std::stoi(av[2]), std::stoi(av[3]));
-        newWindow->createSfmlWindow();
+        newWindow->createWindow();
 
-        void    (*WindowDestructor)(ISfml_Class *);
-        WindowDestructor = (void(*)(ISfml_Class *)) dlsym(dl_handler, "deleteWindow");
+        void    (*WindowDestructor)(IGraphicsMain *);
+        WindowDestructor = (void(*)(IGraphicsMain *)) dlsym(dl_handler, "deleteWindow");
 
         if (!WindowDestructor)
             dlerror_wrapper();
@@ -61,18 +60,18 @@ int main(int ac, char **av)
         if (!dl_handler)
             dlerror_wrapper();
 
-        ISdl_Class    *(*WindowCreator)(std::string, int width, int height);
-        WindowCreator = (ISdl_Class *(*)(std::string, int width, int height)) dlsym(dl_handler, "createSDLWindow");
+        IGraphicsMain    *(*WindowCreator)(std::string, int width, int height);
+        WindowCreator = (IGraphicsMain *(*)(std::string, int width, int height)) dlsym(dl_handler, "createSDLWindow");
 
         if (!WindowCreator)
             dlerror_wrapper();
 
-        ISdl_Class *newWindow;
+        IGraphicsMain *newWindow;
         newWindow = WindowCreator("Sdl Window", std::stoi(av[2]), std::stoi(av[3]));
-        newWindow->createSdlWindow();
+        newWindow->createWindow();
 
-        void    (*WindowDestructor)(ISdl_Class *);
-        WindowDestructor = (void(*)(ISdl_Class *)) dlsym(dl_handler, "deleteWindow");
+        void    (*WindowDestructor)(IGraphicsMain *);
+        WindowDestructor = (void(*)(IGraphicsMain *)) dlsym(dl_handler, "deleteWindow");
 
         if (!WindowDestructor)
             dlerror_wrapper();

@@ -6,16 +6,16 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:11:28 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/23 08:25:31 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/24 15:21:25 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SDL_LIB_HPP
 #define SDL_LIB_HPP
 
-#include "ISdl.lib.hpp"
+#include "../include/IGraphicsMain.hpp"
 
-class Sdl_Class : public ISdl_Class
+class Sdl_Class : public IGraphicsMain
 {
     private:
         int         _width;
@@ -30,7 +30,9 @@ class Sdl_Class : public ISdl_Class
         int             getWidth() const;
         int             getHeight() const;
         std::string     getName() const;
-        void            createSdlWindow();
+        void            createWindow();
+        void            destroyWindow();
+        void            updateWindow();
 };
 
 extern "C"

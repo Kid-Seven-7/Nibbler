@@ -6,7 +6,7 @@
 #    By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/23 07:58:55 by amatshiy          #+#    #+#              #
-#    Updated: 2018/07/23 08:40:26 by amatshiy         ###   ########.fr        #
+#    Updated: 2018/07/24 15:36:10 by amatshiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,12 @@ SRC_DLL = Sdl.lib.cpp
 
 HEADER = -I SDL/SDL2.framework/Headers
 
+LIB_1_HEADER = -I includes -I ../LIB_1/SFML/include
+
 CMP_DLL = clang++ -shared -fPIC SDL/SDL2.framework/SDL2
 
 sdl: clean
-	$(CMP_DLL) $(SRC_DLL) -o $(LIB_2_NAME) $(HEADER)
+	$(CMP_DLL) $(SRC_DLL) -o $(LIB_2_NAME) $(HEADER) $(LIB_1_HEADER)
 
 clean:
 	rm -rf $(LIB_2_NAME)
