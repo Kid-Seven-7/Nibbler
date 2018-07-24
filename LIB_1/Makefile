@@ -19,10 +19,10 @@ HEADER = -I includes -I ./SFML/include
 CMP_DLL = clang++ -shared -fPIC -framework sfml-graphics -framework sfml-window -framework sfml-system -F SFML/Frameworks
 
 sfml: clean
-	$(CMP_DLL) $(SRC_DLL) -o $(LIB_1_NAME) $(HEADER)
+	@$(CMP_DLL) $(SRC_DLL) -o $(LIB_1_NAME) $(HEADER)
 
 clean:
-	rm -rf $(LIB_1_NAME)
+	@rm -rf $(LIB_1_NAME)
 
 fclean: clean
 
