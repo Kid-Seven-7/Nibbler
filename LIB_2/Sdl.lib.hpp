@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:11:28 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/24 15:21:25 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/25 07:57:19 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 class Sdl_Class : public IGraphicsMain
 {
     private:
-        int         _width;
-        int         _height;
-        std::string _name;
+        int             _width;
+        int             _height;
+        std::string     _name;
+        SDL_Window *    _window;
         Sdl_Class(void);
 
     public:

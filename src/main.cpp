@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 11:47:02 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/24 16:45:28 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/25 07:37:54 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main(int ac, char **av)
 {
     void    *dl_handler;
     int lib_choice = std::stoi(av[4]);
+    std::string window[] = {"createSFMLWindow", "createSDLWindow", "createGLFWWindow"};
 
     if (lib_choice == 1)
     {
@@ -35,7 +36,7 @@ int main(int ac, char **av)
             dlerror_wrapper();
 
         IGraphicsMain    *(*WindowCreator)(std::string, int width, int height);
-        WindowCreator = (IGraphicsMain *(*)(std::string, int width, int height)) dlsym(dl_handler, "createSFMLWindow");
+        WindowCreator = (IGraphicsMain *(*)(std::string, int width, int height)) dlsym(dl_handler, window[lib_choice - 1].c_str());
 
         if (!WindowCreator)
             dlerror_wrapper();
@@ -61,7 +62,7 @@ int main(int ac, char **av)
             dlerror_wrapper();
 
         IGraphicsMain    *(*WindowCreator)(std::string, int width, int height);
-        WindowCreator = (IGraphicsMain *(*)(std::string, int width, int height)) dlsym(dl_handler, "createSDLWindow");
+        WindowCreator = (IGraphicsMain *(*)(std::string, int width, int height)) dlsym(dl_handler, window[lib_choice - 1].c_str());
 
         if (!WindowCreator)
             dlerror_wrapper();
@@ -87,7 +88,7 @@ int main(int ac, char **av)
             dlerror_wrapper();
 
         IGraphicsMain    *(*WindowCreator)(std::string, int width, int height);
-        WindowCreator = (IGraphicsMain *(*)(std::string, int width, int height)) dlsym(dl_handler, "createGLFWWindow");
+        WindowCreator = (IGraphicsMain *(*)(std::string, int width, int height)) dlsym(dl_handler, window[lib_choice - 1].c_str());
 
         if (!WindowCreator)
             dlerror_wrapper();

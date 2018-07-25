@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake
+CMAKE_COMMAND = /goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake
 
 # The command to remove a file.
-RM = /goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake -E remove -f
+RM = /goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /goinfre/jngoma/Downloads/glfw-3.2.1
+CMAKE_SOURCE_DIR = /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /goinfre/jngoma/Downloads/glfw-3.2.1
+CMAKE_BINARY_DIR = /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW
 
 # Include any dependencies generated for this target.
 include examples/CMakeFiles/particles.dir/depend.make
@@ -59,59 +59,59 @@ include examples/CMakeFiles/particles.dir/flags.make
 
 examples/particles.app/Contents/Resources/glfw.icns: examples/glfw.icns
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content examples/particles.app/Contents/Resources/glfw.icns"
-	$(CMAKE_COMMAND) -E copy /goinfre/jngoma/Downloads/glfw-3.2.1/examples/glfw.icns examples/particles.app/Contents/Resources/glfw.icns
+	$(CMAKE_COMMAND) -E copy /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples/glfw.icns examples/particles.app/Contents/Resources/glfw.icns
 
 examples/CMakeFiles/particles.dir/particles.c.o: examples/CMakeFiles/particles.dir/flags.make
 examples/CMakeFiles/particles.dir/particles.c.o: examples/particles.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object examples/CMakeFiles/particles.dir/particles.c.o"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/particles.dir/particles.c.o   -c /goinfre/jngoma/Downloads/glfw-3.2.1/examples/particles.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object examples/CMakeFiles/particles.dir/particles.c.o"
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/particles.dir/particles.c.o   -c /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples/particles.c
 
 examples/CMakeFiles/particles.dir/particles.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/particles.dir/particles.c.i"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/jngoma/Downloads/glfw-3.2.1/examples/particles.c > CMakeFiles/particles.dir/particles.c.i
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples/particles.c > CMakeFiles/particles.dir/particles.c.i
 
 examples/CMakeFiles/particles.dir/particles.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/particles.dir/particles.c.s"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/jngoma/Downloads/glfw-3.2.1/examples/particles.c -o CMakeFiles/particles.dir/particles.c.s
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples/particles.c -o CMakeFiles/particles.dir/particles.c.s
 
 examples/CMakeFiles/particles.dir/__/deps/tinycthread.c.o: examples/CMakeFiles/particles.dir/flags.make
 examples/CMakeFiles/particles.dir/__/deps/tinycthread.c.o: deps/tinycthread.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object examples/CMakeFiles/particles.dir/__/deps/tinycthread.c.o"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/particles.dir/__/deps/tinycthread.c.o   -c /goinfre/jngoma/Downloads/glfw-3.2.1/deps/tinycthread.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object examples/CMakeFiles/particles.dir/__/deps/tinycthread.c.o"
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/particles.dir/__/deps/tinycthread.c.o   -c /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/tinycthread.c
 
 examples/CMakeFiles/particles.dir/__/deps/tinycthread.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/particles.dir/__/deps/tinycthread.c.i"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/jngoma/Downloads/glfw-3.2.1/deps/tinycthread.c > CMakeFiles/particles.dir/__/deps/tinycthread.c.i
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/tinycthread.c > CMakeFiles/particles.dir/__/deps/tinycthread.c.i
 
 examples/CMakeFiles/particles.dir/__/deps/tinycthread.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/particles.dir/__/deps/tinycthread.c.s"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/jngoma/Downloads/glfw-3.2.1/deps/tinycthread.c -o CMakeFiles/particles.dir/__/deps/tinycthread.c.s
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/tinycthread.c -o CMakeFiles/particles.dir/__/deps/tinycthread.c.s
 
 examples/CMakeFiles/particles.dir/__/deps/getopt.c.o: examples/CMakeFiles/particles.dir/flags.make
 examples/CMakeFiles/particles.dir/__/deps/getopt.c.o: deps/getopt.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object examples/CMakeFiles/particles.dir/__/deps/getopt.c.o"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/particles.dir/__/deps/getopt.c.o   -c /goinfre/jngoma/Downloads/glfw-3.2.1/deps/getopt.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object examples/CMakeFiles/particles.dir/__/deps/getopt.c.o"
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/particles.dir/__/deps/getopt.c.o   -c /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/getopt.c
 
 examples/CMakeFiles/particles.dir/__/deps/getopt.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/particles.dir/__/deps/getopt.c.i"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/jngoma/Downloads/glfw-3.2.1/deps/getopt.c > CMakeFiles/particles.dir/__/deps/getopt.c.i
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/getopt.c > CMakeFiles/particles.dir/__/deps/getopt.c.i
 
 examples/CMakeFiles/particles.dir/__/deps/getopt.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/particles.dir/__/deps/getopt.c.s"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/jngoma/Downloads/glfw-3.2.1/deps/getopt.c -o CMakeFiles/particles.dir/__/deps/getopt.c.s
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/getopt.c -o CMakeFiles/particles.dir/__/deps/getopt.c.s
 
 examples/CMakeFiles/particles.dir/__/deps/glad.c.o: examples/CMakeFiles/particles.dir/flags.make
 examples/CMakeFiles/particles.dir/__/deps/glad.c.o: deps/glad.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object examples/CMakeFiles/particles.dir/__/deps/glad.c.o"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/particles.dir/__/deps/glad.c.o   -c /goinfre/jngoma/Downloads/glfw-3.2.1/deps/glad.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object examples/CMakeFiles/particles.dir/__/deps/glad.c.o"
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/particles.dir/__/deps/glad.c.o   -c /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/glad.c
 
 examples/CMakeFiles/particles.dir/__/deps/glad.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/particles.dir/__/deps/glad.c.i"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/jngoma/Downloads/glfw-3.2.1/deps/glad.c > CMakeFiles/particles.dir/__/deps/glad.c.i
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/glad.c > CMakeFiles/particles.dir/__/deps/glad.c.i
 
 examples/CMakeFiles/particles.dir/__/deps/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/particles.dir/__/deps/glad.c.s"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/jngoma/Downloads/glfw-3.2.1/deps/glad.c -o CMakeFiles/particles.dir/__/deps/glad.c.s
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/glad.c -o CMakeFiles/particles.dir/__/deps/glad.c.s
 
 # Object files for target particles
 particles_OBJECTS = \
@@ -130,8 +130,8 @@ examples/particles.app/Contents/MacOS/particles: examples/CMakeFiles/particles.d
 examples/particles.app/Contents/MacOS/particles: examples/CMakeFiles/particles.dir/build.make
 examples/particles.app/Contents/MacOS/particles: src/libglfw3.a
 examples/particles.app/Contents/MacOS/particles: examples/CMakeFiles/particles.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable particles.app/Contents/MacOS/particles"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/particles.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable particles.app/Contents/MacOS/particles"
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/particles.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 examples/CMakeFiles/particles.dir/build: examples/particles.app/Contents/MacOS/particles
@@ -140,10 +140,10 @@ examples/CMakeFiles/particles.dir/build: examples/particles.app/Contents/Resourc
 .PHONY : examples/CMakeFiles/particles.dir/build
 
 examples/CMakeFiles/particles.dir/clean:
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && $(CMAKE_COMMAND) -P CMakeFiles/particles.dir/cmake_clean.cmake
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && $(CMAKE_COMMAND) -P CMakeFiles/particles.dir/cmake_clean.cmake
 .PHONY : examples/CMakeFiles/particles.dir/clean
 
 examples/CMakeFiles/particles.dir/depend:
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /goinfre/jngoma/Downloads/glfw-3.2.1 /goinfre/jngoma/Downloads/glfw-3.2.1/examples /goinfre/jngoma/Downloads/glfw-3.2.1 /goinfre/jngoma/Downloads/glfw-3.2.1/examples /goinfre/jngoma/Downloads/glfw-3.2.1/examples/CMakeFiles/particles.dir/DependInfo.cmake --color=$(COLOR)
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples/CMakeFiles/particles.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : examples/CMakeFiles/particles.dir/depend
 

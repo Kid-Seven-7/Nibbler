@@ -11,5 +11,6 @@ examples/CMakeFiles/simple.dir/simple.c.o: deps/glad/glad.h
 examples/CMakeFiles/simple.dir/simple.c.o: deps/linmath.h
 examples/CMakeFiles/simple.dir/simple.c.o: deps/vulkan/vk_platform.h
 examples/CMakeFiles/simple.dir/simple.c.o: deps/vulkan/vulkan.h
+examples/CMakeFiles/simple.dir/simple.c.o: deps/vulkan/vulkan_core.h
 examples/CMakeFiles/simple.dir/simple.c.o: include/GLFW/glfw3.h
 

@@ -8,7 +8,10 @@ tests/CMakeFiles/joysticks.dir/__/deps/glad.c.o: deps/glad/glad.h
 tests/CMakeFiles/joysticks.dir/joysticks.c.o: tests/joysticks.c
 tests/CMakeFiles/joysticks.dir/joysticks.c.o: deps/KHR/khrplatform.h
 tests/CMakeFiles/joysticks.dir/joysticks.c.o: deps/glad/glad.h
+tests/CMakeFiles/joysticks.dir/joysticks.c.o: deps/nuklear.h
+tests/CMakeFiles/joysticks.dir/joysticks.c.o: deps/nuklear_glfw_gl2.h
 tests/CMakeFiles/joysticks.dir/joysticks.c.o: deps/vulkan/vk_platform.h
 tests/CMakeFiles/joysticks.dir/joysticks.c.o: deps/vulkan/vulkan.h
+tests/CMakeFiles/joysticks.dir/joysticks.c.o: deps/vulkan/vulkan_core.h
 tests/CMakeFiles/joysticks.dir/joysticks.c.o: include/GLFW/glfw3.h
 

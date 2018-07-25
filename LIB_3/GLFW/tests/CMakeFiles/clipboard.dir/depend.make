@@ -14,5 +14,6 @@ tests/CMakeFiles/clipboard.dir/clipboard.c.o: deps/getopt.h
 tests/CMakeFiles/clipboard.dir/clipboard.c.o: deps/glad/glad.h
 tests/CMakeFiles/clipboard.dir/clipboard.c.o: deps/vulkan/vk_platform.h
 tests/CMakeFiles/clipboard.dir/clipboard.c.o: deps/vulkan/vulkan.h
+tests/CMakeFiles/clipboard.dir/clipboard.c.o: deps/vulkan/vulkan_core.h
 tests/CMakeFiles/clipboard.dir/clipboard.c.o: include/GLFW/glfw3.h
 

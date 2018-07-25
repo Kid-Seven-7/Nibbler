@@ -6,5 +6,5 @@ C_FLAGS =
 
 C_DEFINES = 
 
-C_INCLUDES = -I/goinfre/jngoma/Downloads/glfw-3.2.1/deps -I/goinfre/jngoma/Downloads/glfw-3.2.1/include 
+C_INCLUDES = -I/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps -I/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/include 
 

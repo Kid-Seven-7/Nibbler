@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake
+CMAKE_COMMAND = /goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake
 
 # The command to remove a file.
-RM = /goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake -E remove -f
+RM = /goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /goinfre/jngoma/Downloads/glfw-3.2.1
+CMAKE_SOURCE_DIR = /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /goinfre/jngoma/Downloads/glfw-3.2.1
+CMAKE_BINARY_DIR = /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW
 
 # Include any dependencies generated for this target.
 include examples/CMakeFiles/gears.dir/depend.make
@@ -59,33 +59,33 @@ include examples/CMakeFiles/gears.dir/flags.make
 
 examples/gears.app/Contents/Resources/glfw.icns: examples/glfw.icns
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Copying OS X content examples/gears.app/Contents/Resources/glfw.icns"
-	$(CMAKE_COMMAND) -E copy /goinfre/jngoma/Downloads/glfw-3.2.1/examples/glfw.icns examples/gears.app/Contents/Resources/glfw.icns
+	$(CMAKE_COMMAND) -E copy /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples/glfw.icns examples/gears.app/Contents/Resources/glfw.icns
 
 examples/CMakeFiles/gears.dir/gears.c.o: examples/CMakeFiles/gears.dir/flags.make
 examples/CMakeFiles/gears.dir/gears.c.o: examples/gears.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object examples/CMakeFiles/gears.dir/gears.c.o"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/gears.dir/gears.c.o   -c /goinfre/jngoma/Downloads/glfw-3.2.1/examples/gears.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object examples/CMakeFiles/gears.dir/gears.c.o"
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/gears.dir/gears.c.o   -c /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples/gears.c
 
 examples/CMakeFiles/gears.dir/gears.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/gears.dir/gears.c.i"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/jngoma/Downloads/glfw-3.2.1/examples/gears.c > CMakeFiles/gears.dir/gears.c.i
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples/gears.c > CMakeFiles/gears.dir/gears.c.i
 
 examples/CMakeFiles/gears.dir/gears.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/gears.dir/gears.c.s"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/jngoma/Downloads/glfw-3.2.1/examples/gears.c -o CMakeFiles/gears.dir/gears.c.s
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples/gears.c -o CMakeFiles/gears.dir/gears.c.s
 
 examples/CMakeFiles/gears.dir/__/deps/glad.c.o: examples/CMakeFiles/gears.dir/flags.make
 examples/CMakeFiles/gears.dir/__/deps/glad.c.o: deps/glad.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object examples/CMakeFiles/gears.dir/__/deps/glad.c.o"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/gears.dir/__/deps/glad.c.o   -c /goinfre/jngoma/Downloads/glfw-3.2.1/deps/glad.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object examples/CMakeFiles/gears.dir/__/deps/glad.c.o"
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/gears.dir/__/deps/glad.c.o   -c /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/glad.c
 
 examples/CMakeFiles/gears.dir/__/deps/glad.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/gears.dir/__/deps/glad.c.i"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/jngoma/Downloads/glfw-3.2.1/deps/glad.c > CMakeFiles/gears.dir/__/deps/glad.c.i
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/glad.c > CMakeFiles/gears.dir/__/deps/glad.c.i
 
 examples/CMakeFiles/gears.dir/__/deps/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/gears.dir/__/deps/glad.c.s"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/jngoma/Downloads/glfw-3.2.1/deps/glad.c -o CMakeFiles/gears.dir/__/deps/glad.c.s
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/glad.c -o CMakeFiles/gears.dir/__/deps/glad.c.s
 
 # Object files for target gears
 gears_OBJECTS = \
@@ -100,8 +100,8 @@ examples/gears.app/Contents/MacOS/gears: examples/CMakeFiles/gears.dir/__/deps/g
 examples/gears.app/Contents/MacOS/gears: examples/CMakeFiles/gears.dir/build.make
 examples/gears.app/Contents/MacOS/gears: src/libglfw3.a
 examples/gears.app/Contents/MacOS/gears: examples/CMakeFiles/gears.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable gears.app/Contents/MacOS/gears"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gears.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable gears.app/Contents/MacOS/gears"
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gears.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 examples/CMakeFiles/gears.dir/build: examples/gears.app/Contents/MacOS/gears
@@ -110,10 +110,10 @@ examples/CMakeFiles/gears.dir/build: examples/gears.app/Contents/Resources/glfw.
 .PHONY : examples/CMakeFiles/gears.dir/build
 
 examples/CMakeFiles/gears.dir/clean:
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/examples && $(CMAKE_COMMAND) -P CMakeFiles/gears.dir/cmake_clean.cmake
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples && $(CMAKE_COMMAND) -P CMakeFiles/gears.dir/cmake_clean.cmake
 .PHONY : examples/CMakeFiles/gears.dir/clean
 
 examples/CMakeFiles/gears.dir/depend:
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /goinfre/jngoma/Downloads/glfw-3.2.1 /goinfre/jngoma/Downloads/glfw-3.2.1/examples /goinfre/jngoma/Downloads/glfw-3.2.1 /goinfre/jngoma/Downloads/glfw-3.2.1/examples /goinfre/jngoma/Downloads/glfw-3.2.1/examples/CMakeFiles/gears.dir/DependInfo.cmake --color=$(COLOR)
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples/CMakeFiles/gears.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : examples/CMakeFiles/gears.dir/depend
 

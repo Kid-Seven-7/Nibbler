@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake
+CMAKE_COMMAND = /goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake
 
 # The command to remove a file.
-RM = /goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake -E remove -f
+RM = /goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /goinfre/jngoma/Downloads/glfw-3.2.1
+CMAKE_SOURCE_DIR = /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /goinfre/jngoma/Downloads/glfw-3.2.1
+CMAKE_BINARY_DIR = /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW
 
 # Utility rule file for uninstall.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /goinfre/jngoma/Downloads/glfw-3.2.1
 include CMakeFiles/uninstall.dir/progress.make
 
 CMakeFiles/uninstall:
-	/goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake -P /goinfre/jngoma/Downloads/glfw-3.2.1/cmake_uninstall.cmake
+	/goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake -P /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/cmake_uninstall.cmake
 
 uninstall: CMakeFiles/uninstall
 uninstall: CMakeFiles/uninstall.dir/build.make
@@ -71,6 +71,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /goinfre/jngoma/Downloads/glfw-3.2.1 /goinfre/jngoma/Downloads/glfw-3.2.1 /goinfre/jngoma/Downloads/glfw-3.2.1 /goinfre/jngoma/Downloads/glfw-3.2.1 /goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 

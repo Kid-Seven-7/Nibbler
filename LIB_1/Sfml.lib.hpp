@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 10:30:14 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/24 15:18:39 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/25 07:58:36 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Sfml_Class : public IGraphicsMain
         int         _width;
         int         _height;
         std::string _name;
+        sf::Window  _window;
         Sfml_Class(void);
 
     public:

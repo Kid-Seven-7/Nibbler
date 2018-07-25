@@ -14,5 +14,6 @@ tests/CMakeFiles/iconify.dir/iconify.c.o: deps/getopt.h
 tests/CMakeFiles/iconify.dir/iconify.c.o: deps/glad/glad.h
 tests/CMakeFiles/iconify.dir/iconify.c.o: deps/vulkan/vk_platform.h
 tests/CMakeFiles/iconify.dir/iconify.c.o: deps/vulkan/vulkan.h
+tests/CMakeFiles/iconify.dir/iconify.c.o: deps/vulkan/vulkan_core.h
 tests/CMakeFiles/iconify.dir/iconify.c.o: include/GLFW/glfw3.h
 

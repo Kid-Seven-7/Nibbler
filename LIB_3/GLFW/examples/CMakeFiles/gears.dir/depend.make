@@ -10,5 +10,6 @@ examples/CMakeFiles/gears.dir/gears.c.o: deps/KHR/khrplatform.h
 examples/CMakeFiles/gears.dir/gears.c.o: deps/glad/glad.h
 examples/CMakeFiles/gears.dir/gears.c.o: deps/vulkan/vk_platform.h
 examples/CMakeFiles/gears.dir/gears.c.o: deps/vulkan/vulkan.h
+examples/CMakeFiles/gears.dir/gears.c.o: deps/vulkan/vulkan_core.h
 examples/CMakeFiles/gears.dir/gears.c.o: include/GLFW/glfw3.h
 

@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake
+CMAKE_COMMAND = /goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake
 
 # The command to remove a file.
-RM = /goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake -E remove -f
+RM = /goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /goinfre/jngoma/Downloads/glfw-3.2.1
+CMAKE_SOURCE_DIR = /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /goinfre/jngoma/Downloads/glfw-3.2.1
+CMAKE_BINARY_DIR = /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW
 
 # Include any dependencies generated for this target.
 include tests/CMakeFiles/monitors.dir/depend.make
@@ -59,42 +59,42 @@ include tests/CMakeFiles/monitors.dir/flags.make
 
 tests/CMakeFiles/monitors.dir/monitors.c.o: tests/CMakeFiles/monitors.dir/flags.make
 tests/CMakeFiles/monitors.dir/monitors.c.o: tests/monitors.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object tests/CMakeFiles/monitors.dir/monitors.c.o"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/monitors.dir/monitors.c.o   -c /goinfre/jngoma/Downloads/glfw-3.2.1/tests/monitors.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object tests/CMakeFiles/monitors.dir/monitors.c.o"
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/monitors.dir/monitors.c.o   -c /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests/monitors.c
 
 tests/CMakeFiles/monitors.dir/monitors.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/monitors.dir/monitors.c.i"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/jngoma/Downloads/glfw-3.2.1/tests/monitors.c > CMakeFiles/monitors.dir/monitors.c.i
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests/monitors.c > CMakeFiles/monitors.dir/monitors.c.i
 
 tests/CMakeFiles/monitors.dir/monitors.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/monitors.dir/monitors.c.s"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/jngoma/Downloads/glfw-3.2.1/tests/monitors.c -o CMakeFiles/monitors.dir/monitors.c.s
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests/monitors.c -o CMakeFiles/monitors.dir/monitors.c.s
 
 tests/CMakeFiles/monitors.dir/__/deps/getopt.c.o: tests/CMakeFiles/monitors.dir/flags.make
 tests/CMakeFiles/monitors.dir/__/deps/getopt.c.o: deps/getopt.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object tests/CMakeFiles/monitors.dir/__/deps/getopt.c.o"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/monitors.dir/__/deps/getopt.c.o   -c /goinfre/jngoma/Downloads/glfw-3.2.1/deps/getopt.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object tests/CMakeFiles/monitors.dir/__/deps/getopt.c.o"
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/monitors.dir/__/deps/getopt.c.o   -c /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/getopt.c
 
 tests/CMakeFiles/monitors.dir/__/deps/getopt.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/monitors.dir/__/deps/getopt.c.i"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/jngoma/Downloads/glfw-3.2.1/deps/getopt.c > CMakeFiles/monitors.dir/__/deps/getopt.c.i
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/getopt.c > CMakeFiles/monitors.dir/__/deps/getopt.c.i
 
 tests/CMakeFiles/monitors.dir/__/deps/getopt.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/monitors.dir/__/deps/getopt.c.s"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/jngoma/Downloads/glfw-3.2.1/deps/getopt.c -o CMakeFiles/monitors.dir/__/deps/getopt.c.s
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/getopt.c -o CMakeFiles/monitors.dir/__/deps/getopt.c.s
 
 tests/CMakeFiles/monitors.dir/__/deps/glad.c.o: tests/CMakeFiles/monitors.dir/flags.make
 tests/CMakeFiles/monitors.dir/__/deps/glad.c.o: deps/glad.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object tests/CMakeFiles/monitors.dir/__/deps/glad.c.o"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/monitors.dir/__/deps/glad.c.o   -c /goinfre/jngoma/Downloads/glfw-3.2.1/deps/glad.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object tests/CMakeFiles/monitors.dir/__/deps/glad.c.o"
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/monitors.dir/__/deps/glad.c.o   -c /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/glad.c
 
 tests/CMakeFiles/monitors.dir/__/deps/glad.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/monitors.dir/__/deps/glad.c.i"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/jngoma/Downloads/glfw-3.2.1/deps/glad.c > CMakeFiles/monitors.dir/__/deps/glad.c.i
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/glad.c > CMakeFiles/monitors.dir/__/deps/glad.c.i
 
 tests/CMakeFiles/monitors.dir/__/deps/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/monitors.dir/__/deps/glad.c.s"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/jngoma/Downloads/glfw-3.2.1/deps/glad.c -o CMakeFiles/monitors.dir/__/deps/glad.c.s
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/glad.c -o CMakeFiles/monitors.dir/__/deps/glad.c.s
 
 # Object files for target monitors
 monitors_OBJECTS = \
@@ -111,8 +111,8 @@ tests/monitors: tests/CMakeFiles/monitors.dir/__/deps/glad.c.o
 tests/monitors: tests/CMakeFiles/monitors.dir/build.make
 tests/monitors: src/libglfw3.a
 tests/monitors: tests/CMakeFiles/monitors.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable monitors"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/monitors.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable monitors"
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/monitors.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 tests/CMakeFiles/monitors.dir/build: tests/monitors
@@ -120,10 +120,10 @@ tests/CMakeFiles/monitors.dir/build: tests/monitors
 .PHONY : tests/CMakeFiles/monitors.dir/build
 
 tests/CMakeFiles/monitors.dir/clean:
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && $(CMAKE_COMMAND) -P CMakeFiles/monitors.dir/cmake_clean.cmake
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && $(CMAKE_COMMAND) -P CMakeFiles/monitors.dir/cmake_clean.cmake
 .PHONY : tests/CMakeFiles/monitors.dir/clean
 
 tests/CMakeFiles/monitors.dir/depend:
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /goinfre/jngoma/Downloads/glfw-3.2.1 /goinfre/jngoma/Downloads/glfw-3.2.1/tests /goinfre/jngoma/Downloads/glfw-3.2.1 /goinfre/jngoma/Downloads/glfw-3.2.1/tests /goinfre/jngoma/Downloads/glfw-3.2.1/tests/CMakeFiles/monitors.dir/DependInfo.cmake --color=$(COLOR)
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests/CMakeFiles/monitors.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : tests/CMakeFiles/monitors.dir/depend
 

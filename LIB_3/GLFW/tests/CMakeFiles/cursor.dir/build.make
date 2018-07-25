@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake
+CMAKE_COMMAND = /goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake
 
 # The command to remove a file.
-RM = /goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake -E remove -f
+RM = /goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /goinfre/jngoma/Downloads/glfw-3.2.1
+CMAKE_SOURCE_DIR = /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /goinfre/jngoma/Downloads/glfw-3.2.1
+CMAKE_BINARY_DIR = /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW
 
 # Include any dependencies generated for this target.
 include tests/CMakeFiles/cursor.dir/depend.make
@@ -59,29 +59,29 @@ include tests/CMakeFiles/cursor.dir/flags.make
 
 tests/CMakeFiles/cursor.dir/cursor.c.o: tests/CMakeFiles/cursor.dir/flags.make
 tests/CMakeFiles/cursor.dir/cursor.c.o: tests/cursor.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object tests/CMakeFiles/cursor.dir/cursor.c.o"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cursor.dir/cursor.c.o   -c /goinfre/jngoma/Downloads/glfw-3.2.1/tests/cursor.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object tests/CMakeFiles/cursor.dir/cursor.c.o"
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cursor.dir/cursor.c.o   -c /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests/cursor.c
 
 tests/CMakeFiles/cursor.dir/cursor.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cursor.dir/cursor.c.i"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/jngoma/Downloads/glfw-3.2.1/tests/cursor.c > CMakeFiles/cursor.dir/cursor.c.i
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests/cursor.c > CMakeFiles/cursor.dir/cursor.c.i
 
 tests/CMakeFiles/cursor.dir/cursor.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cursor.dir/cursor.c.s"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/jngoma/Downloads/glfw-3.2.1/tests/cursor.c -o CMakeFiles/cursor.dir/cursor.c.s
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests/cursor.c -o CMakeFiles/cursor.dir/cursor.c.s
 
 tests/CMakeFiles/cursor.dir/__/deps/glad.c.o: tests/CMakeFiles/cursor.dir/flags.make
 tests/CMakeFiles/cursor.dir/__/deps/glad.c.o: deps/glad.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object tests/CMakeFiles/cursor.dir/__/deps/glad.c.o"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cursor.dir/__/deps/glad.c.o   -c /goinfre/jngoma/Downloads/glfw-3.2.1/deps/glad.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object tests/CMakeFiles/cursor.dir/__/deps/glad.c.o"
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cursor.dir/__/deps/glad.c.o   -c /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/glad.c
 
 tests/CMakeFiles/cursor.dir/__/deps/glad.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cursor.dir/__/deps/glad.c.i"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/jngoma/Downloads/glfw-3.2.1/deps/glad.c > CMakeFiles/cursor.dir/__/deps/glad.c.i
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/glad.c > CMakeFiles/cursor.dir/__/deps/glad.c.i
 
 tests/CMakeFiles/cursor.dir/__/deps/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cursor.dir/__/deps/glad.c.s"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/jngoma/Downloads/glfw-3.2.1/deps/glad.c -o CMakeFiles/cursor.dir/__/deps/glad.c.s
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/glad.c -o CMakeFiles/cursor.dir/__/deps/glad.c.s
 
 # Object files for target cursor
 cursor_OBJECTS = \
@@ -96,8 +96,8 @@ tests/cursor: tests/CMakeFiles/cursor.dir/__/deps/glad.c.o
 tests/cursor: tests/CMakeFiles/cursor.dir/build.make
 tests/cursor: src/libglfw3.a
 tests/cursor: tests/CMakeFiles/cursor.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable cursor"
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cursor.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable cursor"
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cursor.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 tests/CMakeFiles/cursor.dir/build: tests/cursor
@@ -105,10 +105,10 @@ tests/CMakeFiles/cursor.dir/build: tests/cursor
 .PHONY : tests/CMakeFiles/cursor.dir/build
 
 tests/CMakeFiles/cursor.dir/clean:
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1/tests && $(CMAKE_COMMAND) -P CMakeFiles/cursor.dir/cmake_clean.cmake
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests && $(CMAKE_COMMAND) -P CMakeFiles/cursor.dir/cmake_clean.cmake
 .PHONY : tests/CMakeFiles/cursor.dir/clean
 
 tests/CMakeFiles/cursor.dir/depend:
-	cd /goinfre/jngoma/Downloads/glfw-3.2.1 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /goinfre/jngoma/Downloads/glfw-3.2.1 /goinfre/jngoma/Downloads/glfw-3.2.1/tests /goinfre/jngoma/Downloads/glfw-3.2.1 /goinfre/jngoma/Downloads/glfw-3.2.1/tests /goinfre/jngoma/Downloads/glfw-3.2.1/tests/CMakeFiles/cursor.dir/DependInfo.cmake --color=$(COLOR)
+	cd /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests/CMakeFiles/cursor.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : tests/CMakeFiles/cursor.dir/depend
 

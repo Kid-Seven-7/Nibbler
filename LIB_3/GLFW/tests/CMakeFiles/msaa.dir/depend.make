@@ -12,7 +12,9 @@ tests/CMakeFiles/msaa.dir/msaa.c.o: tests/msaa.c
 tests/CMakeFiles/msaa.dir/msaa.c.o: deps/KHR/khrplatform.h
 tests/CMakeFiles/msaa.dir/msaa.c.o: deps/getopt.h
 tests/CMakeFiles/msaa.dir/msaa.c.o: deps/glad/glad.h
+tests/CMakeFiles/msaa.dir/msaa.c.o: deps/linmath.h
 tests/CMakeFiles/msaa.dir/msaa.c.o: deps/vulkan/vk_platform.h
 tests/CMakeFiles/msaa.dir/msaa.c.o: deps/vulkan/vulkan.h
+tests/CMakeFiles/msaa.dir/msaa.c.o: deps/vulkan/vulkan_core.h
 tests/CMakeFiles/msaa.dir/msaa.c.o: include/GLFW/glfw3.h
 

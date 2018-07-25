@@ -19,5 +19,6 @@ examples/CMakeFiles/particles.dir/particles.c.o: deps/linmath.h
 examples/CMakeFiles/particles.dir/particles.c.o: deps/tinycthread.h
 examples/CMakeFiles/particles.dir/particles.c.o: deps/vulkan/vk_platform.h
 examples/CMakeFiles/particles.dir/particles.c.o: deps/vulkan/vulkan.h
+examples/CMakeFiles/particles.dir/particles.c.o: deps/vulkan/vulkan_core.h
 examples/CMakeFiles/particles.dir/particles.c.o: include/GLFW/glfw3.h
 

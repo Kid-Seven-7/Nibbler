@@ -10,5 +10,6 @@ tests/CMakeFiles/timeout.dir/timeout.c.o: deps/KHR/khrplatform.h
 tests/CMakeFiles/timeout.dir/timeout.c.o: deps/glad/glad.h
 tests/CMakeFiles/timeout.dir/timeout.c.o: deps/vulkan/vk_platform.h
 tests/CMakeFiles/timeout.dir/timeout.c.o: deps/vulkan/vulkan.h
+tests/CMakeFiles/timeout.dir/timeout.c.o: deps/vulkan/vulkan_core.h
 tests/CMakeFiles/timeout.dir/timeout.c.o: include/GLFW/glfw3.h
 

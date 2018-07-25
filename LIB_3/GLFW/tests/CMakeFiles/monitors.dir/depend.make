@@ -14,5 +14,6 @@ tests/CMakeFiles/monitors.dir/monitors.c.o: deps/getopt.h
 tests/CMakeFiles/monitors.dir/monitors.c.o: deps/glad/glad.h
 tests/CMakeFiles/monitors.dir/monitors.c.o: deps/vulkan/vk_platform.h
 tests/CMakeFiles/monitors.dir/monitors.c.o: deps/vulkan/vulkan.h
+tests/CMakeFiles/monitors.dir/monitors.c.o: deps/vulkan/vulkan_core.h
 tests/CMakeFiles/monitors.dir/monitors.c.o: include/GLFW/glfw3.h
 

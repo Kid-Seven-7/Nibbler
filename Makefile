@@ -6,7 +6,7 @@
 #    By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 09:06:50 by amatshiy          #+#    #+#              #
-#    Updated: 2018/07/24 17:34:45 by amatshiy         ###   ########.fr        #
+#    Updated: 2018/07/25 08:08:19 by amatshiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,17 @@ all: run_scripts
 
 run_scripts:
 	$(shell ./scripts/export_sfml.sh)
+
+install: download
+
+download:
+	#Downloading GLFW lib
+	@echo "Downloading GLFW lib..."
+	@rm -rf LIB_3/GLFW
+	@git clone https://github.com/glfw/glfw LIB_3/GLFW
+	cd LIB_3/GLFW
+	
+
 
 clean:
 	rm -rf $(LIB_1_NAME)
