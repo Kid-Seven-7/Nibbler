@@ -6,16 +6,16 @@
 #    By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 09:06:50 by amatshiy          #+#    #+#              #
-#    Updated: 2018/07/25 08:08:19 by amatshiy         ###   ########.fr        #
+#    Updated: 2018/07/25 08:32:31 by amatshiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 42_nibbler
 
 #lib names
-LIB_1_NAME = LIB_1/sfml.so
-LIB_2_NAME = LIB_2/sdl.so
-LIB_3_NAME = LIB_3/glfw.so
+LIB_1_NAME = bin/sfml.so
+LIB_2_NAME = bin/sdl.so
+LIB_3_NAME = bin/glfw.so
 
 SRC = src/main.cpp
 

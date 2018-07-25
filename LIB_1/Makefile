@@ -6,7 +6,7 @@
 #    By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/20 15:28:13 by amatshiy          #+#    #+#              #
-#    Updated: 2018/07/24 16:18:13 by amatshiy         ###   ########.fr        #
+#    Updated: 2018/07/25 08:31:25 by amatshiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ CMP_DLL = clang++ -shared -fPIC -framework sfml-graphics -framework sfml-window 
 
 sfml: clean
 	$(CMP_DLL) $(SRC_DLL) -o $(LIB_1_NAME) $(HEADER) $(LIB_2_HEADER) $(LIB_3_HEADER)
+	@mv $(LIB_1_NAME) ../bin
 
 clean:
 	rm -rf $(LIB_1_NAME)

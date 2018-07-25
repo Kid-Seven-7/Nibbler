@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 11:47:02 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/25 08:20:08 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/25 08:29:46 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,14 @@ void    dlerror_wrapper(void)
 int main(int ac, char **av)
 {
     void    *dl_handler;
-    int lib_choice = std::stoi(av[4]);
+    int lib_choice = std::stoi(av[3]);
     std::string window[] = {"createSFMLWindow", "createSDLWindow", "createGLFWWindow"};
+    std::string lib_path[] = {"bin/sfml.so", "bin/sdl.so", "bin/glfw.so"};
 
     if (lib_choice == 1)
     {
         //SFML WINDOW CREATION
-        dl_handler = dlopen(av[1], RTLD_LAZY | RTLD_LOCAL);
+        dl_handler = dlopen(lib_path[sfml_path].c_str(), RTLD_LAZY | RTLD_LOCAL);
         if (!dl_handler)
             dlerror_wrapper();
 
@@ -42,7 +43,7 @@ int main(int ac, char **av)
             dlerror_wrapper();
 
         IGraphicsMain *newWindow;
-        newWindow = WindowCreator("Sfml Window", std::stoi(av[2]), std::stoi(av[3]));
+        newWindow = WindowCreator("Sfml Window", std::stoi(av[1]), std::stoi(av[2]));
         newWindow->createWindow();
 
         void    (*WindowDestructor)(IGraphicsMain *);
@@ -57,7 +58,7 @@ int main(int ac, char **av)
     else if (lib_choice == 2)
     {
         //SDL WINDOW CREATION
-        dl_handler = dlopen(av[1], RTLD_LAZY | RTLD_LOCAL);
+        dl_handler = dlopen(lib_path[sdl_path].c_str(), RTLD_LAZY | RTLD_LOCAL);
         if (!dl_handler)
             dlerror_wrapper();
 
@@ -68,7 +69,7 @@ int main(int ac, char **av)
             dlerror_wrapper();
 
         IGraphicsMain *newWindow;
-        newWindow = WindowCreator("Sdl Window", std::stoi(av[2]), std::stoi(av[3]));
+        newWindow = WindowCreator("Sdl Window", std::stoi(av[1]), std::stoi(av[2]));
         newWindow->createWindow();
 
         void    (*WindowDestructor)(IGraphicsMain *);
@@ -83,7 +84,7 @@ int main(int ac, char **av)
     else if (lib_choice == 3)
     {
         //SDL WINDOW CREATION
-        dl_handler = dlopen(av[1], RTLD_LAZY | RTLD_LOCAL);
+        dl_handler = dlopen(lib_path[glfw_path].c_str(), RTLD_LAZY | RTLD_LOCAL);
         if (!dl_handler)
             dlerror_wrapper();
 
@@ -94,7 +95,7 @@ int main(int ac, char **av)
             dlerror_wrapper();
 
         IGraphicsMain *newWindow;
-        newWindow = WindowCreator("GLFW Window", std::stoi(av[2]), std::stoi(av[3]));
+        newWindow = WindowCreator("GLFW Window", std::stoi(av[1]), std::stoi(av[2]));
         newWindow->createWindow();
 
         void    (*WindowDestructor)(IGraphicsMain *);

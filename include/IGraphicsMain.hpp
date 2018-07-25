@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 10:53:14 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/25 08:19:04 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/25 08:27:17 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <iostream>
 
 enum    eWindowType {SfmlWin, SdlWin, GlfwWin};
+enum    eLibPath {sfml_path, sdl_path, glfw_path};
 
 class IGraphicsMain
 {
