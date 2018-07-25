@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 11:47:02 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/25 07:37:54 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/25 08:20:08 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main(int ac, char **av)
             dlerror_wrapper();
 
         IGraphicsMain    *(*WindowCreator)(std::string, int width, int height);
-        WindowCreator = (IGraphicsMain *(*)(std::string, int width, int height)) dlsym(dl_handler, window[lib_choice - 1].c_str());
+        WindowCreator = (IGraphicsMain *(*)(std::string, int width, int height)) dlsym(dl_handler, window[SfmlWin].c_str());
 
         if (!WindowCreator)
             dlerror_wrapper();
@@ -62,7 +62,7 @@ int main(int ac, char **av)
             dlerror_wrapper();
 
         IGraphicsMain    *(*WindowCreator)(std::string, int width, int height);
-        WindowCreator = (IGraphicsMain *(*)(std::string, int width, int height)) dlsym(dl_handler, window[lib_choice - 1].c_str());
+        WindowCreator = (IGraphicsMain *(*)(std::string, int width, int height)) dlsym(dl_handler, window[SdlWin].c_str());
 
         if (!WindowCreator)
             dlerror_wrapper();
@@ -88,7 +88,7 @@ int main(int ac, char **av)
             dlerror_wrapper();
 
         IGraphicsMain    *(*WindowCreator)(std::string, int width, int height);
-        WindowCreator = (IGraphicsMain *(*)(std::string, int width, int height)) dlsym(dl_handler, window[lib_choice - 1].c_str());
+        WindowCreator = (IGraphicsMain *(*)(std::string, int width, int height)) dlsym(dl_handler, window[GlfwWin].c_str());
 
         if (!WindowCreator)
             dlerror_wrapper();
