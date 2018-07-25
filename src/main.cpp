@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 11:47:02 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/25 08:29:46 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/25 08:50:34 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ int main(int ac, char **av)
 {
     void    *dl_handler;
     int lib_choice = std::stoi(av[3]);
-    std::string window[] = {"createSFMLWindow", "createSDLWindow", "createGLFWWindow"};
-    std::string lib_path[] = {"bin/sfml.so", "bin/sdl.so", "bin/glfw.so"};
+
+    std::string window[] = {"createSFMLWindow", "createSDLWindow", "createGLFWWindow"}; //lib window
+    std::string lib_path[] = {"bin/sfml.so", "bin/sdl.so", "bin/glfw.so"}; //lib path
 
     if (lib_choice == 1)
     {
