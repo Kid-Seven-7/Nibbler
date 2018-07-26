@@ -50,7 +50,7 @@ if [ ! -d ~/Library/frameworks/SFML.framework ];
 then
 	echo ${RED}no sfml.framework folder found${NC}
 	echo ${ORANGE}copying sfml.framework directory...${NC}
-  cp -rf ../LIB_1/SFML/Frameworks/SFML.framework ~/Library/Frameworks
+  cp -rf LIB_1/SFML/Frameworks/SFML.framework ~/Library/Frameworks
 else
 	echo "${GREEN}SFML.framework directory found${NC}"
 fi
@@ -59,7 +59,7 @@ if [ ! -d ~/Library/frameworks/sfml-graphics.framework ];
 then
 	echo ${RED}no sfml-graphics.framework folder found${NC}
 	echo ${ORANGE}copying sfml.framework directory...${NC}
-  cp -rf ../LIB_1/SFML/Frameworks/sfml-graphics.framework ~/Library/Frameworks
+  cp -rf LIB_1/SFML/Frameworks/sfml-graphics.framework ~/Library/Frameworks
 else
 	echo "${GREEN}sfml-graphics.framework directory found${NC}"
 fi
@@ -68,7 +68,7 @@ if [ ! -d ~/Library/frameworks/sfml-network.framework ];
 then
 	echo ${RED}no sfml-network.framework folder found${NC}
 	echo ${ORANGE}copying sfml-network.framework directory...${NC}
-  cp -rf ../LIB_1/SFML/Frameworks/sfml-network.framework ~/Library/Frameworks
+  cp -rf LIB_1/SFML/Frameworks/sfml-network.framework ~/Library/Frameworks
 else
 	echo "${GREEN}sfml-network.framework directory found${NC}"
 fi
@@ -77,7 +77,7 @@ if [ ! -d ~/Library/frameworks/sfml-system.framework ];
 then
 	echo ${RED}no sfml-network.framework folder found${NC}
 	echo ${ORANGE}copying sfml-system.framework directory...${NC}
-  cp -rf ../LIB_1/SFML/Frameworks/sfml-system.framework ~/Library/Frameworks
+  cp -rf LIB_1/SFML/Frameworks/sfml-system.framework ~/Library/Frameworks
 else
 	echo "${GREEN}sfml-system.framework directory found"
 fi
@@ -86,7 +86,7 @@ if [ ! -d ~/Library/frameworks/sfml-window.framework ];
 then
 	echo ${RED}no sfml-window.framework folder found${NC}
 	echo ${ORANGE}copying sfml-window.framework directory...${NC}
-  cp -rf ../LIB_1/SFML/Frameworks/sfml-window.framework ~/Library/Frameworks
+  cp -rf LIB_1/SFML/Frameworks/sfml-window.framework ~/Library/Frameworks
 else
 	echo ${GREEN}sfml-window.framework directory found${NC}
 fi
