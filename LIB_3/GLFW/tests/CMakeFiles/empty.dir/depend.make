@@ -14,5 +14,6 @@ tests/CMakeFiles/empty.dir/empty.c.o: deps/glad/glad.h
 tests/CMakeFiles/empty.dir/empty.c.o: deps/tinycthread.h
 tests/CMakeFiles/empty.dir/empty.c.o: deps/vulkan/vk_platform.h
 tests/CMakeFiles/empty.dir/empty.c.o: deps/vulkan/vulkan.h
+tests/CMakeFiles/empty.dir/empty.c.o: deps/vulkan/vulkan_core.h
 tests/CMakeFiles/empty.dir/empty.c.o: include/GLFW/glfw3.h
 

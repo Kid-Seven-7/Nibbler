@@ -10,5 +10,6 @@ tests/CMakeFiles/title.dir/title.c.o: deps/KHR/khrplatform.h
 tests/CMakeFiles/title.dir/title.c.o: deps/glad/glad.h
 tests/CMakeFiles/title.dir/title.c.o: deps/vulkan/vk_platform.h
 tests/CMakeFiles/title.dir/title.c.o: deps/vulkan/vulkan.h
+tests/CMakeFiles/title.dir/title.c.o: deps/vulkan/vulkan_core.h
 tests/CMakeFiles/title.dir/title.c.o: include/GLFW/glfw3.h
 

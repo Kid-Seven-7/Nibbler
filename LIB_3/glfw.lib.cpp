@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:50:59 by jngoma            #+#    #+#             */
-/*   Updated: 2018/07/24 16:25:47 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/25 08:13:55 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,30 +38,31 @@ std::string		Glfw_Class::getName() const
 
 void			Glfw_Class::createWindow()
 {
-	GLFWwindow* window;
-
 	if (!glfwInit())
 		return;
 
-	window = glfwCreateWindow(this->getWidth(), this->getHeight(), this->getName().c_str(), NULL, NULL);
-	if (!window)
+	this->_window = glfwCreateWindow(this->getWidth(), this->getHeight(), this->getName().c_str(), NULL, NULL);
+	if (!this->_window)
 	{
 		glfwTerminate();
 		return;
 	}
 
-	glfwMakeContextCurrent(window);
+	glfwMakeContextCurrent(this->_window);
 
-	while (!glfwWindowShouldClose(window))
+	while (!glfwWindowShouldClose(this->_window))
 	{
 			glClear(GL_COLOR_BUFFER_BIT);
-			glfwSwapBuffers(window);
+			glfwSwapBuffers(this->_window);
 			glfwPollEvents();
 	}
-	glfwTerminate();
+	destroyWindow();
 }
 
-void		Glfw_Class::destroyWindow() {}
+void		Glfw_Class::destroyWindow() 
+{
+	glfwTerminate();
+}
 
 void		Glfw_Class::updateWindow() {}
 

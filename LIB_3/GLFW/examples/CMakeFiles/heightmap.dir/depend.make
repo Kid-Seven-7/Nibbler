@@ -10,5 +10,6 @@ examples/CMakeFiles/heightmap.dir/heightmap.c.o: deps/KHR/khrplatform.h
 examples/CMakeFiles/heightmap.dir/heightmap.c.o: deps/glad/glad.h
 examples/CMakeFiles/heightmap.dir/heightmap.c.o: deps/vulkan/vk_platform.h
 examples/CMakeFiles/heightmap.dir/heightmap.c.o: deps/vulkan/vulkan.h
+examples/CMakeFiles/heightmap.dir/heightmap.c.o: deps/vulkan/vulkan_core.h
 examples/CMakeFiles/heightmap.dir/heightmap.c.o: include/GLFW/glfw3.h
 

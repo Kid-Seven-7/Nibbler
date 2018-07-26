@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 10:36:57 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/24 15:13:04 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/25 08:08:28 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,26 @@ std::string Sfml_Class::getName() const
 
 void        Sfml_Class::createWindow()
 {
-    sf::Window window(sf::VideoMode(this->getWidth(), this->getHeight()), this->getName());
+    this->_window.create(sf::VideoMode(this->getWidth(), this->getHeight()), this->getName());
 
     // run the program as long as the window is open
-    while (window.isOpen())
+    while (this->_window.isOpen())
     {
         // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
-        while (window.pollEvent(event))
+        while (this->_window.pollEvent(event))
         {
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
-                window.close();
+                this->_window.close();
         }
     }
 }
 
-void        Sfml_Class::destroyWindow() {}
+void        Sfml_Class::destroyWindow()
+{
+    this->_window.close();
+}
 
 void        Sfml_Class::updateWindow() {}
 

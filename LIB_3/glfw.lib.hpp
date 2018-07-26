@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:51:03 by jngoma            #+#    #+#             */
-/*   Updated: 2018/07/24 16:26:42 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/25 08:09:32 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 
 class Glfw_Class : public IGraphicsMain {
     private:
-      int         _width;
-      int         _height;
-			std::string _name;
+      int           _width;
+      int           _height;
+			std::string   _name;
+      GLFWwindow *  _window;
       Glfw_Class(void);
 
     public:

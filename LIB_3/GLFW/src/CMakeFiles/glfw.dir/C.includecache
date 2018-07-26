@@ -6,20 +6,10 @@
 
 #IncludeRegexTransform: 
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/include/GLFW/glfw3.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/include/GLFW/glfw3.h
 stddef.h
 -
 stdint.h
--
-OpenGL/gl3.h
--
-OpenGL/gl3ext.h
--
-OpenGL/gl.h
--
-OpenGL/glu.h
--
-GL/glcorearb.h
 -
 GLES/gl.h
 -
@@ -37,7 +27,19 @@ GLES3/gl31.h
 -
 GLES2/gl2ext.h
 -
-vulkan/vulkan.h
+GLES3/gl32.h
+-
+GLES2/gl2ext.h
+-
+OpenGL/gl3.h
+-
+OpenGL/gl3ext.h
+-
+GL/glcorearb.h
+-
+OpenGL/gl.h
+-
+OpenGL/glu.h
 -
 GL/gl.h
 -
@@ -45,14 +47,16 @@ GL/glext.h
 -
 GL/glu.h
 -
+vulkan/vulkan.h
+-
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/cocoa_init.m
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/cocoa_init.m
 internal.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/internal.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/internal.h
 sys/param.h
 -
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/cocoa_joystick.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/cocoa_joystick.h
 IOKit/IOKitLib.h
 -
 IOKit/IOCFPlugIn.h
@@ -62,9 +66,9 @@ IOKit/hid/IOHIDLib.h
 IOKit/hid/IOHIDKeys.h
 -
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/cocoa_joystick.m
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/cocoa_joystick.m
 internal.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/internal.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/internal.h
 unistd.h
 -
 ctype.h
@@ -80,9 +84,9 @@ CoreFoundation/CoreFoundation.h
 Kernel/IOKit/hidsystem/IOHIDUsageTables.h
 -
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/cocoa_monitor.m
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/cocoa_monitor.m
 internal.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/internal.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/internal.h
 stdlib.h
 -
 limits.h
@@ -96,7 +100,7 @@ CoreVideo/CVDisplayLink.h
 ApplicationServices/ApplicationServices.h
 -
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/cocoa_platform.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/cocoa_platform.h
 stdint.h
 -
 dlfcn.h
@@ -109,22 +113,26 @@ Carbon/Carbon.h
 -
 ApplicationServices/ApplicationServices.h
 -
-posix_tls.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/posix_tls.h
+posix_thread.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/posix_thread.h
 cocoa_joystick.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/cocoa_joystick.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/cocoa_joystick.h
 nsgl_context.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/nsgl_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/nsgl_context.h
+egl_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/egl_context.h
+osmesa_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/osmesa_context.h
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/cocoa_time.c
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/cocoa_time.c
 internal.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/internal.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/internal.h
 mach/mach_time.h
 -
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/cocoa_window.m
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/cocoa_window.m
 internal.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/internal.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/internal.h
 float.h
 -
 string.h
@@ -132,9 +140,9 @@ string.h
 crt_externs.h
 -
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/context.c
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/context.c
 internal.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/internal.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/internal.h
 assert.h
 -
 stdio.h
@@ -146,17 +154,31 @@ limits.h
 stdio.h
 -
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/egl_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/egl_context.c
+internal.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/internal.h
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+assert.h
+-
+
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/egl_context.h
 EGL/eglplatform.h
 -
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/glfw_config.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/glfw_config.h
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/glx_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/glx_context.h
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/init.c
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/init.c
 internal.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/internal.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/internal.h
+mappings.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/mappings.h
 string.h
 -
 stdlib.h
@@ -165,38 +187,52 @@ stdio.h
 -
 stdarg.h
 -
+assert.h
+-
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/input.c
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/input.c
 internal.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/internal.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/internal.h
 assert.h
 -
 float.h
 -
+math.h
+-
 stdlib.h
 -
+string.h
+-
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/internal.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/internal.h
 glfw_config.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/glfw_config.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/glfw_config.h
 ../include/GLFW/glfw3.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/include/GLFW/glfw3.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/include/GLFW/glfw3.h
 cocoa_platform.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/cocoa_platform.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/cocoa_platform.h
 win32_platform.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/win32_platform.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/win32_platform.h
 x11_platform.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/x11_platform.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/x11_platform.h
 wl_platform.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/wl_platform.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/wl_platform.h
 mir_platform.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/mir_platform.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/mir_platform.h
+null_platform.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/null_platform.h
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/linux_joystick.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/linux_joystick.h
+linux/input.h
+-
+linux/limits.h
+-
 regex.h
 -
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/mir_platform.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/mappings.h
+
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/mir_platform.h
 sys/queue.h
 -
 pthread.h
@@ -205,20 +241,22 @@ dlfcn.h
 -
 mir_toolkit/mir_client_library.h
 -
-posix_tls.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/posix_tls.h
+posix_thread.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/posix_thread.h
 posix_time.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/posix_time.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/posix_time.h
 linux_joystick.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/linux_joystick.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/linux_joystick.h
 xkb_unicode.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/xkb_unicode.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/xkb_unicode.h
 egl_context.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/egl_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/egl_context.h
+osmesa_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/osmesa_context.h
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/monitor.c
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/monitor.c
 internal.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/internal.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/internal.h
 assert.h
 -
 math.h
@@ -232,27 +270,57 @@ stdlib.h
 limits.h
 -
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/nsgl_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/nsgl_context.h
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/nsgl_context.m
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/nsgl_context.m
 internal.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/internal.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/internal.h
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/posix_time.h
-stdint.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/null_joystick.h
+
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/null_platform.h
+dlfcn.h
+-
+osmesa_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/osmesa_context.h
+posix_time.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/posix_time.h
+posix_thread.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/posix_thread.h
+null_joystick.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/null_joystick.h
+
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/osmesa_context.c
+stdlib.h
+-
+string.h
+-
+assert.h
+-
+internal.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/internal.h
+
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/osmesa_context.h
+
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/posix_thread.c
+internal.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/internal.h
+assert.h
+-
+string.h
 -
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/posix_tls.c
-internal.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/internal.h
-
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/posix_tls.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/posix_thread.h
 pthread.h
 -
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/vulkan.c
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/posix_time.h
+stdint.h
+-
+
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/vulkan.c
 internal.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/internal.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/internal.h
 assert.h
 -
 string.h
@@ -260,16 +328,14 @@ string.h
 stdlib.h
 -
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/wgl_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/wgl_context.h
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/win32_joystick.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/win32_joystick.h
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/win32_platform.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/win32_platform.h
 wctype.h
 -
 windows.h
--
-mmsystem.h
 -
 dinput.h
 -
@@ -277,18 +343,20 @@ xinput.h
 -
 dbt.h
 -
-malloc.h
+dwmapi.h
 -
 win32_joystick.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/win32_joystick.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/win32_joystick.h
 wgl_context.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/wgl_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/wgl_context.h
 egl_context.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/egl_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/egl_context.h
+osmesa_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/osmesa_context.h
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/window.c
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/window.c
 internal.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/internal.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/internal.h
 assert.h
 -
 string.h
@@ -298,29 +366,41 @@ stdlib.h
 float.h
 -
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/wl_platform.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/wl_platform.h
 wayland-client.h
 -
 xkbcommon/xkbcommon.h
 -
+xkbcommon/xkbcommon-compose.h
+-
 dlfcn.h
 -
-posix_tls.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/posix_tls.h
+posix_thread.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/posix_thread.h
 posix_time.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/posix_time.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/posix_time.h
 linux_joystick.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/linux_joystick.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/linux_joystick.h
+null_joystick.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/null_joystick.h
 xkb_unicode.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/xkb_unicode.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/xkb_unicode.h
 egl_context.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/egl_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/egl_context.h
+osmesa_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/osmesa_context.h
+wayland-xdg-shell-client-protocol.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/wayland-xdg-shell-client-protocol.h
+wayland-viewporter-client-protocol.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/wayland-viewporter-client-protocol.h
 wayland-relative-pointer-unstable-v1-client-protocol.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/wayland-relative-pointer-unstable-v1-client-protocol.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/wayland-relative-pointer-unstable-v1-client-protocol.h
 wayland-pointer-constraints-unstable-v1-client-protocol.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/wayland-pointer-constraints-unstable-v1-client-protocol.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/wayland-pointer-constraints-unstable-v1-client-protocol.h
+wayland-idle-inhibit-unstable-v1-client-protocol.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/wayland-idle-inhibit-unstable-v1-client-protocol.h
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/x11_platform.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/x11_platform.h
 unistd.h
 -
 signal.h
@@ -343,20 +423,24 @@ X11/XKBlib.h
 -
 X11/extensions/Xinerama.h
 -
-X11/extensions/xf86vmode.h
+X11/extensions/XInput2.h
 -
-posix_tls.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/posix_tls.h
+posix_thread.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/posix_thread.h
 posix_time.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/posix_time.h
-linux_joystick.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/linux_joystick.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/posix_time.h
 xkb_unicode.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/xkb_unicode.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/xkb_unicode.h
 glx_context.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/glx_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/glx_context.h
 egl_context.h
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/egl_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/egl_context.h
+osmesa_context.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/osmesa_context.h
+linux_joystick.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/linux_joystick.h
+null_joystick.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/null_joystick.h
 
-/goinfre/jngoma/Downloads/glfw-3.2.1/src/xkb_unicode.h
+/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/xkb_unicode.h
 

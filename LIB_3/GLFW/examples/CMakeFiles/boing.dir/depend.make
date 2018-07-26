@@ -11,5 +11,6 @@ examples/CMakeFiles/boing.dir/boing.c.o: deps/glad/glad.h
 examples/CMakeFiles/boing.dir/boing.c.o: deps/linmath.h
 examples/CMakeFiles/boing.dir/boing.c.o: deps/vulkan/vk_platform.h
 examples/CMakeFiles/boing.dir/boing.c.o: deps/vulkan/vulkan.h
+examples/CMakeFiles/boing.dir/boing.c.o: deps/vulkan/vulkan_core.h
 examples/CMakeFiles/boing.dir/boing.c.o: include/GLFW/glfw3.h
 

@@ -13,9 +13,9 @@
 NAME = 42_nibbler
 
 #lib names
-LIB_1_NAME = LIB_1/sfml.so
-LIB_2_NAME = LIB_2/sdl.so
-LIB_3_NAME = LIB_3/glfw.so
+LIB_1_NAME = bin/sfml.so
+LIB_2_NAME = bin/sdl.so
+LIB_3_NAME = bin/glfw.so
 
 SRC = src/main.cpp src/StartEngine.cpp
 
@@ -28,13 +28,28 @@ SFML_EXP = DYLD_FRAMEWORK_PATH="$(PWD)/LIB_1/SFML/Frameworks"
 CMP = clang++
 
 all: run_scripts
-	+$(MAKE) -C LIB_1
-	+$(MAKE) -C LIB_2
-	+$(MAKE) -C LIB_3
-	$(CMP) $(SRC) -o $(NAME) $(LIB_1_HEADER) $(LIB_2_HEADER) $(LIB_3_HEADER)
+	@+$(MAKE) -C LIB_1
+	@+$(MAKE) -C LIB_2
+	@+$(MAKE) -C LIB_3
+	@$(CMP) $(SRC) -o $(NAME) $(LIB_1_HEADER) $(LIB_2_HEADER) $(LIB_3_HEADER)
+	@clear
+	@echo "\033[0;32mcompilation successful\033[0m"
 
 run_scripts:
 	$(shell ./scripts/export_sfml.sh)
+	sh scripts/create_bin.sh
+	sh scripts/setup.sh
+
+install: download
+
+download:
+	#Downloading GLFW lib
+	@echo "Downloading GLFW lib..."
+	@rm -rf LIB_3/GLFW
+	@git clone https://github.com/glfw/glfw LIB_3/GLFW
+	cd LIB_3/GLFW
+
+
 
 clean:
 	rm -rf $(LIB_1_NAME)

@@ -1,8 +1,8 @@
-# Install script for directory: /goinfre/jngoma/Downloads/glfw-3.2.1
+# Install script for directory: /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/goinfre/jngoma/.brew")
+  set(CMAKE_INSTALL_PREFIX "/goinfre/amatshiy/.brew")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,13 +33,13 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/goinfre/jngoma/Downloads/glfw-3.2.1/include/GLFW" FILES_MATCHING REGEX "/glfw3\\.h$" REGEX "/glfw3native\\.h$")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/include/GLFW" FILES_MATCHING REGEX "/glfw3\\.h$" REGEX "/glfw3native\\.h$")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/glfw3" TYPE FILE FILES
-    "/goinfre/jngoma/Downloads/glfw-3.2.1/src/glfw3Config.cmake"
-    "/goinfre/jngoma/Downloads/glfw-3.2.1/src/glfw3ConfigVersion.cmake"
+    "/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/glfw3Config.cmake"
+    "/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/glfw3ConfigVersion.cmake"
     )
 endif()
 
@@ -47,7 +47,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/glfw3/glfw3Targets.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/glfw3/glfw3Targets.cmake"
-         "/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles/Export/lib/cmake/glfw3/glfw3Targets.cmake")
+         "/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles/Export/lib/cmake/glfw3/glfw3Targets.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/glfw3/glfw3Targets-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -56,21 +56,21 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/glfw3" TYPE FILE FILES "/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles/Export/lib/cmake/glfw3/glfw3Targets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/glfw3" TYPE FILE FILES "/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles/Export/lib/cmake/glfw3/glfw3Targets.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/glfw3" TYPE FILE FILES "/goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles/Export/lib/cmake/glfw3/glfw3Targets-noconfig.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/glfw3" TYPE FILE FILES "/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles/Export/lib/cmake/glfw3/glfw3Targets-noconfig.cmake")
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/goinfre/jngoma/Downloads/glfw-3.2.1/src/glfw3.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/glfw3.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/goinfre/jngoma/Downloads/glfw-3.2.1/src/cmake_install.cmake")
-  include("/goinfre/jngoma/Downloads/glfw-3.2.1/examples/cmake_install.cmake")
-  include("/goinfre/jngoma/Downloads/glfw-3.2.1/tests/cmake_install.cmake")
+  include("/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/src/cmake_install.cmake")
+  include("/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples/cmake_install.cmake")
+  include("/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests/cmake_install.cmake")
 
 endif()
 
@@ -82,5 +82,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/goinfre/jngoma/Downloads/glfw-3.2.1/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

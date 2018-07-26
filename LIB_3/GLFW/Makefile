@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake
+CMAKE_COMMAND = /goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake
 
 # The command to remove a file.
-RM = /goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake -E remove -f
+RM = /goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /goinfre/jngoma/Downloads/glfw-3.2.1
+CMAKE_SOURCE_DIR = /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /goinfre/jngoma/Downloads/glfw-3.2.1
+CMAKE_BINARY_DIR = /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,19 +59,19 @@ CMAKE_BINARY_DIR = /goinfre/jngoma/Downloads/glfw-3.2.1
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -82,7 +82,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -93,25 +93,25 @@ edit_cache/fast: edit_cache
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake -P cmake_install.cmake
+	/goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/goinfre/jngoma/.brew/Cellar/cmake/3.12.0/bin/cmake -P cmake_install.cmake
+	/goinfre/amatshiy/.brew/Cellar/cmake/3.12.0/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target list_install_components
@@ -126,9 +126,9 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles /goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /goinfre/jngoma/Downloads/glfw-3.2.1/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -183,19 +183,6 @@ glfw/fast:
 .PHONY : glfw/fast
 
 #=============================================================================
-# Target rules for targets named heightmap
-
-# Build rule for target.
-heightmap: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 heightmap
-.PHONY : heightmap
-
-# fast build rule for target.
-heightmap/fast:
-	$(MAKE) -f examples/CMakeFiles/heightmap.dir/build.make examples/CMakeFiles/heightmap.dir/build
-.PHONY : heightmap/fast
-
-#=============================================================================
 # Target rules for targets named wave
 
 # Build rule for target.
@@ -207,19 +194,6 @@ wave: cmake_check_build_system
 wave/fast:
 	$(MAKE) -f examples/CMakeFiles/wave.dir/build.make examples/CMakeFiles/wave.dir/build
 .PHONY : wave/fast
-
-#=============================================================================
-# Target rules for targets named splitview
-
-# Build rule for target.
-splitview: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 splitview
-.PHONY : splitview
-
-# fast build rule for target.
-splitview/fast:
-	$(MAKE) -f examples/CMakeFiles/splitview.dir/build.make examples/CMakeFiles/splitview.dir/build
-.PHONY : splitview/fast
 
 #=============================================================================
 # Target rules for targets named simple
@@ -235,6 +209,19 @@ simple/fast:
 .PHONY : simple/fast
 
 #=============================================================================
+# Target rules for targets named sharing
+
+# Build rule for target.
+sharing: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sharing
+.PHONY : sharing
+
+# fast build rule for target.
+sharing/fast:
+	$(MAKE) -f examples/CMakeFiles/sharing.dir/build.make examples/CMakeFiles/sharing.dir/build
+.PHONY : sharing/fast
+
+#=============================================================================
 # Target rules for targets named particles
 
 # Build rule for target.
@@ -246,6 +233,45 @@ particles: cmake_check_build_system
 particles/fast:
 	$(MAKE) -f examples/CMakeFiles/particles.dir/build.make examples/CMakeFiles/particles.dir/build
 .PHONY : particles/fast
+
+#=============================================================================
+# Target rules for targets named heightmap
+
+# Build rule for target.
+heightmap: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 heightmap
+.PHONY : heightmap
+
+# fast build rule for target.
+heightmap/fast:
+	$(MAKE) -f examples/CMakeFiles/heightmap.dir/build.make examples/CMakeFiles/heightmap.dir/build
+.PHONY : heightmap/fast
+
+#=============================================================================
+# Target rules for targets named splitview
+
+# Build rule for target.
+splitview: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 splitview
+.PHONY : splitview
+
+# fast build rule for target.
+splitview/fast:
+	$(MAKE) -f examples/CMakeFiles/splitview.dir/build.make examples/CMakeFiles/splitview.dir/build
+.PHONY : splitview/fast
+
+#=============================================================================
+# Target rules for targets named offscreen
+
+# Build rule for target.
+offscreen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 offscreen
+.PHONY : offscreen
+
+# fast build rule for target.
+offscreen/fast:
+	$(MAKE) -f examples/CMakeFiles/offscreen.dir/build.make examples/CMakeFiles/offscreen.dir/build
+.PHONY : offscreen/fast
 
 #=============================================================================
 # Target rules for targets named gears
@@ -300,19 +326,6 @@ title/fast:
 .PHONY : title/fast
 
 #=============================================================================
-# Target rules for targets named windows
-
-# Build rule for target.
-windows: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 windows
-.PHONY : windows
-
-# fast build rule for target.
-windows/fast:
-	$(MAKE) -f tests/CMakeFiles/windows.dir/build.make tests/CMakeFiles/windows.dir/build
-.PHONY : windows/fast
-
-#=============================================================================
 # Target rules for targets named timeout
 
 # Build rule for target.
@@ -337,6 +350,19 @@ threads: cmake_check_build_system
 threads/fast:
 	$(MAKE) -f tests/CMakeFiles/threads.dir/build.make tests/CMakeFiles/threads.dir/build
 .PHONY : threads/fast
+
+#=============================================================================
+# Target rules for targets named opacity
+
+# Build rule for target.
+opacity: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 opacity
+.PHONY : opacity
+
+# fast build rule for target.
+opacity/fast:
+	$(MAKE) -f tests/CMakeFiles/opacity.dir/build.make tests/CMakeFiles/opacity.dir/build
+.PHONY : opacity/fast
 
 #=============================================================================
 # Target rules for targets named gamma
@@ -365,17 +391,56 @@ tearing/fast:
 .PHONY : tearing/fast
 
 #=============================================================================
-# Target rules for targets named icon
+# Target rules for targets named iconify
 
 # Build rule for target.
-icon: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 icon
-.PHONY : icon
+iconify: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 iconify
+.PHONY : iconify
 
 # fast build rule for target.
-icon/fast:
-	$(MAKE) -f tests/CMakeFiles/icon.dir/build.make tests/CMakeFiles/icon.dir/build
-.PHONY : icon/fast
+iconify/fast:
+	$(MAKE) -f tests/CMakeFiles/iconify.dir/build.make tests/CMakeFiles/iconify.dir/build
+.PHONY : iconify/fast
+
+#=============================================================================
+# Target rules for targets named joysticks
+
+# Build rule for target.
+joysticks: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 joysticks
+.PHONY : joysticks
+
+# fast build rule for target.
+joysticks/fast:
+	$(MAKE) -f tests/CMakeFiles/joysticks.dir/build.make tests/CMakeFiles/joysticks.dir/build
+.PHONY : joysticks/fast
+
+#=============================================================================
+# Target rules for targets named windows
+
+# Build rule for target.
+windows: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 windows
+.PHONY : windows
+
+# fast build rule for target.
+windows/fast:
+	$(MAKE) -f tests/CMakeFiles/windows.dir/build.make tests/CMakeFiles/windows.dir/build
+.PHONY : windows/fast
+
+#=============================================================================
+# Target rules for targets named inputlag
+
+# Build rule for target.
+inputlag: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 inputlag
+.PHONY : inputlag
+
+# fast build rule for target.
+inputlag/fast:
+	$(MAKE) -f tests/CMakeFiles/inputlag.dir/build.make tests/CMakeFiles/inputlag.dir/build
+.PHONY : inputlag/fast
 
 #=============================================================================
 # Target rules for targets named empty
@@ -391,17 +456,17 @@ empty/fast:
 .PHONY : empty/fast
 
 #=============================================================================
-# Target rules for targets named glfwinfo
+# Target rules for targets named reopen
 
 # Build rule for target.
-glfwinfo: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 glfwinfo
-.PHONY : glfwinfo
+reopen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 reopen
+.PHONY : reopen
 
 # fast build rule for target.
-glfwinfo/fast:
-	$(MAKE) -f tests/CMakeFiles/glfwinfo.dir/build.make tests/CMakeFiles/glfwinfo.dir/build
-.PHONY : glfwinfo/fast
+reopen/fast:
+	$(MAKE) -f tests/CMakeFiles/reopen.dir/build.make tests/CMakeFiles/reopen.dir/build
+.PHONY : reopen/fast
 
 #=============================================================================
 # Target rules for targets named msaa
@@ -430,17 +495,17 @@ cursor/fast:
 .PHONY : cursor/fast
 
 #=============================================================================
-# Target rules for targets named sharing
+# Target rules for targets named glfwinfo
 
 # Build rule for target.
-sharing: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sharing
-.PHONY : sharing
+glfwinfo: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 glfwinfo
+.PHONY : glfwinfo
 
 # fast build rule for target.
-sharing/fast:
-	$(MAKE) -f tests/CMakeFiles/sharing.dir/build.make tests/CMakeFiles/sharing.dir/build
-.PHONY : sharing/fast
+glfwinfo/fast:
+	$(MAKE) -f tests/CMakeFiles/glfwinfo.dir/build.make tests/CMakeFiles/glfwinfo.dir/build
+.PHONY : glfwinfo/fast
 
 #=============================================================================
 # Target rules for targets named monitors
@@ -456,45 +521,6 @@ monitors/fast:
 .PHONY : monitors/fast
 
 #=============================================================================
-# Target rules for targets named reopen
-
-# Build rule for target.
-reopen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 reopen
-.PHONY : reopen
-
-# fast build rule for target.
-reopen/fast:
-	$(MAKE) -f tests/CMakeFiles/reopen.dir/build.make tests/CMakeFiles/reopen.dir/build
-.PHONY : reopen/fast
-
-#=============================================================================
-# Target rules for targets named iconify
-
-# Build rule for target.
-iconify: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 iconify
-.PHONY : iconify
-
-# fast build rule for target.
-iconify/fast:
-	$(MAKE) -f tests/CMakeFiles/iconify.dir/build.make tests/CMakeFiles/iconify.dir/build
-.PHONY : iconify/fast
-
-#=============================================================================
-# Target rules for targets named joysticks
-
-# Build rule for target.
-joysticks: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 joysticks
-.PHONY : joysticks
-
-# fast build rule for target.
-joysticks/fast:
-	$(MAKE) -f tests/CMakeFiles/joysticks.dir/build.make tests/CMakeFiles/joysticks.dir/build
-.PHONY : joysticks/fast
-
-#=============================================================================
 # Target rules for targets named events
 
 # Build rule for target.
@@ -506,6 +532,19 @@ events: cmake_check_build_system
 events/fast:
 	$(MAKE) -f tests/CMakeFiles/events.dir/build.make tests/CMakeFiles/events.dir/build
 .PHONY : events/fast
+
+#=============================================================================
+# Target rules for targets named icon
+
+# Build rule for target.
+icon: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 icon
+.PHONY : icon
+
+# fast build rule for target.
+icon/fast:
+	$(MAKE) -f tests/CMakeFiles/icon.dir/build.make tests/CMakeFiles/icon.dir/build
+.PHONY : icon/fast
 
 # Help Target
 help:
@@ -521,31 +560,34 @@ help:
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... glfw"
-	@echo "... heightmap"
 	@echo "... wave"
-	@echo "... splitview"
 	@echo "... simple"
+	@echo "... sharing"
 	@echo "... particles"
+	@echo "... heightmap"
+	@echo "... splitview"
+	@echo "... offscreen"
 	@echo "... gears"
 	@echo "... boing"
 	@echo "... clipboard"
 	@echo "... title"
-	@echo "... windows"
 	@echo "... timeout"
 	@echo "... threads"
+	@echo "... opacity"
 	@echo "... gamma"
 	@echo "... tearing"
-	@echo "... icon"
-	@echo "... empty"
-	@echo "... glfwinfo"
-	@echo "... msaa"
-	@echo "... cursor"
-	@echo "... sharing"
-	@echo "... monitors"
-	@echo "... reopen"
 	@echo "... iconify"
 	@echo "... joysticks"
+	@echo "... windows"
+	@echo "... inputlag"
+	@echo "... empty"
+	@echo "... reopen"
+	@echo "... msaa"
+	@echo "... cursor"
+	@echo "... glfwinfo"
+	@echo "... monitors"
 	@echo "... events"
+	@echo "... icon"
 .PHONY : help
 
 

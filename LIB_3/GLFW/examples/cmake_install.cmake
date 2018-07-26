@@ -1,8 +1,8 @@
-# Install script for directory: /goinfre/jngoma/Downloads/glfw-3.2.1/examples
+# Install script for directory: /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/examples
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/goinfre/jngoma/.brew")
+  set(CMAKE_INSTALL_PREFIX "/goinfre/amatshiy/.brew")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

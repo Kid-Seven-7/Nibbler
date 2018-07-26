@@ -24,6 +24,7 @@ CMP_DLL = clang++ -shared -fPIC -framework sfml-graphics -framework sfml-window 
 
 sfml: clean
 	$(CMP_DLL) $(SRC_DLL) -o $(LIB_1_NAME) $(HEADER) $(LIB_2_HEADER) $(LIB_3_HEADER)
+	@mv $(LIB_1_NAME) ../bin/
 
 clean:
 	rm -rf $(LIB_1_NAME)
