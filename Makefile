@@ -36,6 +36,7 @@ all: run_scripts
 run_scripts:
 	$(shell ./scripts/export_sfml.sh)
 	sh scripts/create_bin.sh
+	sh scripts/setup.sh
 
 install: download
 
@@ -45,7 +46,7 @@ download:
 	@rm -rf LIB_3/GLFW
 	@git clone https://github.com/glfw/glfw LIB_3/GLFW
 	cd LIB_3/GLFW
-	
+
 
 
 clean:
