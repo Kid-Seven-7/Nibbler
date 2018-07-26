@@ -28,10 +28,12 @@ SFML_EXP = DYLD_FRAMEWORK_PATH="$(PWD)/LIB_1/SFML/Frameworks"
 CMP = clang++
 
 all: run_scripts
-	+$(MAKE) -C LIB_1
-	+$(MAKE) -C LIB_2
-	+$(MAKE) -C LIB_3
-	$(CMP) $(SRC) -o $(NAME) $(LIB_1_HEADER) $(LIB_2_HEADER) $(LIB_3_HEADER)
+	@+$(MAKE) -C LIB_1
+	@+$(MAKE) -C LIB_2
+	@+$(MAKE) -C LIB_3
+	@$(CMP) $(SRC) -o $(NAME) $(LIB_1_HEADER) $(LIB_2_HEADER) $(LIB_3_HEADER)
+	@clear
+	@echo "\033[0;32mcompilation successful\033[0m"
 
 run_scripts:
 	$(shell ./scripts/export_sfml.sh)
