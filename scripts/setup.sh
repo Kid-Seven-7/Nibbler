@@ -7,24 +7,25 @@ BLUE='\033[0;34m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 
 #brew installation
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo "${BLUE}checking for brew...${NC}"
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 if [ ! -d $HOME/.brew ];
 then
 	echo ${RED}brew not found${NC}
 	echo ${ORANGE}installing brew...${NC}
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/Tolsadus/42homebrewfix/master/install.sh)"
-	zsh
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/Tolsadus/42homebrewfix/master/install.sh)";	source ~/.zshrc
 else
 	echo ${GREEN}brew found${NC}
 fi
 
-printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 
 #cmake installation
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo "${BLUE}checking for cmake...${NC}"
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 if [ ! -d $HOME/.brew/Cellar/cmake ];
 then
 	echo ${RED}cmake not found${NC}
@@ -34,10 +35,11 @@ else
 	echo "${GREEN}glfw found${NC}"
 fi
 
-printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 
 #glfw installation
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo "${BLUE}checking for glfw...${NC}"
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 if [ ! -d $HOME/.brew/Cellar/glfw ];
 then
 	echo ${RED}glfw not found${NC}
@@ -47,9 +49,10 @@ else
 	echo "${GREEN}glfw found${NC}"
 fi
 
-printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo "${BLUE}checking for sfml frameworks...${NC}"
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 if [ ! -d ~/Library/frameworks ];
 then
 	echo ${RED}no frameworks folder found${NC}
@@ -123,6 +126,8 @@ else
 fi
 
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
+echo "${BLUE}checking for residual CMakeCashe.txt...${NC}"
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 
 if [ -f LIB_3/GLFW/CMakeCache.txt ];
 then
@@ -131,14 +136,17 @@ then
 	rm LIB_3/GLFW/CMakeCache.txt
 fi
 
-printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 
-echo ${}creating build directory${}
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
+echo ${BLUE}building glfw${NC}
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
+echo ${GREEN}creating build directory${NC}
 mkdir build
 cd build
-echo ${}building GLFW${}
+echo ${CYAN}
 cmake ../LIB_3/GLFW/
 make install ../LIB_3/GLFW/
+echo ${NC}
 cd ..
 echo ${ORANGE}removing build directory...${NC}
 rm -rf build
