@@ -8,6 +8,7 @@ CYAN='\033[0;36m'
 NC='\033[0m'
 
 
+
 #brew installation
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo "${BLUE}checking for brew...${NC}"
@@ -49,6 +50,7 @@ else
 	echo "${GREEN}glfw found${NC}"
 fi
 
+cp -rf LIB_1/SFML/extlibs/* LIB_1/SFML/Frameworks
 
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo "${BLUE}checking for sfml frameworks...${NC}"
