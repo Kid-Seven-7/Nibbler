@@ -122,13 +122,27 @@ else
 	echo ${GREEN}vorbisenc.framework directory found${NC}
 fi
 
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
+
 if [ -f LIB_3/GLFW/CMakeCache.txt ];
 then
 	echo ${RED}CMakeCache found${NC}
 	echo ${ORANGE}removing CMakeCache.txt...${NC}
 	rm LIB_3/GLFW/CMakeCache.txt
-  cmake build LIB_3/GLFW/
-	make install build LIB_3/GLFW/
 fi
 
-cmake LIB_3/GLFW/
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
+
+echo ${}creating build directory${}
+mkdir build
+cd build
+echo ${}building GLFW${}
+cmake ../LIB_3/GLFW/
+make install ../LIB_3/GLFW/
+cd ..
+echo ${ORANGE}removing build directory...${NC}
+rm -rf build
+
+clear
+
+echo ${GREEN}Nibbler and all dependencies successfully installed and setup${NC}
