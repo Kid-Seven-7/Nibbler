@@ -23,6 +23,19 @@ fi
 
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 
+#cmake installation
+echo "${BLUE}checking for cmake...${NC}"
+if [ ! -d $HOME/.brew/Cellar/cmake ];
+then
+	echo ${RED}cmake not found${NC}
+	echo ${ORANGE}installing cmake...${NC}
+  brew install cmake
+else
+	echo "${GREEN}glfw found${NC}"
+fi
+
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
+
 #glfw installation
 echo "${BLUE}checking for glfw...${NC}"
 if [ ! -d $HOME/.brew/Cellar/glfw ];
@@ -46,47 +59,76 @@ else
 	echo "${GREEN}Frameworks directory found${NC}"
 fi
 
-if [ ! -d ~/Library/frameworks/SFML.framework ];
+if [ ! -d ~/Library/frameworks/FLAC.framework ];
 then
-	echo ${RED}no sfml.framework folder found${NC}
-	echo ${ORANGE}copying sfml.framework directory...${NC}
-  cp -rf LIB_1/SFML/Frameworks/SFML.framework ~/Library/Frameworks
+	echo ${RED}no FLAC.framework folder found${NC}
+	echo ${ORANGE}copying FLAC.framework directory...${NC}
+  cp -rf LIB_1/SFML/extlibs/FLAC.framework ~/Library/Frameworks
 else
-	echo "${GREEN}SFML.framework directory found${NC}"
+	echo "${GREEN}FLAC.framework directory found${NC}"
 fi
 
-if [ ! -d ~/Library/frameworks/sfml-graphics.framework ];
+if [ ! -d ~/Library/frameworks/freetype.framework ];
 then
-	echo ${RED}no sfml-graphics.framework folder found${NC}
-	echo ${ORANGE}copying sfml.framework directory...${NC}
-  cp -rf LIB_1/SFML/Frameworks/sfml-graphics.framework ~/Library/Frameworks
+	echo ${RED}no freetype.framework folder found${NC}
+	echo ${ORANGE}copying freetype.framework directory...${NC}
+  cp -rf LIB_1/SFML/extlibs/freetype.framework ~/Library/Frameworks
 else
-	echo "${GREEN}sfml-graphics.framework directory found${NC}"
+	echo "${GREEN}freetype.framework directory found${NC}"
 fi
 
-if [ ! -d ~/Library/frameworks/sfml-network.framework ];
+if [ ! -d ~/Library/frameworks/ogg.framework ];
 then
-	echo ${RED}no sfml-network.framework folder found${NC}
-	echo ${ORANGE}copying sfml-network.framework directory...${NC}
-  cp -rf LIB_1/SFML/Frameworks/sfml-network.framework ~/Library/Frameworks
+	echo ${RED}no ogg.framework folder found${NC}
+	echo ${ORANGE}copying ogg.framework directory...${NC}
+  cp -rf LIB_1/SFML/extlibs/ogg.framework ~/Library/Frameworks
 else
-	echo "${GREEN}sfml-network.framework directory found${NC}"
+	echo "${GREEN}ogg.framework directory found${NC}"
 fi
 
-if [ ! -d ~/Library/frameworks/sfml-system.framework ];
+if [ ! -d ~/Library/frameworks/OpenAL.framework ];
 then
-	echo ${RED}no sfml-network.framework folder found${NC}
-	echo ${ORANGE}copying sfml-system.framework directory...${NC}
-  cp -rf LIB_1/SFML/Frameworks/sfml-system.framework ~/Library/Frameworks
+	echo ${RED}no OpenAL.framework folder found${NC}
+	echo ${ORANGE}copying OpenAL.framework directory...${NC}
+  cp -rf LIB_1/SFML/extlibs/OpenAL.framework ~/Library/Frameworks
 else
-	echo "${GREEN}sfml-system.framework directory found"
+	echo "${GREEN}OpenAL.framework directory found"
 fi
 
-if [ ! -d ~/Library/frameworks/sfml-window.framework ];
+if [ ! -d ~/Library/frameworks/vorbis.framework ];
 then
-	echo ${RED}no sfml-window.framework folder found${NC}
-	echo ${ORANGE}copying sfml-window.framework directory...${NC}
-  cp -rf LIB_1/SFML/Frameworks/sfml-window.framework ~/Library/Frameworks
+	echo ${RED}no vorbis.framework folder found${NC}
+	echo ${ORANGE}copying vorbis.framework directory...${NC}
+  cp -rf LIB_1/SFML/extlibs/vorbis.framework ~/Library/Frameworks
 else
-	echo ${GREEN}sfml-window.framework directory found${NC}
+	echo ${GREEN}vorbis.framework directory found${NC}
 fi
+
+if [ ! -d ~/Library/frameworks/vorbisfile.framework ];
+then
+	echo ${RED}no vorbisfile.framework folder found${NC}
+	echo ${ORANGE}copying vorbisfile.framework directory...${NC}
+  cp -rf LIB_1/SFML/extlibs/vorbisfile.framework ~/Library/Frameworks
+else
+	echo "${GREEN}vorbisfile.framework directory found"
+fi
+
+if [ ! -d ~/Library/frameworks/vorbisenc.framework ];
+then
+	echo ${RED}no vorbisenc.framework folder found${NC}
+	echo ${ORANGE}copying vorbisenc.framework directory...${NC}
+  cp -rf LIB_1/SFML/extlibs/vorbisenc.framework ~/Library/Frameworks
+else
+	echo ${GREEN}vorbisenc.framework directory found${NC}
+fi
+
+if [ -f LIB_3/GLFW/CMakeCache.txt ];
+then
+	echo ${RED}CMakeCache found${NC}
+	echo ${ORANGE}removing CMakeCache.txt...${NC}
+	rm LIB_3/GLFW/CMakeCache.txt
+  cmake build LIB_3/GLFW/
+	make install build LIB_3/GLFW/
+fi
+
+cmake LIB_3/GLFW/
