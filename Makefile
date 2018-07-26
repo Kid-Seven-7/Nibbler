@@ -6,7 +6,7 @@
 #    By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 09:06:50 by amatshiy          #+#    #+#              #
-#    Updated: 2018/07/26 07:41:11 by amatshiy         ###   ########.fr        #
+#    Updated: 2018/07/26 07:56:54 by amatshiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ LIB_1_NAME = bin/sfml.so
 LIB_2_NAME = bin/sdl.so
 LIB_3_NAME = bin/glfw.so
 
-SRC = src/main.cpp
+SRC = src/main.cpp src/StartEngine.cpp
 
 LIB_1_HEADER = -I includes -I LIB_1/SFML/include
 LIB_2_HEADER = -I LIB_2/SDL/SDL2.framework/Headers

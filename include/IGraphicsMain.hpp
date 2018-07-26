@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 10:53:14 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/25 08:50:41 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/26 08:03:58 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 
-enum    eWindowType {SfmlWin, SdlWin, GlfwWin};
-enum    eLibPath {sfml_path, sdl_path, glfw_path};
+enum eLibPath {sfml_path, sdl_path, glfw_path};
 
 class IGraphicsMain
 {
