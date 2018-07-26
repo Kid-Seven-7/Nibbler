@@ -19,7 +19,7 @@ LIB_3_NAME = bin/glfw.so
 
 SRC = src/main.cpp
 
-LIB_1_HEADER = -I includes -I LIB_1/SFML/include -Wl,-rpath,$(PWD)/SFML/Frameworks
+LIB_1_HEADER = -I includes -I LIB_1/SFML/include
 LIB_2_HEADER = -I LIB_2/SDL/SDL2.framework/Headers
 LIB_3_HEADER = -I ~/.brew/include
 
