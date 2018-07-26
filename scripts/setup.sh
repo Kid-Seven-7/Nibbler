@@ -153,9 +153,7 @@ cd ..
 echo ${ORANGE}removing build directory...${NC}
 rm -rf build
 
-echo 'export DYLD_FRAMEWORK_PATH="$(PWD)/LIB_1/SFML/Frameworks"' > ~/.bash_profile
-
-source ~/.bash_profile
+echo 'export DYLD_FRAMEWORK_PATH="$(PWD)/LIB_1/SFML/Frameworks"' > ~/.bash_profile; source ~/.bash_profile
 
 clear
 
