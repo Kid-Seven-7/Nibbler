@@ -6,7 +6,7 @@
 #    By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/23 09:51:26 by jngoma            #+#    #+#              #
-#    Updated: 2018/07/25 08:32:16 by amatshiy         ###   ########.fr        #
+#    Updated: 2018/07/26 07:38:08 by amatshiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ gflw: clean
 	@echo compiling glfw.so
 	@$(COMPILER) $(CXX) glfw.lib.cpp -o $(LIB_3_NAME) $(LD_FLAG) $(HEADER) \
 	$(LIB_1_HEADER) $(LIB_2_HEADER) $(LIB)
-	@mv $(LIB_3_NAME) ../bin
+	@mv $(LIB_3_NAME) ../bin/
 
 clean:
 	@echo deleting glfw.so

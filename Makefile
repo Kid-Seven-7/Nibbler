@@ -6,7 +6,7 @@
 #    By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 09:06:50 by amatshiy          #+#    #+#              #
-#    Updated: 2018/07/25 08:32:31 by amatshiy         ###   ########.fr        #
+#    Updated: 2018/07/26 07:41:11 by amatshiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ all: run_scripts
 
 run_scripts:
 	$(shell ./scripts/export_sfml.sh)
+	sh scripts/create_bin.sh
 
 install: download
 
