@@ -151,6 +151,8 @@ cd ..
 echo ${ORANGE}removing build directory...${NC}
 rm -rf build
 
+export DYLD_FRAMEWORK_PATH="$(PWD)/LIB_1/SFML/Frameworks"
+
 clear
 
 echo ${GREEN}Nibbler and all dependencies successfully installed and setup${NC}
