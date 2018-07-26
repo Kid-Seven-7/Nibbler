@@ -6,11 +6,7 @@
 #    By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 09:06:50 by amatshiy          #+#    #+#              #
-<<<<<<< Updated upstream
-#    Updated: 2018/07/24 17:34:45 by amatshiy         ###   ########.fr        #
-=======
-#    Updated: 2018/07/25 09:23:37 by amatshiy         ###   ########.fr        #
->>>>>>> Stashed changes
+#    Updated: 2018/07/26 07:56:54 by amatshiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

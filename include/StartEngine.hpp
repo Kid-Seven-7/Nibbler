@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 08:44:28 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/25 09:30:35 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/26 08:49:56 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@ class StartEngine
 {
     private:
         int     _libChoice;
+        int     _height;
+        int     _width;
         
     public:
         StartEngine(void);
         StartEngine(StartEngine const & src);
-        StartEngine(int libChoice);
+        StartEngine(int height, int width, int libChoice);
         ~StartEngine(void);
 
         StartEngine const & operator=(StartEngine const & rhs);
