@@ -145,7 +145,7 @@ fi
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo ${BLUE}building GLFW...${NC}
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
-if [ -d Build ];
+if [ -d build ];
 then
 	echo ${GREEN}GFLW build directory found...${NC}
 else
