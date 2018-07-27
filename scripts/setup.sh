@@ -145,16 +145,19 @@ fi
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo ${BLUE}building GLFW...${NC}
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
-echo ${GREEN}creating build directory...${NC}
-mkdir build
-cd build
-echo ${CYAN}
-cmake ../LIB_3/GLFW/ > /dev/null 2>&1
-make install ../LIB_3/GLFW/ > /dev/null 2>&1
-echo ${NC}
-cd ..
-echo ${ORANGE}removing build directory...${NC}
-rm -rf build
+if [ -d Build ];
+then
+	echo ${GREEN}GFLW build directory found...${NC}
+else
+	echo ${GREEN}creating build directory...${NC}
+	mkdir build
+	cd build
+	echo ${CYAN}
+	cmake ../LIB_3/GLFW/ > /dev/null 2>&1
+	make install ../LIB_3/GLFW/ > /dev/null 2>&1
+	echo ${NC}
+	cd ..
+fi
 
 clear
 
