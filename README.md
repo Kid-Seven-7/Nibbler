@@ -2,33 +2,45 @@
 
 > A snake game
 >
-> Utilising three separate dynamically linked graphics libraries
+> Utilising three separate dynamically linked graphics libraries.
+>Which divides the program into two distinct part, namely the core logic and
+>the graphics (including event handlers).
 >
+>Allowing for the graphics aspect of the program to be upgraded without effecting
+> the core logic and without a need for recompilation.
 
 ## Installation
 
 iOS X & Linux:
 
 ```sh
-git clone https://github.com/???.git
+git clone https://github.com/amatshiye/Nibbler_42.git
 make
+source ~/.profile
 ```
 
 Windows:
 
 ```sh
-git clone https://github.com/???.git
+git clone https://github.com/amatshiye/Nibbler_42.git
 make
+source ~/.profile
 ```
 
 ## Usage example
 
-pending...
+Running `./42_Nibbler [width] [height] [lib number]`
+
+>1 = SFML
+>
+>2 = SDL
+>
+>3 = GLFW
 
 ## Release History
 
 * Version 0.0.1
-	* pending
+	* we think code_ edition
 
 ## Contributors
 
@@ -48,4 +60,4 @@ pending...
 
 ## Contributing
 
-Open to contributing at present
+Not open to contributing at present

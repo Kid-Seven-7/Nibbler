@@ -33,12 +33,14 @@ all: run_scripts
 	@+$(MAKE) -C LIB_3
 	@$(CMP) $(SRC) -o $(NAME) $(LIB_1_HEADER) $(LIB_2_HEADER) $(LIB_3_HEADER)
 	@clear
-	@echo "\033[0;32mcompilation successful\033[0m"
+	@printf "\033[0;32mplease run \033[0m"
+	@printf "\033[0;31msource ~/.profile \033[0m"
+	@printf "\033[0;32mto complete setup\033[0m\n"
 
 run_scripts:
 	$(shell ./scripts/export_sfml.sh)
-	sh scripts/create_bin.sh
-	sh scripts/setup.sh
+	@sh scripts/create_bin.sh
+	@sh scripts/setup.sh
 
 install: download
 

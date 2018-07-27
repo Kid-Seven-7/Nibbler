@@ -7,7 +7,12 @@ BLUE='\033[0;34m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-
+clear
+#exports to .profile which needs to be sourced
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
+echo "${BLUE}setting bash profile...${NC}"
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
+echo 'export DYLD_FRAMEWORK_PATH="$(PWD)/LIB_1/SFML/Frameworks"' > ~/.profile
 
 #brew installation
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
@@ -22,7 +27,6 @@ else
 	echo ${GREEN}brew found${NC}
 fi
 
-
 #cmake installation
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo "${BLUE}checking for cmake...${NC}"
@@ -33,9 +37,8 @@ then
 	echo ${ORANGE}installing cmake...${NC}
   brew install cmake
 else
-	echo "${GREEN}glfw found${NC}"
+	echo "${GREEN}cmake found${NC}"
 fi
-
 
 #glfw installation
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
@@ -45,13 +48,12 @@ if [ ! -d $HOME/.brew/Cellar/glfw ];
 then
 	echo ${RED}glfw not found${NC}
 	echo ${ORANGE}installing glfw...${NC}
-  brew install glfw
+  brew install glfw 2>&1
 else
 	echo "${GREEN}glfw found${NC}"
 fi
 
-cp -rf LIB_1/SFML/extlibs/* LIB_1/SFML/Frameworks
-
+#SFML Frameworks check
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo "${BLUE}checking for sfml frameworks...${NC}"
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
@@ -127,8 +129,9 @@ else
 	echo ${GREEN}vorbisenc.framework directory found${NC}
 fi
 
+#Removes CMakeCache if any
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
-echo "${BLUE}checking for residual CMakeCashe.txt...${NC}"
+echo "${BLUE}checking for residual CMakeCache.txt...${NC}"
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 
 if [ -f LIB_3/GLFW/CMakeCache.txt ];
@@ -138,22 +141,20 @@ then
 	rm LIB_3/GLFW/CMakeCache.txt
 fi
 
-
+#Builds GLFW
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
-echo ${BLUE}building glfw${NC}
+echo ${BLUE}building GLFW...${NC}
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
-echo ${GREEN}creating build directory${NC}
+echo ${GREEN}creating build directory...${NC}
 mkdir build
 cd build
 echo ${CYAN}
-cmake ../LIB_3/GLFW/
-make install ../LIB_3/GLFW/
+cmake ../LIB_3/GLFW/ > /dev/null 2>&1
+make install ../LIB_3/GLFW/ > /dev/null 2>&1
 echo ${NC}
 cd ..
 echo ${ORANGE}removing build directory...${NC}
 rm -rf build
-
-echo 'export DYLD_FRAMEWORK_PATH="$(PWD)/LIB_1/SFML/Frameworks"' > ~/.bash_profile && source ~/.bash_profile
 
 clear
 
