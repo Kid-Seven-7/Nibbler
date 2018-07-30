@@ -53,6 +53,22 @@ else
 	echo "${GREEN}glfw found${NC}"
 fi
 
+#glew installation
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
+echo "${BLUE}checking for glew...${NC}"
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
+if [ ! -d $HOME/.brew/Cellar/glew ];
+then
+	echo ${RED}glew not found${NC}
+	echo ${ORANGE}installing glew...${NC}
+	brew install glew 2>&1
+	brew link glew 2>&1
+else
+	echo "${GREEN}glew found${NC}"
+	echo "${GREEN}linking glfw...${NC}"
+	brew link glew 2>&1
+fi
+
 #SFML Frameworks check
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo "${BLUE}checking for sfml frameworks...${NC}"
