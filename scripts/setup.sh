@@ -150,13 +150,6 @@ printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo "${BLUE}checking for residual CMakeCache.txt...${NC}"
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 
-if [ -f LIB_3/GLFW/CMakeCache.txt ];
-then
-	echo ${RED}CMakeCache found${NC}
-	echo ${ORANGE}removing CMakeCache.txt...${NC}
-	rm LIB_3/GLFW/CMakeCache.txt
-fi
-
 #Builds GLFW
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo ${BLUE}building GLFW...${NC}
