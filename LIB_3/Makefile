@@ -6,7 +6,7 @@
 #    By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/23 09:51:26 by jngoma            #+#    #+#              #
-#    Updated: 2018/07/27 17:04:37 by amatshiy         ###   ########.fr        #
+#    Updated: 2018/07/30 10:12:03 by amatshiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,12 @@ CXX = -Wall -Werror -Wextra -std=c++11
 
 HEADER = -I ~/.brew/include
 
+GLEW_HEADER = -I ~/.brew/Cellar/glew/2.1.0/include
+
+GLEW_LIB = -L ~/.brew/Cellar/glew/2.1.0/lib
+
+GLEW_FLAGS = -DGLEW_STATIC -lGLEW
+
 LIB_1_HEADER = -I includes -I ../LIB_1/SFML/include
 
 LIB_2_HEADER = -I ../LIB_2/SDL/SDL2.framework/Headers
@@ -31,7 +37,8 @@ LD_FLAG = -shared -fPIC -lglfw3 -framework Cocoa -framework OpenGL -framework IO
 gflw: clean
 	@echo compiling glfw.so
 	@$(COMPILER) $(CXX) glfw.lib.cpp -o $(LIB_3_NAME) $(LD_FLAG) $(HEADER) \
-	$(LIB_1_HEADER) $(LIB_2_HEADER) $(LIB)
+	$(LIB_1_HEADER) $(LIB_2_HEADER) $(LIB) $(GLEW_HEADER) $(GLEW_LIB) \
+	$(GLEW_FLAGS) 
 	@mv $(LIB_3_NAME) ../bin/
 
 clean:

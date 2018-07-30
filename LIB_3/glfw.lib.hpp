@@ -6,13 +6,14 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:51:03 by jngoma            #+#    #+#             */
-/*   Updated: 2018/07/25 08:09:32 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/30 09:51:43 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GLFW_LIB_HPP
 #define GLFW_LIB_HPP
 
+#include <GL/glew.h>
 #include "../include/IGraphicsMain.hpp"
 
 class Glfw_Class : public IGraphicsMain {
