@@ -14,6 +14,7 @@
 #define SFML_LIB_HPP
 
 #include "../include/IGraphicsMain.hpp"
+#include "../include/Nibbler.hpp"
 
 class Sfml_Class : public IGraphicsMain
 {
@@ -21,7 +22,7 @@ class Sfml_Class : public IGraphicsMain
         int         _width;
         int         _height;
         std::string _name;
-        sf::Window  _window;
+        sf::RenderWindow  _window;
         Sfml_Class(void);
 
     public:
@@ -33,7 +34,7 @@ class Sfml_Class : public IGraphicsMain
         std::string     getName() const;
         void            createWindow();
         void            destroyWindow();
-        void            updateWindow();
+        int            updateWindow(std::vector<Part> &Snake);
 };
 
 extern "C"
