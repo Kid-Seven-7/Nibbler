@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:51:03 by jngoma            #+#    #+#             */
-/*   Updated: 2018/07/30 09:51:43 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/31 14:03:19 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ class Glfw_Class : public IGraphicsMain {
       void          destroyWindow();
       void          updateWindow();
 };
+
+// static  int CreateShader(const std::string& vertexShader, const std::string& fragmentShader);
 
 extern "C" 
 {

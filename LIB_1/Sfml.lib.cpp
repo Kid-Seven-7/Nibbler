@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 10:36:57 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/25 08:08:28 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/31 07:44:00 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ Sfml_Class::Sfml_Class(std::string name, int width, int height)
     this->_name = name;
     this->_width = width;
     this->_height = height;
+    std::cout << "SFML is now running..." << std::endl;
 }
 
 Sfml_Class::~Sfml_Class() {}

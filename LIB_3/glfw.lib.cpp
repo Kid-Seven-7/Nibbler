@@ -6,11 +6,16 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:50:59 by jngoma            #+#    #+#             */
-/*   Updated: 2018/07/30 14:35:26 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/31 14:03:02 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "glfw.lib.hpp"
+
+// static int CreateShader(std::string& vertexShader, std::string& fragmentShader)
+// {
+
+// }
 
 Glfw_Class::Glfw_Class(std::string name, int width, int height)
 {

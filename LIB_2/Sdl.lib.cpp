@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:11:23 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/25 07:43:31 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/07/31 07:42:15 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ Sdl_Class::Sdl_Class(std::string name, int width, int height)
     this->_width = width;
     this->_height = height;
     this->_window = NULL;
+    std::cout << "SDL is now running..." << std::endl;
 }
 
 Sdl_Class::~Sdl_Class() {}

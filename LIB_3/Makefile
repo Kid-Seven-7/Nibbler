@@ -6,7 +6,7 @@
 #    By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/23 09:51:26 by jngoma            #+#    #+#              #
-#    Updated: 2018/07/30 10:12:03 by amatshiy         ###   ########.fr        #
+#    Updated: 2018/08/01 07:49:38 by amatshiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,13 +32,15 @@ LIB_2_HEADER = -I ../LIB_2/SDL/SDL2.framework/Headers
 
 LIB = -L ~/.brew/lib
 
+HIDE_FLAG = 2>/dev/null
+
 LD_FLAG = -shared -fPIC -lglfw3 -framework Cocoa -framework OpenGL -framework IOKit -framework CoreFoundation -framework CoreVideo
 
 gflw: clean
 	@echo compiling glfw.so
 	@$(COMPILER) $(CXX) glfw.lib.cpp -o $(LIB_3_NAME) $(LD_FLAG) $(HEADER) \
 	$(LIB_1_HEADER) $(LIB_2_HEADER) $(LIB) $(GLEW_HEADER) $(GLEW_LIB) \
-	$(GLEW_FLAGS) 
+	$(GLEW_FLAGS) $(HIDE_FLAG) 
 	@mv $(LIB_3_NAME) ../bin/
 
 clean:
