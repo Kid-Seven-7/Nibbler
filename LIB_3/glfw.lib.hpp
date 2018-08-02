@@ -33,7 +33,7 @@ class Glfw_Class : public IGraphicsMain {
       std::string   getName() const;
       void          createWindow();
       void          destroyWindow();
-      int          updateWindow(std::vector<Part> &Snake);
+      int          	updateWindow(std::vector<Part> &Snake);
 };
 
 extern "C"

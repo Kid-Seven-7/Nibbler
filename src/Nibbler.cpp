@@ -10,8 +10,8 @@ Snake_class::Snake_class(int width, int height)
 :isAlive(true), direction(UP)
 {
 	//Creates a snake with 4 nodes
-	for (int i = 0; i < 20; ++i){
-		this->Snake.push_back(*addPart());
+	for (int i = 0; i < 4; ++i){
+		addPart();
 
 		//init nodes
 		this->Snake.at(i).isHead = false;
@@ -109,10 +109,12 @@ void Snake_class::moveSnake(){
 	this->Snake.at(Snake.size() - 1).isTail = true;
 }
 
-Part *Snake_class::addPart(){
+void Snake_class::addPart(){
 	//Adds a node to the snake
 	//TODO
-	return (new Part);
+	Part p;
+	this->Snake.push_back(p);
+	// return ();
 }
 
 void Snake_class::setDirection(int dirValue){

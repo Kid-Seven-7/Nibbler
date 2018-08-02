@@ -53,11 +53,12 @@ void *StartEngine::switchLib(int libChoice){
 
 void StartEngine::mainControl(){
   void *dl_handler;
-	int dir = 200;
+	int direction = 0;
   std::string window[] = {"createSFMLWindow", "createSDLWindow", "createGLFWWindow"};
 
   //choosing lib to call
   dl_handler = switchLib(this->_libChoice);
+
   //checking dl_handler
   if (!dl_handler)
     dlerror_wrapper();
@@ -73,25 +74,34 @@ void StartEngine::mainControl(){
 	Snake_class test(this->_height, this->_width);
 	std::vector<Part> Snake;
 	newWindow->createWindow();
-	while(true){
-	// for (int i = 0; i < 10; ++i){
-		// usleep(1000);
-		Snake = test.getVector();
-		// dir = newWindow->updateWindow(Snake);
-		test.setDirection(newWindow->updateWindow(Snake));
-		if (test.getDirection() == UP)
-			Snake.at(0).y -= 20;
-		if (test.getDirection() == DOWN)
-			Snake.at(0).y += 20;
-		if(test.getDirection() == LEFT)
-			Snake.at(0).x -= 20;
-		if(test.getDirection() == RIGHT)
-			Snake.at(0).x += 20;
 
+	while(true){
+		// usleep(1000); //will control speed/level???
+
+		//Get vector
+		Snake = test.getVector();
+
+		//validate return
+		direction = newWindow->updateWindow(Snake);
+		if (direction == -1)
+			break;
+		if (direction == 200){
+			test.addPart();
+			Snake = test.getVector();
+			test.setVector(Snake);
+		}
+
+		//Set direction from lib
+		test.setDirection(direction);
+
+		//Move snake head
+		Snake.at(0).y += (test.getDirection() == UP) ? -20 : 0;
+		Snake.at(0).y += (test.getDirection() == DOWN) ? 20 : 0;
+		Snake.at(0).x += (test.getDirection() == LEFT) ? -20 : 0;
+		Snake.at(0).x += (test.getDirection() == RIGHT) ? 20 : 0;
+
+		//Update snake parts
 		for(size_t i = 1; i < Snake.size(); ++i){
-			if (i == Snake.size() - 1){
-				std::cout << '\n';
-			}
 			Snake.at(i).prevX = Snake.at(i).x;
 			Snake.at(i).prevY = Snake.at(i).y;
 			Snake.at(i).x = Snake.at(i).nextX;
@@ -100,13 +110,12 @@ void StartEngine::mainControl(){
 			Snake.at(i).nextY = Snake.at(i - 1).y;
 		}
 
+		//Update vector
 		test.setVector(Snake);
-		if (!(test.collision())){
-			while (true){
-				newWindow->destroyWindow();
-			}
-			// break;
-		}
+
+		//Collision check
+		if (!(test.collision()))
+			newWindow->destroyWindow();
 	}
 
   void(*WindowDestructor)(IGraphicsMain *);

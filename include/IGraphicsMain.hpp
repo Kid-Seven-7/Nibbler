@@ -38,7 +38,7 @@ class IGraphicsMain
         virtual std::string getName() const = 0; //not needed
         virtual void        createWindow() = 0;
         virtual void        destroyWindow() = 0;
-        virtual int        updateWindow(std::vector<Part> &Snake) = 0;
+        virtual int        	updateWindow(std::vector<Part> &Snake) = 0;
         virtual 						~IGraphicsMain(){}
 };
 #endif

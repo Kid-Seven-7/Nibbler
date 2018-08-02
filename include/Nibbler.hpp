@@ -36,7 +36,7 @@ class Snake_class {
 		void setDirection(int dirValue);
 		int getDirection();
 		void moveSnake();
-		Part *addPart();
+		void addPart();
 		bool collision();
 		std::vector<Part> getVector();
 		void setVector(std::vector<Part> &Snake);
