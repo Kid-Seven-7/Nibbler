@@ -15,19 +15,7 @@ printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo 'export DYLD_FRAMEWORK_PATH="$(PWD)/LIB_1/SFML/Frameworks"' > ~/.profile
 
 #zshrc setup
-printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
-echo "${BLUE}checking for zshrc...${NC}"
-printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
-if [ ! -d $HOME/.zshrc ];
-then
-	echo ${RED}zshrc not found${NC}
-	echo ${ORANGE}creating zshrc...${NC}
-  touch $HOME/.zshrc
-  echo "source $HOME/.brew_fix.zsh" > $HOME/.zshrc
-  source ~/.zshrc
-else
-	echo ${GREEN}brew found${NC}
-fi
+source $HOME/.brew_fix.zsh
 
 #brew installation
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
