@@ -162,8 +162,9 @@ else
 	mkdir build
 	cd build
 	echo ${CYAN}
-	cmake ../LIB_3/GLFW/ > /dev/null 2>&1
-	make install ../LIB_3/GLFW/ > /dev/null 2>&1
+	cmake ../LIB_3/GLFW/
+	make ../LIB_3/GLFW/
+	make install ../LIB_3/GLFW/
 	echo ${NC}
 	cd ..
 fi
