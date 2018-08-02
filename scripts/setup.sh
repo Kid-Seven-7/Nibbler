@@ -175,9 +175,10 @@ else
 	mkdir build
 	cd build
 	echo ${CYAN}
-	cmake ../LIB_3/GLFW/
-	make ../LIB_3/GLFW/
-	make install ../LIB_3/GLFW/
+	cd LIB_3/GLFW/
+	cmake .
+	make
+	make install
 	echo ${NC}
 	cd ..
 fi
