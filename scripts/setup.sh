@@ -23,7 +23,7 @@ then
 	echo ${RED}zshrc not found${NC}
 	echo ${ORANGE}creating zshrc...${NC}
   touch $HOME/.zshrc
-  echo "source $HOME/.brew_fix.zsh"
+  echo "source $HOME/.brew_fix.zsh" > $HOME/.zshrc
   source ~/.zshrc
 else
 	echo ${GREEN}brew found${NC}
