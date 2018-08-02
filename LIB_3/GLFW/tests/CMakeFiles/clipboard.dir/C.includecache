@@ -6,26 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/getopt.c
-getopt.h
-/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/getopt.h
-stddef.h
--
-string.h
--
-
-/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/getopt.h
-
-/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/glad.c
-stdio.h
--
-stdlib.h
--
-string.h
--
-glad/glad.h
--
-
 /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests/clipboard.c
 glad/glad.h
 -

@@ -40,7 +40,7 @@ gflw: clean
 	@echo compiling glfw.so
 	@$(COMPILER) $(CXX) glfw.lib.cpp -o $(LIB_3_NAME) $(LD_FLAG) $(HEADER) \
 	$(LIB_1_HEADER) $(LIB_2_HEADER) $(LIB) $(GLEW_HEADER) $(GLEW_LIB) \
-	$(GLEW_FLAGS) $(HIDE_FLAG) 
+	$(GLEW_FLAGS)
 	@mv $(LIB_3_NAME) ../bin/
 
 clean:

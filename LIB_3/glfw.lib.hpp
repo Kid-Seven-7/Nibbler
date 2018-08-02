@@ -34,6 +34,7 @@ class Glfw_Class : public IGraphicsMain {
       void          createWindow();
       void          destroyWindow();
       void          updateWindow();
+      void          processInput();
 };
 
 // static  int CreateShader(const std::string& vertexShader, const std::string& fragmentShader);

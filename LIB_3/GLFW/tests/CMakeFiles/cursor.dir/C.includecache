@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/deps/glad.c
-stdio.h
--
-stdlib.h
--
-string.h
--
-glad/glad.h
--
-
 /goinfre/amatshiy/Desktop/Nibbler_42/LIB_3/GLFW/tests/cursor.c
 glad/glad.h
 -

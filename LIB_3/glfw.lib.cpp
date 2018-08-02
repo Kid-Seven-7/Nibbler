@@ -42,46 +42,88 @@ std::string		Glfw_Class::getName() const
 	return this->_name;
 }
 
+void			Glfw_Class::processInput()
+{
+	if (glfwGetKey(this->_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		glfwSetWindowShouldClose(this->_window, true);
+}
+
 void			Glfw_Class::createWindow()
 {
 	if (!glfwInit())
-		return;
-
-	this->_window = glfwCreateWindow(this->getWidth(), this->getHeight(), this->getName().c_str(), NULL, NULL);
-	if (!this->_window)
 	{
-		glfwTerminate();
-		return;
+		std::cout << "GLFW failed to start" << std::endl;
+		exit(1);
 	}
 
-	glfwMakeContextCurrent(this->_window);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
+	this->_window = glfwCreateWindow(this->_width, this->_height, "Nibbler_42", NULL, NULL);
+	if (this->_window == NULL)
+	{
+		std::cout << "Error: Failed to create glfw window." << std::endl;
+		glfwTerminate();
+		exit(1);
+	}
+	glfwMakeContextCurrent(this->_window);
 	//Initializing glew
 	if (glewInit() != GLEW_OK)
+	{
 		std::cout << "Glew Error!" << std::endl;
+		exit(1);
+	}
 
-	unsigned int	buffer;
-	float	positions[6] = {
-		-0.5f, -0.5f,
-		0.0f, 0.5f,
-		0.5f, -0.5f
-	};
-
-	glGenBuffers(1, &buffer);
-	glBindBuffer(GL_ARRAY_BUFFER, buffer);
-	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_STATIC_DRAW);
-
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
-	// glBindBuffer(GL_ARRAY_BUFFER, 0);
+	//setting dimensions
+	glViewport(0, 0, this->_width, this->_height);
 	while (!glfwWindowShouldClose(this->_window))
 	{
+		processInput();
+
+		//rendering here
+		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
 		glfwSwapBuffers(this->_window);
 		glfwPollEvents();
 	}
-	destroyWindow();
+	glfwTerminate();
+	// if (!glfwInit())
+	// 	return;
+
+	// this->_window = glfwCreateWindow(this->getWidth(), this->getHeight(), this->getName().c_str(), NULL, NULL);
+	// if (!this->_window)
+	// {
+	// 	glfwTerminate();
+	// 	return;
+	// }
+
+	// glfwMakeContextCurrent(this->_window);
+
+
+	// unsigned int	buffer;
+	// float	positions[6] = {
+	// 	-0.5f, -0.5f,
+	// 	0.0f, 0.5f,
+	// 	0.5f, -0.5f
+	// };
+
+	// glGenBuffers(1, &buffer);
+	// glBindBuffer(GL_ARRAY_BUFFER, buffer);
+	// glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_STATIC_DRAW);
+
+	// glEnableVertexAttribArray(0);
+	// glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
+	// // glBindBuffer(GL_ARRAY_BUFFER, 0);
+	// while (!glfwWindowShouldClose(this->_window))
+	// {
+	// 	glClear(GL_COLOR_BUFFER_BIT);
+	// 	glDrawArrays(GL_TRIANGLES, 0, 3);
+	// 	glfwSwapBuffers(this->_window);
+	// 	glfwPollEvents();
+	// }
+	// destroyWindow();
 }
 
 void		Glfw_Class::destroyWindow() 
