@@ -80,6 +80,10 @@ void StartEngine::mainControl(){
 
 		//Get vector
 		Snake = test.getVector();
+		if (Snake[0].x < 0 || Snake[0].x > this->_width)
+			newWindow->destroyWindow();
+		if (Snake[0].y < 0 || Snake[0].y > this->_height)
+			newWindow->destroyWindow();
 
 		//validate return
 		direction = newWindow->updateWindow(Snake);
