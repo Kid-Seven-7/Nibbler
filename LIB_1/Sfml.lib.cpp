@@ -52,26 +52,35 @@ void Sfml_Class::createWindow(){
 }
 
 void Sfml_Class::destroyWindow(){
+	int r;
+	bool positive = true;
+
 	//Game over texture
 	sf::Texture over;
 
 	//Load texture from file
 	if (!over.loadFromFile("assets/background/gameover.png"))
-		return;
+	return;
 
 	//Create sprite with game over texture
 	sf::Sprite gameOver(over);
 
 	//Scale sprite size
 	sf::Vector2f scale = gameOver.getScale();
+	sf::Vector2f pos = gameOver.getPosition();
 	gameOver.setScale(scale.x * 2, scale.y * 2);
+	gameOver.setPosition(((this->_width/2) + 1000), this->_height);
 
-	this->_window.clear();
-	this->_window.draw(gameOver);
-	this->_window.display();
-
-	//closes window when 'esc' is pressed
 	while (true){
+		//closes window when 'esc' is pressed
+		r = (positive)?10:-10;
+		gameOver.setPosition(pos.x + r, pos.y + r);
+		positive = !positive;
+
+		this->_window.clear();
+		this->_window.draw(gameOver);
+		this->_window.display();
+
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
 			std::cout << "Closing SFML window..." << '\n';
 			this->_window.close();
@@ -79,6 +88,10 @@ void Sfml_Class::destroyWindow(){
 			break;
 		}else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)){
 			std::cout << "Restarting game" << '\n';
+			std::cout << "Closing SFML window..." << '\n';
+			this->_window.close();
+			std::cout << "SFML window closed" << '\n';
+			// this->_window.close();
 			createWindow();
 			break;
 		}
@@ -104,15 +117,16 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake){
 	sf::Texture food;
 	std::vector<sf::Sprite> snakeSprites;
 
-	int x, y, foodX, foodY;
+	int x, y, foodX, foodY, food_choice;
 	sf::Texture snakeHead;
 	sf::Texture Body;
 
 	if (!(foodOnScreen)){
 		foodX = rand() % (this->_width - 100) + 1;
 		foodY = rand() % (this->_height - 100) + 1;
-		std::cout << "foodX :" <<foodX<< '\n';
-		std::cout << "foodY :" <<foodY<< '\n';
+		food_choice = rand() % 3 + 1;
+		std::cout << "foodX :" << foodX << '\n';
+		std::cout << "foodY :" << foodY << '\n';
 	}
 
 	if (!snakeHead.loadFromFile("assets/sprites/head.png"))
@@ -125,79 +139,40 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake){
     return -1;
 	sf::Sprite bg_sprite(bg_texture);
 
-	if (!food.loadFromFile("assets/sprites/mouse.png"))
-    return -1;
+	if (food_choice == 1){
+		if (!food.loadFromFile("assets/sprites/chips.png"))
+		return -1;
+	}
+	if (food_choice == 2){
+		if (!food.loadFromFile("assets/sprites/pizza.png"))
+		return -1;
+	}
+	if (food_choice == 3){
+		if (!food.loadFromFile("assets/sprites/dorito.png"))
+		return -1;
+	}
+	// if (food_choice == ){
+	// 	if (!food.loadFromFile("assets/sprites/mouse.png"))
+	// 	return -1;
+	// }
+
+
 	sf::Sprite food_sprite(food);
 
 	food_sprite.setPosition(foodX, foodY);
 	pos = food_sprite.getPosition();
 
-	//Adding texture to a sprite
-	sf::Sprite SnakeSprite0(Body);
-	sf::Sprite SnakeSprite1(Body);
-	sf::Sprite SnakeSprite2(Body);
-	sf::Sprite SnakeSprite3(Body);
-	sf::Sprite SnakeSprite4(Body);
-	sf::Sprite SnakeSprite5(Body);
-	sf::Sprite SnakeSprite6(Body);
-	sf::Sprite SnakeSprite7(Body);
-	sf::Sprite SnakeSprite8(Body);
-	sf::Sprite SnakeSprite9(Body);
-	sf::Sprite SnakeSprite10(Body);
-	sf::Sprite SnakeSprite11(Body);
-	sf::Sprite SnakeSprite12(Body);
-	sf::Sprite SnakeSprite13(Body);
-	sf::Sprite SnakeSprite14(Body);
-	sf::Sprite SnakeSprite15(Body);
-	sf::Sprite SnakeSprite16(Body);
-	sf::Sprite SnakeSprite17(Body);
-	sf::Sprite SnakeSprite18(Body);
-	sf::Sprite SnakeSprite19(Body);
-	sf::Sprite SnakeSprite20(Body);
-	sf::Sprite SnakeSprite21(Body);
-	sf::Sprite SnakeSprite22(Body);
-	sf::Sprite SnakeSprite23(Body);
-	sf::Sprite SnakeSprite24(Body);
-	sf::Sprite SnakeSprite25(Body);
-	sf::Sprite SnakeSprite26(Body);
-	sf::Sprite SnakeSprite27(Body);
-	sf::Sprite SnakeSprite28(Body);
-	sf::Sprite SnakeSprite29(Body);
+	sf::Sprite SnakeSprite[100];
+	snakeSprites.reserve(100);
 
-	snakeSprites.reserve(30);
-	snakeSprites.push_back(SnakeSprite0);
-	snakeSprites.push_back(SnakeSprite1);
-	snakeSprites.push_back(SnakeSprite2);
-	snakeSprites.push_back(SnakeSprite3);
-	snakeSprites.push_back(SnakeSprite4);
-	snakeSprites.push_back(SnakeSprite5);
-	snakeSprites.push_back(SnakeSprite6);
-	snakeSprites.push_back(SnakeSprite7);
-	snakeSprites.push_back(SnakeSprite8);
-	snakeSprites.push_back(SnakeSprite9);
-	snakeSprites.push_back(SnakeSprite10);
-	snakeSprites.push_back(SnakeSprite11);
-	snakeSprites.push_back(SnakeSprite12);
-	snakeSprites.push_back(SnakeSprite13);
-	snakeSprites.push_back(SnakeSprite14);
-	snakeSprites.push_back(SnakeSprite15);
-	snakeSprites.push_back(SnakeSprite16);
-	snakeSprites.push_back(SnakeSprite17);
-	snakeSprites.push_back(SnakeSprite18);
-	snakeSprites.push_back(SnakeSprite19);
-	snakeSprites.push_back(SnakeSprite20);
-	snakeSprites.push_back(SnakeSprite21);
-	snakeSprites.push_back(SnakeSprite22);
-	snakeSprites.push_back(SnakeSprite23);
-	snakeSprites.push_back(SnakeSprite24);
-	snakeSprites.push_back(SnakeSprite25);
-	snakeSprites.push_back(SnakeSprite26);
-	snakeSprites.push_back(SnakeSprite27);
-	snakeSprites.push_back(SnakeSprite28);
-	snakeSprites.push_back(SnakeSprite29);
+	// Loop over each sprite, setting their textures
+	for (int i = 0; i < 100; ++i) {
+	  SnakeSprite[i].setTexture(Body);
+		snakeSprites.push_back(SnakeSprite[i]);
+	}
 
 	//Get base scale for all subsequent sprites
-	sf::Vector2f scale1 = SnakeSprite0.getScale();
+	sf::Vector2f scale1 = SnakeSprite[0].getScale();
 
 	for (size_t i = 0; i < Snake.size(); ++i){
 		x = Snake[i].x;
@@ -211,7 +186,6 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake){
 	}
 
 	food_sprite.setScale(scale1.x / 2, scale1.y / 2);
-
 
 	//scaling the bg_sprite
 	sf::Vector2f scale = bg_sprite.getScale();
@@ -230,9 +204,7 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake){
 	if (isInRange(Snake.at(0).x, Snake.at(0).y, pos.x, pos.y)){
 		foodOnScreen = false;
 		return 200;
-		// std::cout << "add part" << '\n';
 	}
-
 
 	//Draw all spritesin vector
 	for (size_t i = 0; i < Snake.size(); ++i)
