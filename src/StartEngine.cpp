@@ -76,7 +76,7 @@ void StartEngine::mainControl(){
 	newWindow->createWindow();
 
 	while(true){
-		// usleep(1000); //will control speed/level???
+		usleep(1000); //will control speed/level???
 
 		//Get vector
 		Snake = test.getVector();
@@ -110,12 +110,14 @@ void StartEngine::mainControl(){
 			Snake.at(i).nextY = Snake.at(i - 1).y;
 		}
 
+		//Collision check
+		if (!(test.collision())){
+			test.reset();
+			newWindow->destroyWindow();
+		}
+
 		//Update vector
 		test.setVector(Snake);
-
-		//Collision check
-		if (!(test.collision()))
-			newWindow->destroyWindow();
 	}
 
   void(*WindowDestructor)(IGraphicsMain *);
