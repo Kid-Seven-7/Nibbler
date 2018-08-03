@@ -40,6 +40,7 @@ class Snake_class {
 		bool collision();
 		std::vector<Part> getVector();
 		void setVector(std::vector<Part> &Snake);
+		void reset();
 };
 
 extern	"C"
