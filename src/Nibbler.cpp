@@ -111,10 +111,8 @@ void Snake_class::moveSnake(){
 
 void Snake_class::addPart(){
 	//Adds a node to the snake
-	//TODO
 	Part p;
 	this->Snake.push_back(p);
-	// return ();
 }
 
 void Snake_class::setDirection(int dirValue){
@@ -171,6 +169,12 @@ void Snake_class::setVector(std::vector<Part> &Snake){
 
 	for (size_t i = num; i < diff; ++i)
 		this->Snake.push_back(Snake.at(i));
+}
+
+void Snake_class::reset(){
+	size_t snakeLen = this->Snake.size() - 4;
+	for (size_t i = 0; i < snakeLen; ++i)
+		this->Snake.pop_back();
 }
 
 Snake_class *snakeClass(int width, int height)
