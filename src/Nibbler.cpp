@@ -1,4 +1,5 @@
 #include "../include/Nibbler.hpp"
+#include <iostream>
 
 //Kinda useless
 Snake_class::Snake_class()
@@ -172,8 +173,7 @@ void Snake_class::setVector(std::vector<Part> &Snake){
 }
 
 void Snake_class::reset(){
-	size_t snakeLen = this->Snake.size() - 4;
-	for (size_t i = 0; i < snakeLen; ++i)
+	while (this->Snake.size() > 4)
 		this->Snake.pop_back();
 }
 

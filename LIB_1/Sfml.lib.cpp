@@ -86,14 +86,6 @@ void Sfml_Class::destroyWindow(){
 			this->_window.close();
 			std::cout << "SFML window closed" << '\n';
 			break;
-		}else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)){
-			std::cout << "Restarting game" << '\n';
-			std::cout << "Closing SFML window..." << '\n';
-			this->_window.close();
-			std::cout << "SFML window closed" << '\n';
-			// this->_window.close();
-			createWindow();
-			break;
 		}
 	}
 
@@ -102,8 +94,8 @@ void Sfml_Class::destroyWindow(){
 bool isInRange(int x, int y, int foodX, int foodY){
 	int isX = 0;
 	int isY = 0;
-	isX = ((x < foodX + 20) && (x > foodX - 20)) ? 1 : 0;
-	isY = ((y < foodY + 20) && (y > foodY - 20)) ? 1 : 0;
+	isX = ((x < foodX + 25) && (x > foodX - 25)) ? 1 : 0;
+	isY = ((y < foodY + 25) && (y > foodY - 25)) ? 1 : 0;
 	return (isX == 1 && isY == 1) ? true : false;
 }
 
@@ -124,9 +116,7 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake){
 	if (!(foodOnScreen)){
 		foodX = rand() % (this->_width - 100) + 1;
 		foodY = rand() % (this->_height - 100) + 1;
-		food_choice = rand() % 3 + 1;
-		std::cout << "foodX :" << foodX << '\n';
-		std::cout << "foodY :" << foodY << '\n';
+		food_choice = rand() % 5 + 1;
 	}
 
 	if (!snakeHead.loadFromFile("assets/sprites/head.png"))
@@ -142,19 +132,22 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake){
 	if (food_choice == 1){
 		if (!food.loadFromFile("assets/sprites/chips.png"))
 		return -1;
-	}
-	if (food_choice == 2){
+	}else	if (food_choice == 2){
 		if (!food.loadFromFile("assets/sprites/pizza.png"))
 		return -1;
-	}
-	if (food_choice == 3){
+	}else	if (food_choice == 3){
 		if (!food.loadFromFile("assets/sprites/dorito.png"))
 		return -1;
+	}else	if (food_choice == 4){
+		if (!food.loadFromFile("assets/sprites/icecream.png"))
+		return -1;
+	}else	if (food_choice == 4){
+		if (!food.loadFromFile("assets/sprites/icecream.png"))
+		return -1;
+	}else	if (food_choice == 5){
+		if (!food.loadFromFile("assets/sprites/chocchip.png"))
+		return -1;
 	}
-	// if (food_choice == ){
-	// 	if (!food.loadFromFile("assets/sprites/mouse.png"))
-	// 	return -1;
-	// }
 
 
 	sf::Sprite food_sprite(food);
@@ -162,11 +155,11 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake){
 	food_sprite.setPosition(foodX, foodY);
 	pos = food_sprite.getPosition();
 
-	sf::Sprite SnakeSprite[100];
-	snakeSprites.reserve(100);
+	sf::Sprite SnakeSprite[250];
+	snakeSprites.reserve(250);
 
 	// Loop over each sprite, setting their textures
-	for (int i = 0; i < 100; ++i) {
+	for (int i = 0; i < 250; ++i) {
 	  SnakeSprite[i].setTexture(Body);
 		snakeSprites.push_back(SnakeSprite[i]);
 	}

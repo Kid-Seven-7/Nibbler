@@ -62,6 +62,7 @@ void        Sdl_Class::destroyWindow(){
 int        Sdl_Class::updateWindow(std::vector<Part> &Snake){
 	(void)Snake;
   SDL_UpdateWindowSurface( this->_window );
+
 	return 0;
 }
 
