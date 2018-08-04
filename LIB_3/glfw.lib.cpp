@@ -48,6 +48,12 @@ void			Glfw_Class::processInput()
 		glfwSetWindowShouldClose(this->_window, true);
 }
 
+void			resizePort(GLFWwindow *window, int width, int height)
+{
+	window = NULL;
+	glViewport(0, 0, width, height);
+}
+
 void			Glfw_Class::createWindow()
 {
 	if (!glfwInit())
@@ -75,9 +81,44 @@ void			Glfw_Class::createWindow()
 		std::cout << "Glew Error!" << std::endl;
 		exit(1);
 	}
-
 	//setting dimensions
-	glViewport(0, 0, this->_width, this->_height);
+	glfwSetFramebufferSizeCallback(this->_window, resizePort);
+
+	float vertices[] = {
+		-0.5f, -0.5f, 0.0f,
+		0.5f, -0.5f, 0.0f,
+		0.0f, 0.5f, 0.0
+	};
+
+	unsigned int VBO;
+	glGenBuffers(1, &VBO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+	const char * vertexShaderSource = "#version 330 core\n"
+										"layout (location = 0) in vec3 aPos;\n"
+										"void main()\n"
+										"{\n"
+										"	gl_Position = vec4(aPos.x, aPos.y, aPos.z, -1.0)"
+										"}\n";
+
+	const char * fragmentShaderSource = "#version 330 core\n"
+										"out vec4 FragColor;\n"
+										"void main()\n"
+										"{\n"
+										"	FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);"
+										"}";
+
+	unsigned int vertexShader;
+	unsigned int fragmentShader;
+
+	vertexShader = glCreateShader(GL_VERTEX_SHADER);    
+	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
+	glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
+	glCompileShader(vertexShader);
+	glCompileShader(fragmentShader);
+
 	while (!glfwWindowShouldClose(this->_window))
 	{
 		processInput();
@@ -89,41 +130,6 @@ void			Glfw_Class::createWindow()
 		glfwPollEvents();
 	}
 	glfwTerminate();
-	// if (!glfwInit())
-	// 	return;
-
-	// this->_window = glfwCreateWindow(this->getWidth(), this->getHeight(), this->getName().c_str(), NULL, NULL);
-	// if (!this->_window)
-	// {
-	// 	glfwTerminate();
-	// 	return;
-	// }
-
-	// glfwMakeContextCurrent(this->_window);
-
-
-	// unsigned int	buffer;
-	// float	positions[6] = {
-	// 	-0.5f, -0.5f,
-	// 	0.0f, 0.5f,
-	// 	0.5f, -0.5f
-	// };
-
-	// glGenBuffers(1, &buffer);
-	// glBindBuffer(GL_ARRAY_BUFFER, buffer);
-	// glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_STATIC_DRAW);
-
-	// glEnableVertexAttribArray(0);
-	// glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
-	// // glBindBuffer(GL_ARRAY_BUFFER, 0);
-	// while (!glfwWindowShouldClose(this->_window))
-	// {
-	// 	glClear(GL_COLOR_BUFFER_BIT);
-	// 	glDrawArrays(GL_TRIANGLES, 0, 3);
-	// 	glfwSwapBuffers(this->_window);
-	// 	glfwPollEvents();
-	// }
-	// destroyWindow();
 }
 
 void		Glfw_Class::destroyWindow() 

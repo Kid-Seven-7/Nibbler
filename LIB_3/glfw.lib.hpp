@@ -39,6 +39,8 @@ class Glfw_Class : public IGraphicsMain {
 
 // static  int CreateShader(const std::string& vertexShader, const std::string& fragmentShader);
 
+static void         resizePort(GLFWwindow *window, int width, int height);
+
 extern "C" 
 {
     Glfw_Class  *createGLFWWindow(std::string name, int width, int height);

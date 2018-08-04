@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 08:58:33 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/26 08:53:42 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/04 13:15:59 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,13 @@ void    StartEngine::mainControl()
     std::string window[] = {"createSFMLWindow", "createSDLWindow", "createGLFWWindow"};
 
     //choosing lib to call
-    dl_handler = switchLib(this->_libChoice);    
+    dl_handler = switchLib(this->_libChoice); 
     //checking dl_handler
     if (!dl_handler)
-        dlerror_wrapper();
+    {
+		std::cout << "Dlhandler error" << std::endl;
+		dlerror_wrapper();
+	}
 
     IGraphicsMain    *(*WindowCreator)(std::string, int width, int height);
         WindowCreator = (IGraphicsMain *(*)(std::string, int width, int height)) dlsym(dl_handler, window[this->_libChoice - 1].c_str());

@@ -51,8 +51,6 @@ download:
 	@git clone https://github.com/glfw/glfw LIB_3/GLFW
 	cd LIB_3/GLFW
 
-
-
 clean:
 	rm -rf $(LIB_1_NAME)
 	rm -rf $(LIB_2_NAME)
