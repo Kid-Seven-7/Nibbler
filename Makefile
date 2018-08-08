@@ -17,7 +17,7 @@ LIB_1_NAME = bin/sfml.so
 LIB_2_NAME = bin/sdl.so
 LIB_3_NAME = bin/glfw.so
 
-SRC = src/main.cpp src/StartEngine.cpp
+SRC = src/main.cpp src/StartEngine.cpp src/Nibbler.cpp
 
 LIB_1_HEADER = -I includes -I LIB_1/SFML/include
 LIB_2_HEADER = -I LIB_2/SDL/SDL2.framework/Headers

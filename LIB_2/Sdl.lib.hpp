@@ -33,7 +33,7 @@ class Sdl_Class : public IGraphicsMain
         std::string     getName() const;
         void            createWindow();
         void            destroyWindow();
-        void            updateWindow();
+        int            	updateWindow(std::vector<Part> &Snake);
 };
 
 extern "C"

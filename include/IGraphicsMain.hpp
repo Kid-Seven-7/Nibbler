@@ -10,13 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IGRAPHICS_MAIN
-#define IGRAPHICS_MAIN
+# ifndef IGRAPHICS_MAIN
+# define IGRAPHICS_MAIN
 
-#include <SFML/Window.hpp>
-#include <SDL.h>
-#include <GLFW/glfw3.h>
-#include <iostream>
+# include <SFML/Graphics.hpp>
+# include <SFML/Window.hpp>
+# include <SFML/OpenGL.hpp>
+# include <SFML/System.hpp>
+# include <SFML/Audio.hpp>
+# include <SFML/Config.hpp>
+# include <SFML/Main.hpp>
+# include <SFML/Network.hpp>
+# include <SDL.h>
+# include <GLFW/glfw3.h>
+# include <iostream>
+// # include "Nibbler.hpp"
+
+struct Part;
 
 enum eLibPath {sfml_path, sdl_path, glfw_path};
 
@@ -28,7 +38,7 @@ class IGraphicsMain
         virtual std::string getName() const = 0; //not needed
         virtual void        createWindow() = 0;
         virtual void        destroyWindow() = 0;
-        virtual void        updateWindow() = 0;
-        virtual ~IGraphicsMain(){}
+        virtual int        	updateWindow(std::vector<Part> &Snake) = 0;
+        virtual 						~IGraphicsMain(){}
 };
 #endif

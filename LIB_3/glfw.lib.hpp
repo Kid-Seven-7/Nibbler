@@ -33,15 +33,10 @@ class Glfw_Class : public IGraphicsMain {
       std::string   getName() const;
       void          createWindow();
       void          destroyWindow();
-      void          updateWindow();
-      void          processInput();
+      int          	updateWindow(std::vector<Part> &Snake);
 };
 
-// static  int CreateShader(const std::string& vertexShader, const std::string& fragmentShader);
-
-static void         resizePort(GLFWwindow *window, int width, int height);
-
-extern "C" 
+extern "C"
 {
     Glfw_Class  *createGLFWWindow(std::string name, int width, int height);
     void        deleteWindow(Glfw_Class *glfw_class);

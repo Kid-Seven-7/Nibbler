@@ -132,12 +132,15 @@ void			Glfw_Class::createWindow()
 	glfwTerminate();
 }
 
-void		Glfw_Class::destroyWindow() 
+void		Glfw_Class::destroyWindow()
 {
 	glfwTerminate();
 }
 
-void		Glfw_Class::updateWindow() {}
+int		Glfw_Class::updateWindow(std::vector<Part> &Snake) {
+	(void)Snake;
+	return 0;
+}
 
 Glfw_Class      *createGLFWWindow(std::string name, int width, int height)
 {
