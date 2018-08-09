@@ -8,6 +8,19 @@ CYAN='\033[0;36m'
 NC='\033[0m'
 
 clear
+#cloning submodules
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
+echo "${BLUE}checking for submodules...${NC}"
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
+if [ -z "$(ls -A /path/to/dir)" ];
+then
+	echo ${RED}submodules not found${NC}
+	echo ${ORANGE}cloning submodules...${NC}
+  git submodule update --init --recursive
+else
+	echo ${GREEN}submodules found${NC}
+fi
+
 #exports to .profile which needs to be sourced
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo "${BLUE}setting bash profile...${NC}"
