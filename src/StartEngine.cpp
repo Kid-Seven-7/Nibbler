@@ -111,7 +111,6 @@ void StartEngine::mainControl(){
 		usleep(speed);
 		//Get vector
 		if (this->_libChoice == 3)
-			std::cout << "Boom" << std::endl;
 		Snake = test.getVector();
 
 		//validate return

@@ -74,7 +74,6 @@ void			Glfw_Class::processInput()
 
 void			Glfw_Class::drawCell(float x, float y)
 {
-	std::cout << "Called" << std::endl;
 	glBegin(GL_QUADS);
 				// x // y
 	glColor3f  (0.20, 0.60, 0.20);
