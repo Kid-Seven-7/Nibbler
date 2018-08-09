@@ -15,11 +15,19 @@
 
 #include <GL/glew.h>
 #include "../include/IGraphicsMain.hpp"
+#include "../include/Nibbler.hpp"
+
+//Defines for directions
+# define UP 0
+# define DOWN 1
+# define RIGHT 2
+# define LEFT 3
 
 class Glfw_Class : public IGraphicsMain {
     private:
       int           _width;
       int           _height;
+      int           _ret;
 			std::string   _name;
       GLFWwindow *  _window;
       Glfw_Class(void);
@@ -33,6 +41,9 @@ class Glfw_Class : public IGraphicsMain {
       std::string   getName() const;
       void          createWindow();
       void          destroyWindow();
+      void          processInput();
+      void          drawCell(float x, float y);
+      float         processCoord(int coord, std::string type);
       int          	updateWindow(std::vector<Part> &Snake);
 };
 

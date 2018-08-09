@@ -6,11 +6,15 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:50:59 by jngoma            #+#    #+#             */
-/*   Updated: 2018/07/31 14:03:02 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/09 08:18:02 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "glfw.lib.hpp"
+#include <unistd.h>
+
+// #define STB_IMAGE_IMPLEMENTATION
+// #include "stb_image.h"
 
 // static int CreateShader(std::string& vertexShader, std::string& fragmentShader)
 // {
@@ -45,14 +49,43 @@ std::string		Glfw_Class::getName() const
 void			Glfw_Class::processInput()
 {
 	if (glfwGetKey(this->_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+	{
 		glfwSetWindowShouldClose(this->_window, true);
+		glfwTerminate();
+		exit(0);
+	}
+	if (glfwGetKey(this->_window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+	{
+		this->_ret = RIGHT;
+	}
+	if (glfwGetKey(this->_window, GLFW_KEY_LEFT) == GLFW_PRESS)
+	{
+		this->_ret = LEFT;
+	}
+	else if (glfwGetKey(this->_window, GLFW_KEY_UP) == GLFW_PRESS)
+	{
+		this->_ret = DOWN;
+	}
+	else if (glfwGetKey(this->_window, GLFW_KEY_DOWN) == GLFW_PRESS)
+	{
+		this->_ret = UP;
+	}
 }
 
-void			resizePort(GLFWwindow *window, int width, int height)
+void			Glfw_Class::drawCell(float x, float y)
 {
-	window = NULL;
-	glViewport(0, 0, width, height);
+	std::cout << "Called" << std::endl;
+	glBegin(GL_QUADS);
+				// x // y
+	glColor3f  (0.20, 0.60, 0.20);
+
+	glVertex2f(x, y); //top left 
+	glVertex2f(x, y - 0.09f); //bottom left
+	glVertex2f(x + 0.09f, y - 0.09f); //bottom right
+	glVertex2f(x + 0.09f, y); //top right
+	glEnd();
 }
+
 
 void			Glfw_Class::createWindow()
 {
@@ -62,10 +95,10 @@ void			Glfw_Class::createWindow()
 		exit(1);
 	}
 
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+	// glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	// glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+	// glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	// glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
 	this->_window = glfwCreateWindow(this->_width, this->_height, "Nibbler_42", NULL, NULL);
 	if (this->_window == NULL)
@@ -75,71 +108,68 @@ void			Glfw_Class::createWindow()
 		exit(1);
 	}
 	glfwMakeContextCurrent(this->_window);
-	//Initializing glew
+	glViewport(0, 0, this->_width, this->_height);
+	// //Initializing glew
 	if (glewInit() != GLEW_OK)
 	{
 		std::cout << "Glew Error!" << std::endl;
 		exit(1);
 	}
-	//setting dimensions
-	glfwSetFramebufferSizeCallback(this->_window, resizePort);
-
-	float vertices[] = {
-		-0.5f, -0.5f, 0.0f,
-		0.5f, -0.5f, 0.0f,
-		0.0f, 0.5f, 0.0
-	};
-
-	unsigned int VBO;
-	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-	const char * vertexShaderSource = "#version 330 core\n"
-										"layout (location = 0) in vec3 aPos;\n"
-										"void main()\n"
-										"{\n"
-										"	gl_Position = vec4(aPos.x, aPos.y, aPos.z, -1.0)"
-										"}\n";
-
-	const char * fragmentShaderSource = "#version 330 core\n"
-										"out vec4 FragColor;\n"
-										"void main()\n"
-										"{\n"
-										"	FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);"
-										"}";
-
-	unsigned int vertexShader;
-	unsigned int fragmentShader;
-
-	vertexShader = glCreateShader(GL_VERTEX_SHADER);    
-	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-	glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-	glCompileShader(vertexShader);
-	glCompileShader(fragmentShader);
-
-	while (!glfwWindowShouldClose(this->_window))
-	{
-		processInput();
-
-		//rendering here
-		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
-		glfwSwapBuffers(this->_window);
-		glfwPollEvents();
-	}
-	glfwTerminate();
 }
 
-void		Glfw_Class::destroyWindow()
+void		Glfw_Class::destroyWindow() 
 {
 	glfwTerminate();
 }
 
-int		Glfw_Class::updateWindow(std::vector<Part> &Snake) {
-	(void)Snake;
-	return 0;
+float		Glfw_Class::processCoord(int coord, std::string type)
+{
+	std::cout << std::endl;
+	if (type == "x")
+	{
+		float ans = (float)2 / this->_width;
+		float ans2 = (float)this->_width / 2;
+		float ans3 = (float)coord - ans2;
+		float ret = (float)ans3 * ans;
+		return (ret);
+	}
+	else
+	{
+		float ans = (float)2 / this->_height;
+		float ans2 = (float)this->_height / 2;
+		float ans3 = (float)coord - ans2;
+		float ret = (float)ans3 * ans;
+		return (ret);
+	}
+}
+
+int			Glfw_Class::updateWindow(std::vector<Part> &Snake)
+{
+	float x, y;
+	int	ret = this->_ret;
+
+	glfwShowWindow(this->_window);
+	glfwFocusWindow(this->_window);
+	int visible = glfwGetWindowAttrib(this->_window, GLFW_VISIBLE);
+
+	while (true)
+	{
+		usleep(100000); //to slow down the snake
+		glClear(GL_COLOR_BUFFER_BIT);
+		processInput();
+
+		for (size_t i = 0; i < Snake.size(); i++)
+		{
+			processInput();
+			x = processCoord(Snake[i].x, "x");
+			y = processCoord(Snake[i].y, "y");
+			drawCell(x, y);
+		}
+		glfwSwapBuffers(this->_window);
+		glfwPollEvents();
+		return (this->_ret);
+	}
+	return (ret);
 }
 
 Glfw_Class      *createGLFWWindow(std::string name, int width, int height)

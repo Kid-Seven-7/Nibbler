@@ -31,37 +31,8 @@ StartEngine::StartEngine(StartEngine const & src){
 	*this = src;
 }
 
-<<<<<<< HEAD
-void    *StartEngine::switchLib(int libChoice)
-{
-    std::string lib_path[] = {"bin/sfml.so", "bin/sdl.so", "bin/glfw.so"};
-
-    //choosing which lib to use
-    if (libChoice == 2)
-        return dlopen(lib_path[sdl_path].c_str(), RTLD_LAZY | RTLD_LOCAL);
-    else if (libChoice == 3)
-        return dlopen(lib_path[glfw_path].c_str(), RTLD_LAZY | RTLD_LOCAL);
-    else
-        return dlopen(lib_path[sfml_path].c_str(), RTLD_LAZY | RTLD_LOCAL);
-}
-
-void    StartEngine::mainControl()
-{
-    void    *dl_handler;
-    std::string window[] = {"createSFMLWindow", "createSDLWindow", "createGLFWWindow"};
-
-    //choosing lib to call
-    dl_handler = switchLib(this->_libChoice); 
-    //checking dl_handler
-    if (!dl_handler)
-    {
-		std::cout << "Dlhandler error" << std::endl;
-		dlerror_wrapper();
-	}
-=======
 StartEngine::~StartEngine()
 {}
->>>>>>> beta_branch
 
 StartEngine const & StartEngine::operator=(StartEngine const & rhs){
   (void)rhs;
@@ -107,6 +78,8 @@ void StartEngine::mainControl(){
 
 	while(true){ //Game loop
 		//Get vector
+		if (this->_libChoice == 3)
+			std::cout << "Boom" << std::endl;
 		Snake = test.getVector();
 
 		//validate return
@@ -134,9 +107,9 @@ void StartEngine::mainControl(){
 		Snake.at(0).x += (test.getDirection() == RIGHT) ? 20 : 0;
 
 		//check if snake head is out of bounds
-		if ((Snake[0].y < -20 || Snake[0].y > this->_height)
-		||(Snake[0].x < -20 || Snake[0].x > this->_width))
-			newWindow->destroyWindow();
+		// if ((Snake[0].y < -20 || Snake[0].y > this->_height)
+		// ||(Snake[0].x < -20 || Snake[0].x > this->_width))
+		// 	newWindow->destroyWindow();
 
 		//Update snake parts
 		for(size_t i = 1; i < Snake.size(); ++i){
@@ -171,14 +144,7 @@ void StartEngine::mainControl(){
   dlclose(dl_handler);
 }
 
-<<<<<<< HEAD
-void    StartEngine::dlerror_wrapper(void)
-{
-    std::cout << "Error: " << dlerror() << std::endl;
-    exit(EXIT_FAILURE);
-=======
 void StartEngine::dlerror_wrapper(void){
   std::cout << "Error: " << dlerror() << std::endl;
   exit(EXIT_FAILURE);
->>>>>>> beta_branch
 }

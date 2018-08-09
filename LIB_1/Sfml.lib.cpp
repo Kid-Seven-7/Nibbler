@@ -20,17 +20,8 @@
 # define LEFT 3
 
 Sfml_Class::Sfml_Class(std::string name, int width, int height)
-<<<<<<< HEAD
-{
-    this->_name = name;
-    this->_width = width;
-    this->_height = height;
-    std::cout << "SFML is now running..." << std::endl;
-}
-=======
 :_name(name), _width(width), _height(height)
 {}
->>>>>>> beta_branch
 
 Sfml_Class::~Sfml_Class() {}
 

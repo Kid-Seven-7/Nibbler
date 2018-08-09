@@ -16,9 +16,9 @@ SRC_A = GLFW/src
 
 COMPILER = clang++
 
-CXX = -Wall -Werror -Wextra -std=c++11
+CXX = -Wall -Werror -Wextra -std=c++11 -stdlib=libc++
 
-HEADER = -I ~/.brew/include
+HEADER = -I ~/.brew/include -I ../include
 
 GLEW_HEADER = -I ~/.brew/Cellar/glew/2.1.0/include
 

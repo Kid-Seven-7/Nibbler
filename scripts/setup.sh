@@ -35,11 +35,7 @@ if [ ! -d $HOME/.brew/Cellar/cmake ];
 then
 	echo ${RED}cmake not found${NC}
 	echo ${ORANGE}installing cmake...${NC}
-<<<<<<< HEAD
-  brew install cmake; source ~/.zshrc
-=======
   brew install cmake;	source ~/.zshrc
->>>>>>> beta_branch
 else
 	echo "${GREEN}cmake found${NC}"
 fi
