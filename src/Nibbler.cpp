@@ -179,22 +179,22 @@ void Snake_class::reset(){
 
 void	Snake_class::generateFood(int width, int height, int & food_x, int & food_y, std::vector<Part> &Snake)
 {
-	(void)Snake;
+	// (void)Snake;
 
 	srand(time(NULL));
-	int rand_food_x = rand() % width;
-	int rand_food_y = rand() % height;
+	int rand_food_x = rand() % (width - 100) + 1;
+	int rand_food_y = rand() % (width - 100) + 1;
 
 	for (size_t i = 0; i < Snake.size(); i++)
 	{
 		if (Snake[i].x == rand_food_x)
 		{
-			rand_food_x = rand() % width;
+			rand_food_x = rand() % (width - 100) + 1;
 			i = 0;
 		}
 		if (Snake[i].y == rand_food_y)
 		{
-			rand_food_y = rand() % height;
+			rand_food_y = rand() % (height - 100) + 1;
 			i = 0;
 		}
 	}
