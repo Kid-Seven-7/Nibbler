@@ -1,3 +1,6 @@
 [submodule "LIB_1/SFML"]
 	path = LIB_1/SFML
 	url = https://github.com/Kid-Seven-7/SFML.git
+[submodule "LIB_2/SDL"]
+	path = LIB_2/SDL
+	url = https://github.com/Kid-Seven-7/SDL.git
