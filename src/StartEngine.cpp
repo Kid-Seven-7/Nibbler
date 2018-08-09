@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 08:58:33 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/04 13:15:59 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/09 11:50:02 by jngoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,6 @@ void StartEngine::mainControl(){
 	while(true){ //Game loop
 		usleep(speed);
 		//Get vector
-		if (this->_libChoice == 3)
 		Snake = test.getVector();
 
 		//validate return
