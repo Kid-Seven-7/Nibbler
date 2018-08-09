@@ -7,3 +7,6 @@
 [submodule "LIB_3/GLFW"]
 	path = LIB_3/GLFW
 	url = https://github.com/Kid-Seven-7/GLFW.git
+[submodule "Assets"]
+	path = Assets
+	url = https://github.com/Kid-Seven-7/Assets.git
