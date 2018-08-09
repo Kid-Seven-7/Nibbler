@@ -1,8 +1,0 @@
-/goinfre/amatshiy/.brew/include/GLFW/glfw3.h
-/goinfre/amatshiy/.brew/include/GLFW/glfw3native.h
-/goinfre/amatshiy/.brew/lib/cmake/glfw3/glfw3Config.cmake
-/goinfre/amatshiy/.brew/lib/cmake/glfw3/glfw3ConfigVersion.cmake
-/goinfre/amatshiy/.brew/lib/cmake/glfw3/glfw3Targets.cmake
-/goinfre/amatshiy/.brew/lib/cmake/glfw3/glfw3Targets-noconfig.cmake
-/goinfre/amatshiy/.brew/lib/pkgconfig/glfw3.pc
-/goinfre/amatshiy/.brew/lib/libglfw3.a
