@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:50:59 by jngoma            #+#    #+#             */
-/*   Updated: 2018/08/09 08:18:02 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/09 08:48:44 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,6 @@ int			Glfw_Class::updateWindow(std::vector<Part> &Snake)
 
 	glfwShowWindow(this->_window);
 	glfwFocusWindow(this->_window);
-	int visible = glfwGetWindowAttrib(this->_window, GLFW_VISIBLE);
 
 	while (true)
 	{
