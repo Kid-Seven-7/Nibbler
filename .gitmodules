@@ -10,3 +10,6 @@
 [submodule "Assets"]
 	path = Assets
 	url = https://github.com/Kid-Seven-7/Assets.git
+[submodule "highscore"]
+	path = highscore
+	url = https://github.com/Kid-Seven-7/highscore.git
