@@ -12,7 +12,7 @@ clear
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo "${BLUE}checking for submodules...${NC}"
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
-if [ -z "$(ls -A /path/to/dir)" ];
+if [ -z "$(ls -A LIB_1/SFML)" ];
 then
 	echo ${RED}submodules not found${NC}
 	echo ${ORANGE}cloning submodules...${NC}
