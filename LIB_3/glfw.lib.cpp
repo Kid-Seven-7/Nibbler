@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:50:59 by jngoma            #+#    #+#             */
-/*   Updated: 2018/08/09 08:48:44 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/09 16:10:05 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,17 +72,57 @@ void			Glfw_Class::processInput()
 	}
 }
 
-void			Glfw_Class::drawCell(float x, float y)
+void			Glfw_Class::drawCell(float x, float y, int head)
 {
-	glBegin(GL_QUADS);
+	int	triangleAmount = 20;
+	GLfloat	radius = 0.08f;
+	GLfloat twicePie = 2.0f * M_PI;
+	srand(time(NULL));
 				// x // y
-	glColor3f  (0.20, 0.60, 0.20);
+	float r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
+	float g = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
+	float b = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
 
-	glVertex2f(x, y); //top left 
-	glVertex2f(x, y - 0.09f); //bottom left
-	glVertex2f(x + 0.09f, y - 0.09f); //bottom right
-	glVertex2f(x + 0.09f, y); //top right
-	glEnd();
+	if (head == 1)
+	{
+		glBegin(GL_TRIANGLE_FAN);
+
+		glColor3f  (r, g, b);
+		glVertex2f(x, y);
+		for (int i = 0; i <= triangleAmount; i++)
+		{
+			
+			glVertex2f(
+				x + (radius * cos(i * twicePie / triangleAmount)),
+				y + (radius * sin(i * twicePie / triangleAmount))
+			);
+		}
+		glEnd();
+		glBegin(GL_TRIANGLE_FAN);
+		glEnd();
+	}
+	else
+	{
+		r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
+		g = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
+		b = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
+
+		glBegin(GL_TRIANGLE_FAN);
+		glColor3f  (r, g, b);
+		glVertex2f(x, y);
+		for (int i = 0; i <= triangleAmount; i++)
+		{
+			r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
+			g = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
+			b = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
+			glColor3f  (r, g, b);
+			glVertex2f(
+				x + (radius * cos(i * twicePie / triangleAmount)),
+				y + (radius * sin(i * twicePie / triangleAmount))
+			);
+		}
+		glEnd();
+	}
 }
 
 
@@ -142,9 +182,9 @@ float		Glfw_Class::processCoord(int coord, std::string type)
 	}
 }
 
-int			Glfw_Class::updateWindow(std::vector<Part> &Snake)
+int			Glfw_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y)
 {
-	float x, y;
+	float x, y, f_x, f_y;
 	int	ret = this->_ret;
 
 	glfwShowWindow(this->_window);
@@ -154,6 +194,7 @@ int			Glfw_Class::updateWindow(std::vector<Part> &Snake)
 	{
 		usleep(10000); //to slow down the snake
 		glClear(GL_COLOR_BUFFER_BIT);
+		glClearColor(0.12f, 0.12f, 0.12, 1.0f);
 		processInput();
 
 		for (size_t i = 0; i < Snake.size(); i++)
@@ -161,7 +202,16 @@ int			Glfw_Class::updateWindow(std::vector<Part> &Snake)
 			processInput();
 			x = processCoord(Snake[i].x, "x");
 			y = processCoord(Snake[i].y, "y");
-			drawCell(x, y);
+			f_x = processCoord(food_x, "x");
+			f_y = processCoord(food_y, "y");
+
+			if (i == 0)
+				drawCell(x, y, 1);
+			else
+				drawCell(x, y, 0);
+			// drawCell(f_x, f_y, 1);
+			f_x = food_x;
+			f_y = food_y;
 		}
 		glfwSwapBuffers(this->_window);
 		glfwPollEvents();

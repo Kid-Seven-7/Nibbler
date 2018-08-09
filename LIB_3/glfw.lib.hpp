@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:51:03 by jngoma            #+#    #+#             */
-/*   Updated: 2018/07/31 14:03:19 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/09 15:20:18 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <GL/glew.h>
 #include "../include/IGraphicsMain.hpp"
 #include "../include/Nibbler.hpp"
+#include <math.h>
 
 //Defines for directions
 # define UP 0
@@ -42,9 +43,9 @@ class Glfw_Class : public IGraphicsMain {
       void          createWindow();
       void          destroyWindow();
       void          processInput();
-      void          drawCell(float x, float y);
+      void          drawCell(float x, float y, int head);
       float         processCoord(int coord, std::string type);
-      int          	updateWindow(std::vector<Part> &Snake);
+      int          	updateWindow(std::vector<Part> &Snake, int food_x, int food_y);
 };
 
 extern "C"

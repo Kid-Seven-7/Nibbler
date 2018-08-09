@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 08:58:33 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/09 11:50:02 by jngoma           ###   ########.fr       */
+/*   Updated: 2018/08/09 14:45:09 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void setScore(std::string name, int score){
 	system("cat highscore/highscores.txt");
 }
 
+
 void StartEngine::mainControl(){
   void *dl_handler;
 	int direction = 0;
@@ -107,27 +108,38 @@ void StartEngine::mainControl(){
 	std::vector<Part> Snake;
 	newWindow->createWindow();
 
+
+	int food_x, food_y;
+
 	while(true){ //Game loop
 		usleep(speed);
 		//Get vector
+		// if (this->_libChoice == 3)
 		Snake = test.getVector();
 
 		//validate return
-		direction = newWindow->updateWindow(Snake);
+		test.generateFood(this->_width, this->_height, food_x, food_y, Snake);
+		direction = newWindow->updateWindow(Snake, food_x, food_y);
 		//Error occurred
 		if (direction == -1)
 			break;
 		//food eaten
-		if (direction == 200){
+		if (direction == 200)
+		{
 			test.addPart();
 			Snake = test.getVector();
 			test.setVector(Snake);
 			score += 10;
 			system("clear");
 			std::cout << "Score: " <<score<< '\n';
+			test.generateFood(this->_width, this->_height, food_x, food_y, Snake);
+			std::cout << "Food_x: " << food_x << std::endl;
+			std::cout << "Food_y: " << food_y << std::endl;
 			if (score % 50 == 0 && speed > 0)
 				speed -= 10000;
 		}
+
+		//testing food coords
 
 		//Set direction from lib
 		test.setDirection(direction);

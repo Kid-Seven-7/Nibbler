@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:11:28 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/25 07:57:19 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/09 14:40:32 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ public:
   std::string     getName() const;
   void            createWindow();
   void            destroyWindow();
-  int            	updateWindow(std::vector<Part> &Snake);
+  int            	updateWindow(std::vector<Part> &Snake, int food_x, int food_y);
 };
 
 extern "C"

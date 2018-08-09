@@ -2,6 +2,8 @@
 # define _NIBBLER_HPP_
 
 # include <vector>
+# include <cstdlib>
+# include <ctime>
 
 # define UP 0
 # define DOWN 1
@@ -27,20 +29,22 @@ class Snake_class {
 		Snake_class(int width, int height);
 		~Snake_class();
 
-		int getLength();
-		int getX(int index);
-		int getY(int index);
-		int getNextX(int index);
-		int getNextY(int index);
-		bool getType(int index);
-		void setDirection(int dirValue);
-		int getDirection();
-		void moveSnake();
-		void addPart();
-		bool collision();
+		int 		getLength();
+		int 		getX(int index);
+		int 		getY(int index);
+		int 		getNextX(int index);
+		int 		getNextY(int index);
+		bool 		getType(int index);
+		void 		setDirection(int dirValue);
+		int 		getDirection();
+		void 		moveSnake();
+		void 		addPart();
+		bool 		collision();
 		std::vector<Part> getVector();
-		void setVector(std::vector<Part> &Snake);
-		void reset();
+		void 		setVector(std::vector<Part> &Snake);
+		void 		reset();
+		void        generateFood(int width, int height, int & food_x, int & food_y, std::vector<Part> &Snake);
+        // void        generateObj(int width, int height, int & obj_x, int & obj_y, std::vector<Part> &Snake);
 };
 
 extern	"C"

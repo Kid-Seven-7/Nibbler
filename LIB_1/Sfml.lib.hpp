@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 10:30:14 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/07/25 07:58:36 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/09 14:42:17 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
 	//Ints
   int getWidth() const;
   int getHeight() const;
-	int updateWindow(std::vector<Part> &Snake);
+	int updateWindow(std::vector<Part> &Snake, int food_x, int food_y);
 
 	//Voids
   void createWindow();

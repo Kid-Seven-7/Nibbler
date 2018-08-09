@@ -177,6 +177,36 @@ void Snake_class::reset(){
 		this->Snake.pop_back();
 }
 
+void	Snake_class::generateFood(int width, int height, int & food_x, int & food_y, std::vector<Part> &Snake)
+{
+	(void)Snake;
+
+	srand(time(NULL));
+	int rand_food_x = rand() % width;
+	int rand_food_y = rand() % height;
+
+	for (size_t i = 0; i < Snake.size(); i++)
+	{
+		if (Snake[i].x == rand_food_x)
+		{
+			rand_food_x = rand() % width;
+			i = 0;
+		}
+		if (Snake[i].y == rand_food_y)
+		{
+			rand_food_y = rand() % height;
+			i = 0;
+		}
+	}
+	food_x = rand_food_x;
+	food_y = rand_food_y;
+}
+
+// void	Snake_class::generateObj(int width, int height, int & obj_x, int & obj_y, std::vector<Part> &Snake)
+// {
+
+// }
+
 Snake_class *snakeClass(int width, int height)
 {
 	return new Snake_class(width, height);
