@@ -12,6 +12,7 @@
 
 #include "Sdl.lib.hpp"
 #include <iostream>
+#include <SDL.h>
 
 //Defines for directions
 # define UP 0
@@ -98,6 +99,18 @@ bool isInRange(int x, int y, int foodX, int foodY){
 }
 
 int Sdl_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y){
+	SDL_AudioSpec wav_spec;
+Uint32 wav_length;
+Uint8 *wav_buffer;
+
+/* Load the WAV */
+if (SDL_LoadWAV("../Assets/sound/loop2.wav", &wav_spec, &wav_buffer, &wav_length) == NULL) {
+    fprintf(stderr, "Could not open test.wav: %s\n", SDL_GetError());
+} else {
+    /* Do stuff with the WAV data, and then... */
+    SDL_FreeWAV(wav_buffer);
+}
+SDL_PauseAudio(0);
 	//general variables
 	int x ,y;
 	static int foodX, foodY;

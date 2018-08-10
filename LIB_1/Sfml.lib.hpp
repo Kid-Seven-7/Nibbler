@@ -23,12 +23,12 @@ private:
 	int _loop;
   std::string _name;
   sf::RenderWindow _window;
-	sf::SoundBuffer _sound;
 	sf::SoundBuffer _sound1;
 	sf::SoundBuffer _sound2;
-	sf::Sound _music;
+	sf::SoundBuffer _sound3;
 	sf::Sound _music1;
 	sf::Sound _music2;
+	sf::Sound _music3;
   Sfml_Class(void);
 
 public:
