@@ -48,6 +48,19 @@ void drawSprite(sf::Sprite &snakePart, sf::RenderWindow &win, Part &body){
 
 void Sfml_Class::createWindow(){
   this->_window.create(sf::VideoMode(this->getWidth(), this->getHeight()), this->getName(), sf::Style::Titlebar | sf::Style::Close);
+	sf::SoundBuffer buffer;
+	    if (!buffer.loadFromFile("../Assets/sound/sound.wav"))
+	        return;
+			else
+				this->_sound = buffer;
+
+	sf::Sound sound;
+	sound.setBuffer(this->_sound);
+
+	this->_music = sound;
+
+	this->_music.play();
+	this->_music.setLoop(true);
 	std::cout << "Running SFML now..." << '\n';
 }
 

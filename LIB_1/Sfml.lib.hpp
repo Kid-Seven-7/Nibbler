@@ -22,6 +22,8 @@ private:
   int _height;
   std::string _name;
   sf::RenderWindow _window;
+	sf::SoundBuffer _sound;
+	sf::Sound _music;
   Sfml_Class(void);
 
 public:
