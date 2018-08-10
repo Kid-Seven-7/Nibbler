@@ -1,23 +1,13 @@
 #include "../include/Nibbler.hpp"
 #include <iostream>
 
-//Kinda useless
-Snake_class::Snake_class()
-:isAlive(true), direction(UP)
-{}
-
 //Main constructor
 Snake_class::Snake_class(int width, int height)
-:isAlive(true), direction(UP)
+:direction(UP)
 {
 	//Creates a snake with 4 nodes
 	for (int i = 0; i < 4; ++i){
 		addPart();
-
-		//init nodes
-		this->Snake.at(i).isHead = false;
-		this->Snake.at(i).isTail = false;
-		this->Snake.at(i).canMove = false;
 		//places each subsequent node one row back
 		this->Snake.at(i).x = (width/2) - (i * 20);
 		this->Snake.at(i).y = (height/2);
@@ -34,23 +24,11 @@ Snake_class::Snake_class(int width, int height)
 			this->Snake.at(i).nextX = 0;
 			this->Snake.at(i).nextY = 0;
 		}
-
-		//Head node is head
-		if (i == 0)
-			this->Snake.at(i).isHead = true;
-		//Tail node is tail
-		if ( i == 3)
-			this->Snake.at(i).isTail = true;
 	}
 }
 
 Snake_class::~Snake_class(){
-	//TODO
-}
-
-int Snake_class::getLength(){
-	//returns the length of the snake
-	return ((this->Snake.size()) - 1);
+	this->Snake.clear();
 }
 
 int Snake_class::getX(int index){
@@ -73,47 +51,12 @@ int Snake_class::getNextY(int index){
 	return (this->Snake.at(index).nextY);
 }
 
-bool Snake_class::getType(int index){
-	// Checks if this node is the tail
-	return (this->Snake.at(index).isTail);
-}
-
-void Snake_class::moveSnake(){
-	//Moves the head based on the direction of travel
-	//y/row up down
-	//x/col left right
-	if (direction == UP){
-		this->Snake.at(0).x = this->Snake.at(0).x;
-		this->Snake.at(0).y = this->Snake.at(0).y - 1;
-	}
-	if (direction == DOWN){
-		this->Snake.at(0).x = this->Snake.at(0).x;
-		this->Snake.at(0).y = this->Snake.at(0).y + 1;
-	}
-	if (direction == RIGHT){
-		this->Snake.at(0).x = this->Snake.at(0).x + 1;
-		this->Snake.at(0).y = this->Snake.at(0).y;
-	}
-	if (direction == LEFT){
-		this->Snake.at(0).x = this->Snake.at(0).x - 1;
-		this->Snake.at(0).y = this->Snake.at(0).y;
-	}
-
-	//Update all other nodes to make the current x & y equal to the nextX & nextY
-	// and sets the nextX & nextY to the current x & y of the node in front
-	for (size_t i = 1; i < this->Snake.size(); ++i){
-		this->Snake.at(i).y = this->Snake.at(i).nextY;
-		this->Snake.at(i).x = this->Snake.at(i).nextX;
-		this->Snake.at(i).nextX = this->Snake.at(i-1).x;
-		this->Snake.at(i).nextY = this->Snake.at(i-1).y;
-	}
-	this->Snake.at(Snake.size() - 1).isTail = true;
-}
-
 void Snake_class::addPart(){
 	//Adds a node to the snake
 	Part p;
 	this->Snake.push_back(p);
+	//initializing last node to remove garbage values
+	this->Snake.at(this->Snake.size()-1).x = this->Snake.at(this->Snake.size()-1).y;
 }
 
 void Snake_class::setDirection(int dirValue){
@@ -152,9 +95,7 @@ std::vector<Part> Snake_class::getVector(){
 }
 
 void Snake_class::setVector(std::vector<Part> &Snake){
-	//gets the vector - DUH
-	size_t num = 0;
-	size_t diff = Snake.size() - this->Snake.size();
+	//sets the vector - DUH
 	for (size_t i = 0; i < this->Snake.size(); ++i){
 		this->Snake.at(i).x = Snake.at(i).x;
 		this->Snake.at(i).y = Snake.at(i).y;
@@ -162,50 +103,32 @@ void Snake_class::setVector(std::vector<Part> &Snake){
 		this->Snake.at(i).prevY = Snake.at(i).prevY;
 		this->Snake.at(i).nextX = Snake.at(i).nextX;
 		this->Snake.at(i).nextY = Snake.at(i).nextY;
-		this->Snake.at(i).isHead = Snake.at(i).isHead;
-		this->Snake.at(i).isTail = Snake.at(i).isTail;
-		this->Snake.at(i).canMove = Snake.at(i).canMove;
-		num = i;
 	}
-
-	for (size_t i = num; i < diff; ++i)
-		this->Snake.push_back(Snake.at(i));
 }
 
-void Snake_class::reset(){
-	while (this->Snake.size() > 4)
-		this->Snake.pop_back();
+bool isInRange(int x, int y, int foodX, int foodY){
+	int isX = 0;
+	int isY = 0;
+	isX = ((x < foodX + 30) && (x > foodX - 30)) ? 1 : 0;
+	isY = ((y < foodY + 30) && (y > foodY - 30)) ? 1 : 0;
+	return (isX == 1 && isY == 1) ? true : false;
 }
 
-void	Snake_class::generateFood(int width, int height, int & food_x, int & food_y, std::vector<Part> &Snake)
+void	Snake_class::generateFood(int &width, int &height, int &food_x, int &food_y, std::vector<Part> &Snake)
 {
-	// (void)Snake;
-
 	srand(time(NULL));
 	int rand_food_x = rand() % (width - 100) + 1;
-	int rand_food_y = rand() % (width - 100) + 1;
+	int rand_food_y = rand() % (height - 100) + 1;
 
 	for (size_t i = 0; i < Snake.size(); i++)
-	{
-		if (Snake[i].x == rand_food_x)
-		{
+		if (isInRange(Snake[i].x, Snake[i].y, rand_food_x, rand_food_y)){
 			rand_food_x = rand() % (width - 100) + 1;
-			i = 0;
-		}
-		if (Snake[i].y == rand_food_y)
-		{
 			rand_food_y = rand() % (height - 100) + 1;
-			i = 0;
 		}
-	}
+
 	food_x = rand_food_x;
 	food_y = rand_food_y;
 }
-
-// void	Snake_class::generateObj(int width, int height, int & obj_x, int & obj_y, std::vector<Part> &Snake)
-// {
-
-// }
 
 Snake_class *snakeClass(int width, int height)
 {
