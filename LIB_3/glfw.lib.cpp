@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:50:59 by jngoma            #+#    #+#             */
-/*   Updated: 2018/08/10 14:07:59 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/10 18:32:22 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ Glfw_Class::Glfw_Class(std::string name, int width, int height)
 	this->_eaten = false;
 	this->_ret = DOWN;
 	this->_direction = DOWN;
+	this->_libChange = 0;
 	std::cout << "GLFW Running now..." << std::endl;
 }
 
@@ -78,6 +79,16 @@ void			Glfw_Class::processInput()
 	{
 		this->_direction = UP;
 		this->_ret = UP;
+	}
+	else if (glfwGetKey(this->_window, GLFW_KEY_1) == GLFW_PRESS)
+	{
+		//load sfml
+		this->_libChange = 300;
+	}
+	else if (glfwGetKey(this->_window, GLFW_KEY_2) == GLFW_PRESS)
+	{
+		//load sdl
+		this->_libChange = 301;
 	}
 }
 
@@ -260,7 +271,11 @@ int			Glfw_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y)
 		usleep(10000); //to slow down the snake
 		glClearColor(0.12f, 0.12f, 0.12, 1.0f); // dark gray??
 		processInput();
-		
+		if (this->_libChange > 200)
+		{
+			std::cout << "Switching library..." << std::endl;
+			return (this->_libChange);
+		}
 		glClear(GL_COLOR_BUFFER_BIT);
 		for (size_t i = 0; i < Snake.size(); i++)
 		{

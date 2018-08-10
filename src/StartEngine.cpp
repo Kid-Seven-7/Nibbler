@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 08:58:33 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/10 11:13:24 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/10 18:48:56 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,30 @@ void StartEngine::mainControl(){
 			foodOnScreen = false;
 			if (score % 50 == 0 && speed > 0)
 				speed -= 1000;
+		}
+		else if (direction > 200)
+		{
+			newWindow->destroyWindow();
+			dlclose(dl_handler);
+			if (direction == 300)
+			{
+				//sfml things
+				this->_libChoice = 1;
+				foodOnScreen = false;
+				this->mainControl();
+			}
+			else if (direction == 301)
+			{
+				this->_libChoice = 2;
+				foodOnScreen = false;
+				this->mainControl();
+			}
+			else if (direction == 302)
+			{
+				this->_libChoice = 3;
+				foodOnScreen = false;
+				this->mainControl();
+			}
 		}
 
 		//Set direction from lib
