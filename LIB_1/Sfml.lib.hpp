@@ -20,8 +20,15 @@ class Sfml_Class : public IGraphicsMain{
 private:
   int _width;
   int _height;
+	int _loop;
   std::string _name;
   sf::RenderWindow _window;
+	sf::SoundBuffer _sound;
+	sf::SoundBuffer _sound1;
+	sf::SoundBuffer _sound2;
+	sf::Sound _music;
+	sf::Sound _music1;
+	sf::Sound _music2;
   Sfml_Class(void);
 
 public:
@@ -29,13 +36,16 @@ public:
   ~Sfml_Class(void);
 
 	//Ints
+	int getLoop() const;
   int getWidth() const;
   int getHeight() const;
 	int updateWindow(std::vector<Part> &Snake, int food_x, int food_y);
 
 	//Voids
+	void nextLoop();
   void createWindow();
   void destroyWindow();
+	void setLoop(int loop);
 
 	//std::strings
 	std::string getName() const;

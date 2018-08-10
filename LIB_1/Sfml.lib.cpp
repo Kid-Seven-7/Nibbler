@@ -25,6 +25,14 @@ Sfml_Class::Sfml_Class(std::string name, int width, int height)
 
 Sfml_Class::~Sfml_Class(){}
 
+void Sfml_Class::setLoop(int loop){
+  this->_loop = loop;
+}
+
+int Sfml_Class::getLoop() const{
+  return this->_loop;
+}
+
 int Sfml_Class::getWidth() const{
   return this->_width;
 }
@@ -48,6 +56,39 @@ void drawSprite(sf::Sprite &snakePart, sf::RenderWindow &win, Part &body){
 
 void Sfml_Class::createWindow(){
   this->_window.create(sf::VideoMode(this->getWidth(), this->getHeight()), this->getName(), sf::Style::Titlebar | sf::Style::Close);
+	sf::SoundBuffer buffer;
+    if (!buffer.loadFromFile("../Assets/sound/loop1.wav"))
+      return;
+		else
+			this->_sound = buffer;
+
+	sf::Sound sound;
+	sound.setBuffer(this->_sound);
+	this->_music = sound;
+
+	sf::SoundBuffer buffer1;
+    if (!buffer1.loadFromFile("../Assets/sound/loop2.wav"))
+      return;
+		else
+			this->_sound1 = buffer1;
+
+	sf::Sound sound1;
+	sound1.setBuffer(this->_sound1);
+	this->_music1 = sound1;
+
+	sf::SoundBuffer buffer2;
+		if (!buffer2.loadFromFile("../Assets/sound/loop3.wav"))
+			return;
+		else
+			this->_sound2 = buffer2;
+
+	sf::Sound sound2;
+	sound2.setBuffer(this->_sound2);
+	this->_music2 = sound2;
+
+	this->_music.play();
+	this->_music.setLoop(true);
+	this->_loop = 1;
 	std::cout << "Running SFML now..." << '\n';
 }
 
@@ -112,6 +153,24 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y){
 	int x, y, foodX, foodY, food_choice;
 	sf::Texture snakeHead;
 	sf::Texture Body;
+
+	if (Snake.size() > 10 && Snake.size() < 30 ){
+		if (getLoop() != 2){
+			this->_music.stop();
+			this->_music1.play();
+			this->_music1.setLoop(true);
+			this->_loop = 2;
+		}
+	}
+
+	if (Snake.size() > 30){
+		if (getLoop() != 3){
+			this->_music1.stop();
+			this->_music2.play();
+			this->_music2.setLoop(true);
+			this->_loop = 3;
+		}
+	}
 
 	if (!(foodOnScreen)){
 		foodX = food_x;
