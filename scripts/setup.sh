@@ -179,6 +179,15 @@ else
 	echo ${GREEN}vorbisenc.framework directory found${NC}
 fi
 
+if [ ! -d ~/Library/frameworks/sfml-audio.framework ];
+then
+	echo ${RED}no sfml-audio.framework folder found${NC}
+	echo ${ORANGE}copying sfml-audio.framework directory...${NC}
+  cp -rf LIB_1/SFML/Frameworks/sfml-audio.framework ~/Library/Frameworks
+else
+	echo "${GREEN}FLAC.framework directory found${NC}"
+fi
+
 #Removes CMakeCache if any
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo "${BLUE}checking for residual CMakeCache.txt...${NC}"
