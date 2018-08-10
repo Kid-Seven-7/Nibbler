@@ -217,6 +217,10 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y){
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		if (dir != LEFT)
 			dir = RIGHT;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F2))
+		return (301);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F3))
+		return (302);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
 		this->_window.close();
 		return -1;
