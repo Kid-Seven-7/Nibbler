@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:50:59 by jngoma            #+#    #+#             */
-/*   Updated: 2018/08/10 09:15:03 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/10 14:07:59 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -265,11 +265,6 @@ int			Glfw_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y)
 		for (size_t i = 0; i < Snake.size(); i++)
 		{
 			processInput();
-			if (this->isInRange(Snake[0].x, Snake[0].y, this->_raw_food_x, this->_raw_food_y))
-			{
-				this->_eaten = true;
-				return (200);
-			}
 			if (i == 0)
 			{
 				//head coords :)
@@ -282,6 +277,11 @@ int			Glfw_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y)
 			y = processCoord(Snake[i].y, "y");
 			drawFood(food_x, food_y);
 			drawCell(x, y, 0);
+		}
+		if (this->isInRange(Snake[0].x, Snake[0].y, this->_raw_food_x, this->_raw_food_y))
+		{
+			this->_eaten = true;
+			return (200);
 		}
 		glfwSwapBuffers(this->_window);
 		glfwPollEvents();
