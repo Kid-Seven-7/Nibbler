@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:50:59 by jngoma            #+#    #+#             */
-/*   Updated: 2018/08/09 18:23:36 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/10 09:15:03 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ Glfw_Class::Glfw_Class(std::string name, int width, int height)
 	this->_food_x = -2.0f;
 	this->_food_y = -2.0f;
 	this->_eaten = false;
+	this->_ret = DOWN;
+	this->_direction = DOWN;
 	std::cout << "GLFW Running now..." << std::endl;
 }
 
@@ -57,20 +59,24 @@ void			Glfw_Class::processInput()
 		glfwTerminate();
 		exit(0);
 	}
-	if (glfwGetKey(this->_window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+	if ((glfwGetKey(this->_window, GLFW_KEY_RIGHT) == GLFW_PRESS) && (this->_direction != LEFT))
 	{
+		this->_direction = RIGHT;
 		this->_ret = RIGHT;
 	}
-	if (glfwGetKey(this->_window, GLFW_KEY_LEFT) == GLFW_PRESS)
+	if ((glfwGetKey(this->_window, GLFW_KEY_LEFT) == GLFW_PRESS) && (this->_direction != RIGHT))
 	{
+		this->_direction = LEFT;
 		this->_ret = LEFT;
 	}
-	else if (glfwGetKey(this->_window, GLFW_KEY_UP) == GLFW_PRESS)
+	else if ((glfwGetKey(this->_window, GLFW_KEY_UP) == GLFW_PRESS) && (this->_direction != UP))
 	{
+		this->_direction = DOWN;
 		this->_ret = DOWN;
 	}
-	else if (glfwGetKey(this->_window, GLFW_KEY_DOWN) == GLFW_PRESS)
+	else if ((glfwGetKey(this->_window, GLFW_KEY_DOWN) == GLFW_PRESS) && (this->_direction != DOWN))
 	{
+		this->_direction = UP;
 		this->_ret = UP;
 	}
 }
@@ -133,14 +139,14 @@ void			Glfw_Class::drawCell(float x, float y, int head)
 		b = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
 
 		glBegin(GL_TRIANGLE_FAN);
-		glColor3f  (r, g, b);
+		glColor3f  (r, r, r);
 		glVertex2f(x, y);
 		for (int i = 0; i <= triangleAmount; i++)
 		{
 			r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
 			g = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
 			b = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
-			glColor3f  (r, g, b);
+			glColor3f  (g, g, b);
 			glVertex2f(
 				x + (radius * cos(i * twicePie / triangleAmount)),
 				y + (radius * sin(i * twicePie / triangleAmount))
@@ -211,8 +217,10 @@ void		Glfw_Class::drawFood(int food_x, int food_y)
 {
 	if (this->_eaten == false)
 	{
-		if (this->_food_x == -2.0f)
+		if (this->_food_x < -1.0f )
 		{
+			this->_raw_food_x = food_x;
+			this->_raw_food_y = food_y;
 			this->_food_x = processCoord(food_x, "x");
 			this->_food_y = processCoord(food_y, "y");
 		}
@@ -221,23 +229,21 @@ void		Glfw_Class::drawFood(int food_x, int food_y)
 	}
 	else
 	{
+		this->_raw_food_x = food_x;
+		this->_raw_food_y = food_y;
 		this->_food_x = processCoord(food_x, "x");
 		this->_food_y = processCoord(food_y, "y");
 		this->_eaten = false;
 		drawCell(this->_food_x, this->_food_y, 2);
 	}
-	// std::cout << "Food_x: " << this->_food_x << std::endl;
-	// std::cout << "Food_y: " << this->_food_y << std::endl;
-	std::cout << "Raw Food_x: " << food_x << std::endl;
-	std::cout << "Raw Food_y: " << food_y << std::endl;
 }
 
 bool	Glfw_Class::isInRange(int x, int y, int foodX, int foodY)
 {
 	int isX = 0;
 	int isY = 0;
-	isX = ((x < foodX + 55) && (x > foodX - 55)) ? 1 : 0;
-	isY = ((y < foodY + 150) && (y > foodY - 150)) ? 1 : 0;
+	isX = ((x < foodX + 25) && (x > foodX - 25)) ? 1 : 0;
+	isY = ((y < foodY + 25) && (y > foodY - 25)) ? 1 : 0;
 	return (isX == 1 && isY == 1) ? true : false;
 }
 
@@ -259,30 +265,23 @@ int			Glfw_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y)
 		for (size_t i = 0; i < Snake.size(); i++)
 		{
 			processInput();
+			if (this->isInRange(Snake[0].x, Snake[0].y, this->_raw_food_x, this->_raw_food_y))
+			{
+				this->_eaten = true;
+				return (200);
+			}
 			if (i == 0)
 			{
+				//head coords :)
 				head_x = processCoord(Snake[0].x, "x");
 				head_y = processCoord(Snake[0].y, "y");
 				drawCell(head_x, head_y, 1);
-				
-
-				if (this->isInRange(Snake[0].x, Snake[0].y, this->_food_x, this->_food_y))
-				{
-					std::cout << "HIT!!!" << std::endl;
-					exit(0);
-				}
-				std::cout << "Raw Head_x: " << Snake[0].x << std::endl;
-				std::cout << "Raw Head_y: " << Snake[0].y << std::endl;
-				// std::cout << "Head_x: " << head_x << std::endl;
-				// std::cout << "Head_y: " << head_y << std::endl;
 				i++;
 			}
 			x = processCoord(Snake[i].x, "x");
 			y = processCoord(Snake[i].y, "y");
 			drawFood(food_x, food_y);
-			// if (this->_food_x == x && this->)
 			drawCell(x, y, 0);
-			// drawCell(f_x, f_y, 1);
 		}
 		glfwSwapBuffers(this->_window);
 		glfwPollEvents();

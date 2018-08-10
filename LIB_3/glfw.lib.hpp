@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:51:03 by jngoma            #+#    #+#             */
-/*   Updated: 2018/08/09 17:26:39 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/10 07:32:56 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ class Glfw_Class : public IGraphicsMain {
       int           _ret;
       float         _food_x;
       float         _food_y;
+      int           _raw_food_x;
+      int           _raw_food_y;
       bool          _eaten;
+      int           _direction;
 			std::string   _name;
       GLFWwindow *  _window;
       Glfw_Class(void);
