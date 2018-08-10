@@ -110,15 +110,19 @@ void StartEngine::mainControl(){
 
 
 	int food_x, food_y;
+	static bool foodOnScreen = false;
 
 	while(true){ //Game loop
-		usleep(speed);
+		usleep(0);
 		//Get vector
-		// if (this->_libChoice == 3)
 		Snake = test.getVector();
 
 		//validate return
-		test.generateFood(this->_width, this->_height, food_x, food_y, Snake);
+		if (!(foodOnScreen)){
+			test.generateFood(this->_width, this->_height, food_x, food_y, Snake);
+			foodOnScreen = true;
+		}
+
 		direction = newWindow->updateWindow(Snake, food_x, food_y);
 		//Error occurred
 		if (direction == -1)
@@ -132,14 +136,10 @@ void StartEngine::mainControl(){
 			score += 10;
 			system("clear");
 			std::cout << "Score: " <<score<< '\n';
-			test.generateFood(this->_width, this->_height, food_x, food_y, Snake);
-			std::cout << "Food_x: " << food_x << std::endl;
-			std::cout << "Food_y: " << food_y << std::endl;
+			foodOnScreen = false;
 			if (score % 50 == 0 && speed > 0)
-				speed -= 10000;
+				speed -= 1000;
 		}
-
-		//testing food coords
 
 		//Set direction from lib
 		test.setDirection(direction);
@@ -173,7 +173,6 @@ void StartEngine::mainControl(){
 
 		//Collision check
 		if (!(test.collision())){
-			test.reset();
 			setScore(this->_name, score);
 			newWindow->destroyWindow();
 			break;
@@ -181,6 +180,7 @@ void StartEngine::mainControl(){
 
 		//Update vector
 		test.setVector(Snake);
+		usleep(speed);
 	}
 
   void(*WindowDestructor)(IGraphicsMain *);
