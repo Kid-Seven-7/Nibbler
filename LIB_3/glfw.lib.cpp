@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:50:59 by jngoma            #+#    #+#             */
-/*   Updated: 2018/08/11 11:49:03 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/11 16:30:57 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,12 @@ void			Glfw_Class::processInput()
 		this->_direction = UP;
 		this->_ret = UP;
 	}
-	else if (glfwGetKey(this->_window, GLFW_KEY_1) == GLFW_PRESS)
+	else if (glfwGetKey(this->_window, GLFW_KEY_F1) == GLFW_PRESS)
 	{
 		//load sfml
 		this->_libChange = 300;
 	}
-	else if (glfwGetKey(this->_window, GLFW_KEY_2) == GLFW_PRESS)
+	else if (glfwGetKey(this->_window, GLFW_KEY_F2) == GLFW_PRESS)
 	{
 		//load sdl
 		this->_libChange = 301;

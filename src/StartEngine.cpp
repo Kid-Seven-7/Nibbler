@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 08:58:33 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/11 11:35:41 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/11 16:55:18 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ StartEngine::StartEngine() {}
 StartEngine::StartEngine(int height, int width, int libChoice, std::string name)
 		: _libChoice(libChoice), _height(height), _width(width), _name(name)
 {
+	this->_dl_handler = dlopen("bin/glfw.so", RTLD_LAZY | RTLD_LOCAL);
 }
 
 StartEngine::StartEngine(StartEngine const &src)
@@ -78,10 +79,10 @@ void setScore(std::string name, int score)
 	file << getDtTm(buff) << " Name : " << name << ", Score : " << score << "\n";
 	file.close();
 
-	std::cout << "Updating highscores..." << '\n';
-	system("git -C highscore add .");
-	system("git -C highscore commit -m \"new score\"");
-	system("git -C highscore push");
+	// std::cout << "Updating highscores..." << '\n';
+	// system("git -C highscore add .");
+	// system("git -C highscore commit -m \"new score\"");
+	// system("git -C highscore push");
 
 	system("clear && echo Highscores");
 	system("cat highscore/highscores.txt");
@@ -89,7 +90,6 @@ void setScore(std::string name, int score)
 
 void StartEngine::mainControl()
 {
-	void *dl_handler;
 	int direction = 0;
 	int score = 0;
 	int level = 1;
@@ -97,14 +97,17 @@ void StartEngine::mainControl()
 	std::string window[] = {"createSFMLWindow", "createSDLWindow", "createGLFWWindow"};
 
 	//choosing lib to call
-	dl_handler = switchLib(this->_libChoice);
+	if (!this->_dl_handler)
+		this->_dl_handler = switchLib(this->_libChoice);
+	else
+		this->_dl_handler = switchLib(this->_libChoice);
 
 	//checking dl_handler
-	if (!dl_handler)
+	if (!this->_dl_handler)
 		dlerror_wrapper();
 
 	IGraphicsMain *(*WindowCreator)(std::string, int width, int height);
-	WindowCreator = (IGraphicsMain * (*)(std::string, int width, int height)) dlsym(dl_handler, window[this->_libChoice - 1].c_str());
+	WindowCreator = (IGraphicsMain * (*)(std::string, int width, int height)) dlsym(this->_dl_handler, window[this->_libChoice - 1].c_str());
 
 	if (!WindowCreator)
 		dlerror_wrapper();
@@ -118,7 +121,8 @@ void StartEngine::mainControl()
 	int food_x, food_y;
 	static bool foodOnScreen = false;
 
-	while(true){ //Game loop
+	while (true)
+	{ //Game loop
 		usleep(speed);
 		//Get vector
 		Snake = test.getVector();
@@ -142,27 +146,29 @@ void StartEngine::mainControl()
 			test.setVector(Snake);
 			score += 10;
 			foodOnScreen = false;
-			if (score % 50 == 0 && speed > 0){
+			if (score % 50 == 0 && speed > 0)
+			{
 				speed -= 10000;
 				level++;
 			}
 			system("clear");
 			system("printf '%*s\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' =");
-			std::cout << "Score: " <<score<< '\n';
-			std::cout << "Level: " <<level<< '\n';
+			std::cout << "Score: " << score << '\n';
+			std::cout << "Level: " << level << '\n';
 			system("printf '%*s\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' =");
 		}
 		else if (direction > 200 && direction < 404)
 		{
+			newWindow->destroyWindow();
 			void (*WindowDestructor)(IGraphicsMain *);
-			WindowDestructor = (void (*)(IGraphicsMain *))dlsym(dl_handler, "deleteWindow");
+			WindowDestructor = (void (*)(IGraphicsMain *))dlsym(this->_dl_handler, "deleteWindow");
 
 			if (!WindowDestructor)
 				dlerror_wrapper();
 
 			std::cout << "Releasing resources..." << std::endl;
 			WindowDestructor(newWindow);
-			dlclose(dl_handler);
+			dlclose(this->_dl_handler);
 			if (direction == 300)
 			{
 				//sfml things
@@ -205,11 +211,12 @@ void StartEngine::mainControl()
 		//check if snake head is out of bounds
 		if (this->_libChoice != 3)
 		{
-			if ((Snake[0].y < -20 || Snake[0].y > this->_height) || (Snake[0].x < -20 || Snake[0].x > this->_width))
+			if ((Snake[0].y < -20 || Snake[0].y > this->_height) ||
+					(Snake[0].x < -20 || Snake[0].x > this->_width))
 			{
 				setScore(this->_name, score);
 				newWindow->destroyWindow();
-				break;
+				exit(0);
 			}
 		}
 
@@ -230,9 +237,10 @@ void StartEngine::mainControl()
 		//Collision check
 		if (!(test.collision()))
 		{
+			std::cout << "We are here" << std::endl;
 			setScore(this->_name, score);
 			newWindow->destroyWindow();
-			break;
+			exit(0);
 		}
 
 		//Update vector
@@ -240,13 +248,13 @@ void StartEngine::mainControl()
 	}
 
 	void (*WindowDestructor)(IGraphicsMain *);
-	WindowDestructor = (void (*)(IGraphicsMain *))dlsym(dl_handler, "deleteWindow");
+	WindowDestructor = (void (*)(IGraphicsMain *))dlsym(this->_dl_handler, "deleteWindow");
 
 	if (!WindowDestructor)
 		dlerror_wrapper();
 
 	WindowDestructor(newWindow);
-	dlclose(dl_handler);
+	dlclose(this->_dl_handler);
 }
 
 void StartEngine::dlerror_wrapper(void)

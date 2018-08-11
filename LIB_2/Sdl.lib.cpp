@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:11:23 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/09 14:41:50 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/11 16:37:23 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,37 @@
 #include <SDL.h>
 
 //Defines for directions
-# define UP 0
-# define DOWN 1
-# define RIGHT 2
-# define LEFT 3
+#define UP 0
+#define DOWN 1
+#define RIGHT 2
+#define LEFT 3
 
 Sdl_Class::Sdl_Class(std::string name, int width, int height)
-:_width(width), _height(height), _name(name), _window(NULL)
-{}
-
-Sdl_Class::~Sdl_Class() {}
-
-int Sdl_Class::getWidth() const{
-  return this->_width;
+	: _width(width), _height(height), _name(name), _window(NULL)
+{
 }
 
-int Sdl_Class::getHeight() const{
-  return this->_height;
+Sdl_Class::~Sdl_Class(){
+	SDL_Quit();
 }
 
-std::string Sdl_Class::getName() const{
-  return this->_name;
+int Sdl_Class::getWidth() const
+{
+	return this->_width;
 }
 
-void Sdl_Class::createWindow(){
+int Sdl_Class::getHeight() const
+{
+	return this->_height;
+}
+
+std::string Sdl_Class::getName() const
+{
+	return this->_name;
+}
+
+void Sdl_Class::createWindow()
+{
 	SDL_Renderer *renderer = NULL;
 
 	//copy renderer to class member
@@ -51,43 +58,25 @@ void Sdl_Class::createWindow(){
 		return;
 
 	// Creates and renders a window
-  if (SDL_CreateWindowAndRenderer(this->_width,
-																	this->_height,
-																	SDL_WINDOW_RESIZABLE,
-																	&this->_window,
-																	&this->_renderer))
-    return;
+	if (SDL_CreateWindowAndRenderer(this->_width,
+									this->_height,
+									SDL_WINDOW_RESIZABLE,
+									&this->_window,
+									&this->_renderer))
+		return;
 
 	//Sets title
 	SDL_SetWindowTitle(this->_window, "Nibbler_42");
 	SDL_SetWindowResizable(this->_window, SDL_FALSE);
 }
 
-void Sdl_Class::destroyWindow(){
-	SDL_Surface *gameOverSurface;
-	SDL_Texture *gameOverTexture;
-
-	SDL_SetRenderDrawColor(this->_renderer, 0, 0, 0, 255);
-	SDL_RenderClear(this->_renderer);
-
-	//Game over loop
-	for (int i = 0; i < 5000; ++i){
-		gameOverSurface = SDL_LoadBMP("assets/background/gameover.bmp");
-		if (!gameOverSurface)
-			return;
-		gameOverTexture = SDL_CreateTextureFromSurface(this->_renderer, gameOverSurface);
-		if (!gameOverTexture)
-			return;
-
-		SDL_RenderCopy(this->_renderer, gameOverTexture, NULL, NULL);
-		SDL_RenderPresent(this->_renderer);
-
-		SDL_FreeSurface(gameOverSurface);
-		SDL_DestroyTexture(gameOverTexture);
-	}
+void Sdl_Class::destroyWindow()
+{
+	SDL_DestroyWindow(this->_window);
 }
 
-bool isInRange(int x, int y, int foodX, int foodY){
+bool isInRange(int x, int y, int foodX, int foodY)
+{
 	int isX = 0;
 	int isY = 0;
 
@@ -97,21 +86,10 @@ bool isInRange(int x, int y, int foodX, int foodY){
 	return (isX == 1 && isY == 1) ? true : false;
 }
 
-int Sdl_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y){
-	SDL_AudioSpec wav_spec;
-Uint32 wav_length;
-Uint8 *wav_buffer;
-
-/* Load the WAV */
-if (SDL_LoadWAV("../Assets/sound/loop2.wav", &wav_spec, &wav_buffer, &wav_length) == NULL) {
-    fprintf(stderr, "Could not open test.wav: %s\n", SDL_GetError());
-} else {
-    /* Do stuff with the WAV data, and then... */
-    SDL_FreeWAV(wav_buffer);
-}
-SDL_PauseAudio(0);
+int Sdl_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y)
+{
 	//general variables
-	int x ,y;
+	int x, y;
 	static int foodX, foodY;
 	static int direction = UP;
 	static bool foodOnScreen = false;
@@ -142,7 +120,8 @@ SDL_PauseAudio(0);
 	if (!spriteFood)
 		return -1;
 
-	if (!(foodOnScreen)){
+	if (!(foodOnScreen))
+	{
 		foodX = food_x;
 		foodY = food_y;
 	}
@@ -153,14 +132,16 @@ SDL_PauseAudio(0);
 	dstrectF.h = 32;
 
 	//init vector
-	for (int i = 0; i < 250; ++i) {
+	for (int i = 0; i < 250; ++i)
+	{
 		snakeSprites.push_back(dstrect);
 		snakeSprites.at(i).w = 32;
 		snakeSprites.at(i).h = 32;
 	}
 
 	//Assign snake variables to the corresponding vector node
-	for (size_t i = 0; i < Snake.size(); ++i){
+	for (size_t i = 0; i < Snake.size(); ++i)
+	{
 		x = Snake[i].x;
 		y = Snake[i].y;
 
@@ -183,7 +164,8 @@ SDL_PauseAudio(0);
 		return -1;
 
 	// main loop
-	while (1) {
+	while (1)
+	{
 		SDL_PollEvent(&event);
 		if (event.type == SDL_QUIT)
 			break;
@@ -192,11 +174,13 @@ SDL_PauseAudio(0);
 		SDL_RenderCopy(this->_renderer, textureBG, NULL, NULL);
 		SDL_RenderCopy(this->_renderer, foodTexture, NULL, &dstrectF);
 		foodOnScreen = true;
-		if (isInRange(Snake.at(0).x, Snake.at(0).y, dstrectF.x, dstrectF.y)){
+		if (isInRange(Snake.at(0).x, Snake.at(0).y, dstrectF.x, dstrectF.y))
+		{
 			foodOnScreen = false;
 			return 200;
 		}
-		for (size_t i = 0; i < Snake.size(); ++i){
+		for (size_t i = 0; i < Snake.size(); ++i)
+		{
 			//Drawing Snake
 			dstrect = snakeSprites.at(i);
 			if (i == 0)
@@ -231,24 +215,27 @@ SDL_PauseAudio(0);
 			direction = DOWN;
 		else if (state[SDL_SCANCODE_RIGHT] && direction != LEFT)
 			direction = RIGHT;
-		else if (state[SDL_SCANCODE_ESCAPE]){
+		else if (state[SDL_SCANCODE_ESCAPE])
+		{
 			//destroys window && renderer once done
 			SDL_DestroyRenderer(this->_renderer);
 			SDL_DestroyWindow(this->_window);
 
 			//Quits SDL
 			SDL_Quit();
-			return -1;
+			exit(0);
 		}
 		return direction;
 	}
 	return (0);
 }
 
-Sdl_Class *createSDLWindow(std::string name, int width, int height){
-  return new Sdl_Class(name, width, height);
+Sdl_Class *createSDLWindow(std::string name, int width, int height)
+{
+	return new Sdl_Class(name, width, height);
 }
 
-void deleteWindow(Sdl_Class *sdl_class){
-  delete  sdl_class;
+void deleteWindow(Sdl_Class *sdl_class)
+{
+	delete sdl_class;
 }
