@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 08:58:33 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/11 16:55:18 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/11 18:03:41 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void setScore(std::string name, int score)
 
 void StartEngine::mainControl()
 {
+	clock_t start, end;
 	int direction = 0;
 	int score = 0;
 	int level = 1;
@@ -123,6 +124,7 @@ void StartEngine::mainControl()
 
 	while (true)
 	{ //Game loop
+		start = clock();
 		usleep(speed);
 		//Get vector
 		Snake = test.getVector();
@@ -151,10 +153,23 @@ void StartEngine::mainControl()
 				speed -= 10000;
 				level++;
 			}
+			std::string libs[] = {"SFML", "SDL", "GLFW"};
 			system("clear");
 			system("printf '%*s\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' =");
-			std::cout << "Score: " << score << '\n';
-			std::cout << "Level: " << level << '\n';
+			std::cout << "\033[0;34mInstructions:\033[0m" << std::endl;
+			system("printf '%*s\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' =");
+			std::cout << "Use F1, F3 or F3 to switch between libraries." << std::endl;
+			std::cout << "\033[0;32mF1 = SFML\033[0m" << std::endl;
+			std::cout << "\033[0;32mF2 = SDL\033[0m" << std::endl;
+			std::cout << "\033[0;32mF3 = GLFW\033[0m" << std::endl;
+			system("printf '%*s\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' =");
+			std::cout << "\033[0;31mScore:\033[0m " << score << '\n';
+			std::cout << "\033[0;31mLevel:\033[0m " << level << '\n';
+			system("printf '%*s\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' =");
+			std::cout << "\033[0;33mCurrent library:\033[0m " << libs[this->_libChoice - 1] << std::endl;
+			system("printf '%*s\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' =");
+			end = clock();
+			std::cout << "\033[0;33mTime between targets:\033[0m " << ((double)(end - start)/CLOCKS_PER_SEC) << std::endl;
 			system("printf '%*s\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' =");
 		}
 		else if (direction > 200 && direction < 404)
@@ -199,6 +214,8 @@ void StartEngine::mainControl()
 			// newWindow->destroyWindow();
 			exit(0);
 		};
+		
+		
 		//Set direction from lib
 		test.setDirection(direction);
 
@@ -237,7 +254,6 @@ void StartEngine::mainControl()
 		//Collision check
 		if (!(test.collision()))
 		{
-			std::cout << "We are here" << std::endl;
 			setScore(this->_name, score);
 			newWindow->destroyWindow();
 			exit(0);

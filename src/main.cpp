@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 11:47:02 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/11 17:07:38 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/11 17:45:09 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,17 @@ void checkScreenSize(int x, int y)
     std::cout << "\033[0;31mError:\033[0m Invalid dimensions" << std::endl;
     std::cout << "\033[0;33mDimension range (500 - 1000)\033[0m" << std::endl;
     exit(1);
-  } 
+  }
+}
+
+void checkLib(int lib)
+{
+  if (!(lib > 0 && lib < 4))
+  {
+    std::cout << "\033[0;31mError:\033[0m Invalid library choice" << std::endl;
+    std::cout << "\033[0;33mLibrary choice range (1 - 3)\033[0m" << std::endl;
+    exit(1);
+  }
 }
 
 void dlerror_wrapper(void)
@@ -47,6 +57,7 @@ int main(int ac, char **av)
     } while (name.size() != 3);
     try
     {
+      checkLib(std::stoi(av[3]));
       checkScreenSize(std::stoi(av[1]), std::stoi(av[2]));
       if (ac == 3)
       {

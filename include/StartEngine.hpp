@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 08:44:28 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/11 16:50:27 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/11 17:52:16 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "IGraphicsMain.hpp"
 #include <dlfcn.h>
+#include <time.h>
 
 class StartEngine
 {
