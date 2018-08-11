@@ -20,7 +20,7 @@ LIB_1_HEADER = -I includes -I ../LIB_1/SFML/include
 
 LIB_3_HEADER = -I ~/.brew/include
 
-CMP_DLL = clang++ -shared -fPIC SDL/SDL2.framework/SDL2
+CMP_DLL = clang++ -Wall -Werror -Wextra -shared -fPIC SDL/SDL2.framework/SDL2
 
 sdl: clean
 	$(CMP_DLL) $(SRC_DLL) -o $(LIB_2_NAME) $(HEADER) $(LIB_1_HEADER) $(LIB_3_HEADER)
