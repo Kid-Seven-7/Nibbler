@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 08:58:33 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/10 18:48:56 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/11 10:33:47 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void StartEngine::mainControl(){
   void *dl_handler;
 	int direction = 0;
 	int score = 0;
+	int level = 1;
 	int speed = 100000;
   std::string window[] = {"createSFMLWindow", "createSDLWindow", "createGLFWWindow"};
 
@@ -135,36 +136,65 @@ void StartEngine::mainControl(){
 			test.setVector(Snake);
 			score += 10;
 			system("clear");
-			std::cout << "Score: " <<score<< '\n';
+			if (this->_libChoice == 3)
+			{
+				std::cout << "=============instructions===============" << std::endl;
+				std::cout << "Line mode: Press W" << std::endl;
+				std::cout << "Normal mode: Press Q" << std::endl;
+			}
+			std::cout << "============" << _name << "=============" << std::endl;
+			std::cout << "Score: \033[0;32m: " << score << std::endl;
+			std::cout << "Level: \033[0;32m:" << level << std::endl;
+			std::cout << "============================" << std::endl;
+			
 			foodOnScreen = false;
 			if (score % 50 == 0 && speed > 0)
-				speed -= 1000;
+			{
+				speed -= 10000;
+				level++;
+			}
 		}
-		else if (direction > 200)
+		else if (direction > 200 && direction < 404)
 		{
-			newWindow->destroyWindow();
+			void(*WindowDestructor)(IGraphicsMain *);
+			WindowDestructor = (void(*)(IGraphicsMain *)) dlsym(dl_handler, "deleteWindow");
+			
+			if(!WindowDestructor)
+				dlerror_wrapper();
+			
+			std::cout << "Releasing resources..." << std::endl;
+			WindowDestructor(newWindow);
 			dlclose(dl_handler);
 			if (direction == 300)
 			{
 				//sfml things
+				std::cout << "Starting SFML..." << std::endl;
 				this->_libChoice = 1;
 				foodOnScreen = false;
 				this->mainControl();
 			}
 			else if (direction == 301)
 			{
+				std::cout << "Starting SDL..." << std::endl;
 				this->_libChoice = 2;
 				foodOnScreen = false;
 				this->mainControl();
 			}
 			else if (direction == 302)
 			{
+				std::cout << "Starting GLFW..." << std::endl;
 				this->_libChoice = 3;
 				foodOnScreen = false;
 				this->mainControl();
 			}
+			system("clear");
 		}
-
+		else if (direction == 404)
+		{
+			setScore(this->_name, score);
+			// newWindow->destroyWindow();
+			exit(0);
+		};
 		//Set direction from lib
 		test.setDirection(direction);
 
@@ -175,12 +205,12 @@ void StartEngine::mainControl(){
 		Snake.at(0).x += (test.getDirection() == RIGHT) ? 20 : 0;
 
 		//check if snake head is out of bounds
-		if ((Snake[0].y < -20 || Snake[0].y > this->_height)
-		||(Snake[0].x < -20 || Snake[0].x > this->_width)){
-			setScore(this->_name, score);
-			newWindow->destroyWindow();
-			break;
-		}
+		// if ((Snake[0].y < -20 || Snake[0].y > this->_height)
+		// ||(Snake[0].x < -20 || Snake[0].x > this->_width)){
+		// 	setScore(this->_name, score);
+		// 	newWindow->destroyWindow();
+		// 	break;
+		// }
 
 		//Update snake parts
 		for(size_t i = 1; i < Snake.size(); ++i){

@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:51:03 by jngoma            #+#    #+#             */
-/*   Updated: 2018/08/10 17:12:47 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/11 09:01:03 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class Glfw_Class : public IGraphicsMain {
       bool          _eaten;
       int           _direction;
       int           _libChange;
+      bool          _polyGonMode;
 			std::string   _name;
       GLFWwindow *  _window;
       Glfw_Class(void);
@@ -54,6 +55,7 @@ class Glfw_Class : public IGraphicsMain {
       void          drawFood(int food_x, int food_y);
       float         processCoord(int coord, std::string type);
       bool          isInRange(int head_x, int head_y, int food_x, int food_y);
+      bool          isOffScreen(int c_width, int c_height);
       int          	updateWindow(std::vector<Part> &Snake, int food_x, int food_y);
 };
 

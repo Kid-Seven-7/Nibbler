@@ -109,8 +109,8 @@ void Snake_class::setVector(std::vector<Part> &Snake){
 bool isInRange(int x, int y, int foodX, int foodY){
 	int isX = 0;
 	int isY = 0;
-	isX = ((x < foodX + 30) && (x > foodX - 30)) ? 1 : 0;
-	isY = ((y < foodY + 30) && (y > foodY - 30)) ? 1 : 0;
+	isX = ((x < foodX + 40) && (x > foodX - 40)) ? 1 : 0;
+	isY = ((y < foodY + 40) && (y > foodY - 40)) ? 1 : 0;
 	return (isX == 1 && isY == 1) ? true : false;
 }
 
