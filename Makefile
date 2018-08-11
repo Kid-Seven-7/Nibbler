@@ -25,7 +25,7 @@ LIB_3_HEADER = -I ~/.brew/include
 
 SFML_EXP = DYLD_FRAMEWORK_PATH="$(PWD)/LIB_1/SFML/Frameworks"
 
-CMP = clang++ -std=c++11
+CMP = clang++ -Wall -Werror -Wextra -std=c++11
 
 all: run_scripts
 	@+$(MAKE) -C LIB_1
@@ -36,6 +36,8 @@ all: run_scripts
 	@printf "\033[0;32mplease run \033[0m"
 	@printf "\033[0;31msource ~/.profile \033[0m"
 	@printf "\033[0;32mto complete setup\033[0m\n"
+	@printf "\033[0;31mPlease note:\\nthis game is not suitble for anyone\\nwho suffers from photo-sensitive epilepsy\033[0m\\n"
+
 
 run_scripts:
 	$(shell ./scripts/export_sfml.sh)

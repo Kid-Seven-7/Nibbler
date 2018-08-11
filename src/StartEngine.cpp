@@ -118,9 +118,8 @@ void StartEngine::mainControl()
 	int food_x, food_y;
 	static bool foodOnScreen = false;
 
-	while (true)
-	{ //Game loop
-		usleep(0);
+	while(true){ //Game loop
+		usleep(speed);
 		//Get vector
 		Snake = test.getVector();
 
@@ -142,19 +141,16 @@ void StartEngine::mainControl()
 			Snake = test.getVector();
 			test.setVector(Snake);
 			score += 10;
-			system("clear");
-
-			std::cout << "============" << _name << "=============" << std::endl;
-			std::cout << "Score: \033[0;32m: " << score << std::endl;
-			std::cout << "Level: \033[0;32m:" << level << std::endl;
-			std::cout << "============================" << std::endl;
-
 			foodOnScreen = false;
-			if (score % 50 == 0 && speed > 0)
-			{
+			if (score % 50 == 0 && speed > 0){
 				speed -= 10000;
 				level++;
 			}
+			system("clear");
+			system("printf '%*s\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' =");
+			std::cout << "Score: " <<score<< '\n';
+			std::cout << "Level: " <<level<< '\n';
+			system("printf '%*s\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' =");
 		}
 		else if (direction > 200 && direction < 404)
 		{
@@ -241,7 +237,6 @@ void StartEngine::mainControl()
 
 		//Update vector
 		test.setVector(Snake);
-		usleep(speed);
 	}
 
 	void (*WindowDestructor)(IGraphicsMain *);

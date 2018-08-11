@@ -20,7 +20,7 @@
 # define LEFT 3
 
 Sfml_Class::Sfml_Class(std::string name, int width, int height)
-:_name(name), _width(width), _height(height)
+:_width(width), _height(height), _name(name)
 {}
 
 Sfml_Class::~Sfml_Class(){}
@@ -56,16 +56,6 @@ void drawSprite(sf::Sprite &snakePart, sf::RenderWindow &win, Part &body){
 
 void Sfml_Class::createWindow(){
   this->_window.create(sf::VideoMode(this->getWidth(), this->getHeight()), this->getName(), sf::Style::Titlebar | sf::Style::Close);
-	sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile("../Assets/sound/loop1.wav"))
-      return;
-		else
-			this->_sound = buffer;
-
-	sf::Sound sound;
-	sound.setBuffer(this->_sound);
-	this->_music = sound;
-
 	sf::SoundBuffer buffer1;
     if (!buffer1.loadFromFile("../Assets/sound/loop2.wav"))
       return;
@@ -86,8 +76,18 @@ void Sfml_Class::createWindow(){
 	sound2.setBuffer(this->_sound2);
 	this->_music2 = sound2;
 
-	this->_music.play();
-	this->_music.setLoop(true);
+	sf::SoundBuffer buffer3;
+    if (!buffer3.loadFromFile("../Assets/sound/loop3.wav"))
+      return;
+		else
+			this->_sound3 = buffer3;
+
+	sf::Sound sound3;
+	sound3.setBuffer(this->_sound3);
+	this->_music3 = sound3;
+
+	this->_music1.play();
+	this->_music1.setLoop(true);
 	this->_loop = 1;
 	std::cout << "Running SFML now..." << '\n';
 }
@@ -118,6 +118,8 @@ void Sfml_Class::destroyWindow(){
 		gameOver.setPosition(pos.x + r, pos.y + r);
 		positive = !positive;
 
+		this->_music1.stop();
+		this->_music2.stop();
 		this->_window.clear();
 		this->_window.draw(gameOver);
 		this->_window.display();
@@ -154,21 +156,12 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y){
 	sf::Texture snakeHead;
 	sf::Texture Body;
 
-	if (Snake.size() > 10 && Snake.size() < 30 ){
-		if (getLoop() != 2){
-			this->_music.stop();
-			this->_music1.play();
-			this->_music1.setLoop(true);
-			this->_loop = 2;
-		}
-	}
-
 	if (Snake.size() > 30){
-		if (getLoop() != 3){
+		if (getLoop() != 2){
 			this->_music1.stop();
 			this->_music2.play();
 			this->_music2.setLoop(true);
-			this->_loop = 3;
+			this->_loop = 2;
 		}
 	}
 
