@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:50:59 by jngoma            #+#    #+#             */
-/*   Updated: 2018/08/11 10:21:49 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/11 11:49:03 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,16 +90,6 @@ void			Glfw_Class::processInput()
 	{
 		//load sdl
 		this->_libChange = 301;
-	}
-	else if (glfwGetKey(this->_window, GLFW_KEY_W) == GLFW_PRESS)
-	{
-		//load sdl
-		this->_polyGonMode = true;
-	}
-	else if (glfwGetKey(this->_window, GLFW_KEY_Q) == GLFW_PRESS)
-	{
-		//load sdl
-		this->_polyGonMode = false;
 	}
 }
 
@@ -299,16 +289,22 @@ int			Glfw_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y)
 				drawCell(head_x, head_y, 1);
 				i++;
 			}
-			if (this->isOffScreen(Snake[0].x, Snake[0].y))
-				return (404);
+			// if (this->isOffScreen(Snake[0].x, Snake[0].y))
+			// 	return (404);
 			x = processCoord(Snake[i].x, "x");
 			y = processCoord(Snake[i].y, "y");
 			drawFood(food_x, food_y);
 			drawCell(x, y, 0);
 		}
+		if (this->isOffScreen(Snake[0].x, Snake[0].y))
+				return (404);
 		if (this->isInRange(Snake[0].x, Snake[0].y, this->_raw_food_x, this->_raw_food_y))
 		{
 			this->_eaten = true;
+			if (!this->_polyGonMode)
+				this->_polyGonMode = true;
+			else
+				this->_polyGonMode = false;
 			return (200);
 		}
 		if (this->_polyGonMode)
