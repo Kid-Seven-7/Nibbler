@@ -39,7 +39,7 @@ std::string Sdl_Class::getName() const{
 }
 
 void Sdl_Class::createWindow(){
-	SDL_Renderer *renderer;
+	SDL_Renderer *renderer = NULL;
 
 	//copy renderer to class member
 	this->_renderer = renderer;
@@ -66,7 +66,6 @@ void Sdl_Class::createWindow(){
 void Sdl_Class::destroyWindow(){
 	SDL_Surface *gameOverSurface;
 	SDL_Texture *gameOverTexture;
-	const Uint8 *state = SDL_GetKeyboardState(NULL);
 
 	SDL_SetRenderDrawColor(this->_renderer, 0, 0, 0, 255);
 	SDL_RenderClear(this->_renderer);

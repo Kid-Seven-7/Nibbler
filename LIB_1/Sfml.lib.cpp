@@ -20,7 +20,7 @@
 # define LEFT 3
 
 Sfml_Class::Sfml_Class(std::string name, int width, int height)
-:_name(name), _width(width), _height(height)
+:_width(width), _height(height), _name(name)
 {}
 
 Sfml_Class::~Sfml_Class(){}
