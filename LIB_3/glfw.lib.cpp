@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:50:59 by jngoma            #+#    #+#             */
-/*   Updated: 2018/08/10 14:07:59 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/11 11:49:03 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ Glfw_Class::Glfw_Class(std::string name, int width, int height)
 	this->_eaten = false;
 	this->_ret = DOWN;
 	this->_direction = DOWN;
+	this->_libChange = 0;
+	this->_polyGonMode = false;
 	std::cout << "GLFW Running now..." << std::endl;
 }
 
@@ -78,6 +80,16 @@ void			Glfw_Class::processInput()
 	{
 		this->_direction = UP;
 		this->_ret = UP;
+	}
+	else if (glfwGetKey(this->_window, GLFW_KEY_1) == GLFW_PRESS)
+	{
+		//load sfml
+		this->_libChange = 300;
+	}
+	else if (glfwGetKey(this->_window, GLFW_KEY_2) == GLFW_PRESS)
+	{
+		//load sdl
+		this->_libChange = 301;
 	}
 }
 
@@ -165,20 +177,14 @@ void			Glfw_Class::createWindow()
 		exit(1);
 	}
 
-	// glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	// glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+	// glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 1);
+	// glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR , 0);
 	// glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	// glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-
 	this->_window = glfwCreateWindow(this->_width, this->_height, "Nibbler_42", NULL, NULL);
-	if (this->_window == NULL)
-	{
-		std::cout << "Error: Failed to create glfw window." << std::endl;
-		glfwTerminate();
-		exit(1);
-	}
 	glfwMakeContextCurrent(this->_window);
 	glViewport(0, 0, this->_width, this->_height);
+
 	// //Initializing glew
 	if (glewInit() != GLEW_OK)
 	{
@@ -194,7 +200,6 @@ void		Glfw_Class::destroyWindow()
 
 float		Glfw_Class::processCoord(int coord, std::string type)
 {
-	std::cout << std::endl;
 	if (type == "x")
 	{
 		float ans = (float)2 / this->_width;
@@ -242,9 +247,18 @@ bool	Glfw_Class::isInRange(int x, int y, int foodX, int foodY)
 {
 	int isX = 0;
 	int isY = 0;
-	isX = ((x < foodX + 25) && (x > foodX - 25)) ? 1 : 0;
-	isY = ((y < foodY + 25) && (y > foodY - 25)) ? 1 : 0;
+	isX = ((x < foodX + 45) && (x > foodX - 45)) ? 1 : 0;
+	isY = ((y < foodY + 45) && (y > foodY - 45)) ? 1 : 0;
 	return (isX == 1 && isY == 1) ? true : false;
+}
+
+bool	Glfw_Class::isOffScreen(int c_width, int c_height)
+{
+	if (c_width > this->_width || c_width < 0)
+		return (true);
+	if (c_height > this->_height || c_height < 0)
+		return (true);
+	return (false);
 }
 
 int			Glfw_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y)
@@ -252,15 +266,17 @@ int			Glfw_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y)
 	int		ret = this->_ret;
 	float	head_x, head_y, x, y;
 
-	glfwShowWindow(this->_window);
-	glfwFocusWindow(this->_window);
-
+	// glViewport(0, 0, this->_width + 80, this->_height);
 	while (true)
 	{
-		usleep(10000); //to slow down the snake
+		// usleep(10000); //to slow down the snake
 		glClearColor(0.12f, 0.12f, 0.12, 1.0f); // dark gray??
-		processInput();
-		
+		// processInput();
+		if (this->_libChange > 200)
+		{
+			std::cout << "Switching library..." << std::endl;
+			return (this->_libChange);
+		}
 		glClear(GL_COLOR_BUFFER_BIT);
 		for (size_t i = 0; i < Snake.size(); i++)
 		{
@@ -273,16 +289,28 @@ int			Glfw_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y)
 				drawCell(head_x, head_y, 1);
 				i++;
 			}
+			// if (this->isOffScreen(Snake[0].x, Snake[0].y))
+			// 	return (404);
 			x = processCoord(Snake[i].x, "x");
 			y = processCoord(Snake[i].y, "y");
 			drawFood(food_x, food_y);
 			drawCell(x, y, 0);
 		}
+		if (this->isOffScreen(Snake[0].x, Snake[0].y))
+				return (404);
 		if (this->isInRange(Snake[0].x, Snake[0].y, this->_raw_food_x, this->_raw_food_y))
 		{
 			this->_eaten = true;
+			if (!this->_polyGonMode)
+				this->_polyGonMode = true;
+			else
+				this->_polyGonMode = false;
 			return (200);
 		}
+		if (this->_polyGonMode)
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		else
+			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 		glfwSwapBuffers(this->_window);
 		glfwPollEvents();
 		return (this->_ret);
