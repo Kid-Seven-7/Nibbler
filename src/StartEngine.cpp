@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 08:58:33 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/11 18:03:41 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/12 07:34:49 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ StartEngine::StartEngine() {}
 StartEngine::StartEngine(int height, int width, int libChoice, std::string name)
 		: _libChoice(libChoice), _height(height), _width(width), _name(name)
 {
-	this->_dl_handler = dlopen("bin/glfw.so", RTLD_LAZY | RTLD_LOCAL);
+	// this->_dl_handler = dlopen("bin/glfw.so", RTLD_LAZY | RTLD_LOCAL);
 }
 
 StartEngine::StartEngine(StartEngine const &src)

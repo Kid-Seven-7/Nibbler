@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 11:47:02 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/11 17:45:09 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/12 07:44:09 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void dlerror_wrapper(void)
 int main(int ac, char **av)
 {
   std::string name;
+
   if (ac > 2 && ac < 5)
   {
     do
@@ -57,7 +58,7 @@ int main(int ac, char **av)
     } while (name.size() != 3);
     try
     {
-      checkLib(std::stoi(av[3]));
+      std::cout << "AC: " << ac << std::endl;
       checkScreenSize(std::stoi(av[1]), std::stoi(av[2]));
       if (ac == 3)
       {
@@ -66,6 +67,7 @@ int main(int ac, char **av)
       }
       else
       {
+        checkLib(std::stoi(av[3]));
         StartEngine s_engine(std::stoi(av[1]), std::stoi(av[2]), std::stoi(av[3]), name);
         s_engine.mainControl();
       }
