@@ -21,6 +21,11 @@ else
 	echo ${GREEN}submodules found${NC}
 fi
 
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
+echo "${BLUE}updating submodules...${NC}"
+printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
+git submodule foreach git pull origin master
+
 #exports to .profile which needs to be sourced
 printf ${CYAN}'%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -${NC}
 echo "${BLUE}setting bash profile...${NC}"
