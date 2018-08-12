@@ -81,12 +81,14 @@ void			Glfw_Class::processInput()
 		this->_direction = UP;
 		this->_ret = UP;
 	}
-	else if (glfwGetKey(this->_window, GLFW_KEY_F1) == GLFW_PRESS)
+	else if ((glfwGetKey(this->_window, GLFW_KEY_F1) == GLFW_PRESS) || 
+		(glfwGetKey(this->_window, GLFW_KEY_1) == GLFW_PRESS))
 	{
 		//load sfml
 		this->_libChange = 300;
 	}
-	else if (glfwGetKey(this->_window, GLFW_KEY_F2) == GLFW_PRESS)
+	else if ((glfwGetKey(this->_window, GLFW_KEY_F2) == GLFW_PRESS) || 
+		(glfwGetKey(this->_window, GLFW_KEY_F1) == GLFW_PRESS))
 	{
 		//load sdl
 		this->_libChange = 301;
