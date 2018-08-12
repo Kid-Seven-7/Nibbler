@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 10:36:57 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/11 16:39:17 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/12 10:08:41 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,9 @@ bool isInRange(int x, int y, int foodX, int foodY)
 	return (isX == 1 && isY == 1) ? true : false;
 }
 
-int Sfml_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y)
+int Sfml_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y, bool bonus)
 {
+	(void)bonus;
 	static int dir = UP;
 	static bool foodOnScreen = false;
 	sf::Vector2f pos;

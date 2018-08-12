@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 08:58:33 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/12 09:04:40 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/12 10:48:23 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,9 @@ void	StartEngine::gonBeThread()
 
 void StartEngine::mainControl()
 {
+	static int bonus;
+	static int createBonus = 1;
+	static int bonusLife = 1;
 	clock_t start, end;
 	int direction = 0;
 	int score = 0;
@@ -145,18 +148,37 @@ void StartEngine::mainControl()
 			foodOnScreen = true;
 		}
 
-		direction = newWindow->updateWindow(Snake, food_x, food_y);
+		direction = newWindow->updateWindow(Snake, food_x, food_y, bonus);
 		//Error occurred
 		if (direction == -1)
 			break;
+		if (createBonus == 5)
+		{
+			bonus = true;
+			createBonus = 1;
+		}
+		if (bonus && bonusLife == 50)
+		{
+			foodOnScreen = false;
+			createBonus = 1;
+			bonus = false;
+			bonusLife = 1;
+		}
 		//food eaten
 		if (direction == 200)
 		{
 			test.addPart();
 			Snake = test.getVector();
 			test.setVector(Snake);
-			score += 10;
+			if (bonus)
+			{
+				score += 30;
+				bonus = false;
+			}
+			else
+				score += 10;
 			foodOnScreen = false;
+			createBonus++;
 			if (score % 50 == 0 && speed > 0)
 			{
 				speed -= 10000;
@@ -270,6 +292,8 @@ void StartEngine::mainControl()
 
 		//Update vector
 		test.setVector(Snake);
+		if (bonus)
+			bonusLife++;
 	}
 
 	void (*WindowDestructor)(IGraphicsMain *);

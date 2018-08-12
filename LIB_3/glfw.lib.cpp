@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:50:59 by jngoma            #+#    #+#             */
-/*   Updated: 2018/08/11 16:30:57 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/12 10:54:12 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,14 +151,24 @@ void			Glfw_Class::drawCell(float x, float y, int head)
 		b = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
 
 		glBegin(GL_TRIANGLE_FAN);
-		glColor3f  (r, r, r);
+		if (head == 5)
+		{
+			radius = 0.2f;
+			glColor3f  (r, r, r);
+		}
+		else
+			glColor3f  (r, r, r);
 		glVertex2f(x, y);
 		for (int i = 0; i <= triangleAmount; i++)
 		{
 			r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
 			g = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
 			b = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
-			glColor3f  (g, g, b);
+
+			if (head == 5)
+				glColor3f  (b, b, b);
+			else
+				glColor3f  (g, g, r);
 			glVertex2f(
 				x + (radius * cos(i * twicePie / triangleAmount)),
 				y + (radius * sin(i * twicePie / triangleAmount))
@@ -218,8 +228,9 @@ float		Glfw_Class::processCoord(int coord, std::string type)
 	}
 }
 
-void		Glfw_Class::drawFood(int food_x, int food_y)
+void		Glfw_Class::drawFood(int food_x, int food_y, bool isBonus)
 {
+
 	if (this->_eaten == false)
 	{
 		if (this->_food_x < -1.0f )
@@ -229,8 +240,10 @@ void		Glfw_Class::drawFood(int food_x, int food_y)
 			this->_food_x = processCoord(food_x, "x");
 			this->_food_y = processCoord(food_y, "y");
 		}
-
-		drawCell(this->_food_x, this->_food_y, 2);	
+		if (!isBonus)
+			drawCell(this->_food_x, this->_food_y, 2);
+		else
+			drawCell(this->_food_x, this->_food_y, 5);
 	}
 	else
 	{
@@ -261,7 +274,7 @@ bool	Glfw_Class::isOffScreen(int c_width, int c_height)
 	return (false);
 }
 
-int			Glfw_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y)
+int			Glfw_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y, bool bonus)
 {
 	int		ret = this->_ret;
 	float	head_x, head_y, x, y;
@@ -293,7 +306,10 @@ int			Glfw_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y)
 			// 	return (404);
 			x = processCoord(Snake[i].x, "x");
 			y = processCoord(Snake[i].y, "y");
-			drawFood(food_x, food_y);
+			 if (bonus)
+				drawFood(food_x, food_y, true);
+			else
+				drawFood(food_x, food_y, false);
 			drawCell(x, y, 0);
 		}
 		if (this->isOffScreen(Snake[0].x, Snake[0].y))

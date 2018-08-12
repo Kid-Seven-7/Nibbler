@@ -6,7 +6,7 @@
 #    By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 09:06:50 by amatshiy          #+#    #+#              #
-#    Updated: 2018/07/26 07:56:54 by amatshiy         ###   ########.fr        #
+#    Updated: 2018/08/12 09:40:18 by amatshiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,6 @@ all: run_scripts
 	@printf "\033[0;32mplease run \033[0m"
 	@printf "\033[0;31msource ~/.profile \033[0m"
 	@printf "\033[0;32mto complete setup\033[0m\n"
-	@printf "\033[0;31mPlease note:\\nthis game is not suitble for anyone\\nwho suffers from photo-sensitive epilepsy\033[0m\\n"
 
 
 run_scripts:

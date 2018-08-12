@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 10:30:14 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/09 14:42:17 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/12 10:07:58 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ public:
 	int getLoop() const;
   int getWidth() const;
   int getHeight() const;
-	int updateWindow(std::vector<Part> &Snake, int food_x, int food_y);
+	int updateWindow(std::vector<Part> &Snake, int food_x, int food_y, bool bonus);
 
 	//Voids
 	void nextLoop();

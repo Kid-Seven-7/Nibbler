@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 10:53:14 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/09 14:36:34 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/12 10:07:26 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class IGraphicsMain
         virtual std::string getName() const = 0; //not needed
         virtual void        createWindow() = 0;
         virtual void        destroyWindow() = 0;
-        virtual int        	updateWindow(std::vector<Part> &Snake, int food_x, int food_y) = 0;
+        virtual int        	updateWindow(std::vector<Part> &Snake, int food_x, int food_y, bool bonus) = 0;
         virtual 						~IGraphicsMain(){}
 };
 #endif

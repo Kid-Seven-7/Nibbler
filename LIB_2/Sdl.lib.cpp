@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:11:23 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/11 16:37:23 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/12 10:09:25 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,9 @@ bool isInRange(int x, int y, int foodX, int foodY)
 	return (isX == 1 && isY == 1) ? true : false;
 }
 
-int Sdl_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y)
+int Sdl_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y, bool bonus)
 {
+	(void)bonus;
 	//general variables
 	int x, y;
 	static int foodX, foodY;

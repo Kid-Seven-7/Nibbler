@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 09:51:03 by jngoma            #+#    #+#             */
-/*   Updated: 2018/08/11 16:48:23 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/12 10:14:04 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ class Glfw_Class : public IGraphicsMain {
       void          destroyWindow();
       void          processInput();
       void          drawCell(float x, float y, int head);
-      void          drawFood(int food_x, int food_y);
+      void          drawFood(int food_x, int food_y, bool bonus);
       float         processCoord(int coord, std::string type);
       bool          isInRange(int head_x, int head_y, int food_x, int food_y);
       bool          isOffScreen(int c_width, int c_height);
-      int          	updateWindow(std::vector<Part> &Snake, int food_x, int food_y);
+      int          	updateWindow(std::vector<Part> &Snake, int food_x, int food_y, bool bonus);
 };
 
 extern "C"

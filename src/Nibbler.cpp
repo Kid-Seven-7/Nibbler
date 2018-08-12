@@ -116,6 +116,7 @@ bool isInRange(int x, int y, int foodX, int foodY){
 
 void	Snake_class::generateFood(int &width, int &height, int &food_x, int &food_y, std::vector<Part> &Snake)
 {
+	//generate normal food
 	srand(time(NULL));
 	int rand_food_x = rand() % (width - 100) + 1;
 	int rand_food_y = rand() % (height - 100) + 1;
