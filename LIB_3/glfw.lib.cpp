@@ -81,12 +81,14 @@ void			Glfw_Class::processInput()
 		this->_direction = UP;
 		this->_ret = UP;
 	}
-	else if (glfwGetKey(this->_window, GLFW_KEY_F1) == GLFW_PRESS)
+	else if ((glfwGetKey(this->_window, GLFW_KEY_F1) == GLFW_PRESS) || 
+		(glfwGetKey(this->_window, GLFW_KEY_1) == GLFW_PRESS))
 	{
 		//load sfml
 		this->_libChange = 300;
 	}
-	else if (glfwGetKey(this->_window, GLFW_KEY_F2) == GLFW_PRESS)
+	else if ((glfwGetKey(this->_window, GLFW_KEY_F2) == GLFW_PRESS) || 
+		(glfwGetKey(this->_window, GLFW_KEY_2) == GLFW_PRESS))
 	{
 		//load sdl
 		this->_libChange = 301;
@@ -154,7 +156,7 @@ void			Glfw_Class::drawCell(float x, float y, int head)
 		if (head == 5)
 		{
 			radius = 0.2f;
-			glColor3f  (r, r, r);
+			glColor3f  (b, g, r);
 		}
 		else
 			glColor3f  (r, r, r);
@@ -166,7 +168,7 @@ void			Glfw_Class::drawCell(float x, float y, int head)
 			b = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
 
 			if (head == 5)
-				glColor3f  (b, b, b);
+				glColor3f  (r, b, g);
 			else
 				glColor3f  (g, g, r);
 			glVertex2f(

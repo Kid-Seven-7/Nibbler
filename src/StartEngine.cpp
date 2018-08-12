@@ -200,7 +200,7 @@ void StartEngine::mainControl()
 			std::cout << "\033[0;33mCurrent library:\033[0m " << libs[this->_libChoice - 1] << std::endl;
 			system("printf '%*s\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' =");
 			end = clock();
-			std::cout << "\033[0;33mTime between targets:\033[0m " << ((double)(end - start)/CLOCKS_PER_SEC) << std::endl;
+			std::cout << "\033[0;33mCPU speed:\033[0m " << ((double)(end - start)/CLOCKS_PER_SEC) << std::endl;
 			system("printf '%*s\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' =");
 		}
 		else if (direction > 200 && direction < 404)
