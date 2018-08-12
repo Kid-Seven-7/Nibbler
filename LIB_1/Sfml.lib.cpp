@@ -154,7 +154,7 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y, b
 		return -1;
 
 	//loading bg_texture from file
-	if (!bg_texture.loadFromFile("assets/background/grass.bmp"))
+	if (!bg_texture.loadFromFile("assets/background/slitherio.bmp"))
 		return -1;
 	sf::Sprite bg_sprite(bg_texture);
 
@@ -223,8 +223,8 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y, b
 
 	//scaling the bg_sprite
 	sf::Vector2f scale = bg_sprite.getScale();
-	if (this->getWidth() > 1000)
-		bg_sprite.setScale(scale.x * 2, scale.y * 1);
+	if (this->getWidth() > 700)
+		bg_sprite.setScale(scale.x * 1, scale.y * 2);
 
 	// check all the window's events that were triggered since the last iteration of the loop
 	sf::Event event;
@@ -265,9 +265,9 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y, b
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		if (dir != LEFT)
 			dir = RIGHT;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F2))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
 		return (301);
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F3))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
 		return (302);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
