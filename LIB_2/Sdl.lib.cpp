@@ -173,7 +173,15 @@ int Sdl_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y, bo
 
 		//Drawing BG
 		SDL_RenderCopy(this->_renderer, textureBG, NULL, NULL);
-		SDL_RenderCopy(this->_renderer, foodTexture, NULL, &dstrectF);
+		if (bonus){
+			dstrectF.w = 64;
+			dstrectF.h = 64;
+			SDL_RenderCopy(this->_renderer, foodTexture, NULL, &dstrectF);
+			dstrectF.w = 32;
+			dstrectF.h = 32;
+		}else{
+			SDL_RenderCopy(this->_renderer, foodTexture, NULL, &dstrectF);
+		}
 		foodOnScreen = true;
 		if (isInRange(Snake.at(0).x, Snake.at(0).y, dstrectF.x, dstrectF.y))
 		{

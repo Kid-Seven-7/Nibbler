@@ -123,6 +123,7 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y, b
 	//creating background texture
 	sf::Texture bg_texture;
 	sf::Texture food;
+	sf::Texture bonusFood;
 	std::vector<sf::Sprite> snakeSprites;
 
 	int x, y, foodX, foodY, food_choice;
@@ -231,7 +232,13 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y, b
 	//drawing the background
 	this->_window.clear();
 	this->_window.draw(bg_sprite);
-	this->_window.draw(food_sprite);
+	if (bonus){
+		sf::Sprite Bfood_sprite(food);
+		Bfood_sprite.setPosition(foodX, foodY);
+		this->_window.draw(Bfood_sprite);
+	}else{
+		this->_window.draw(food_sprite);
+	}
 
 	foodOnScreen = true;
 	if (isInRange(Snake.at(0).x, Snake.at(0).y, pos.x, pos.y))
