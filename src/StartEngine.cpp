@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 08:58:33 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/12 07:34:49 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/12 08:33:28 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 StartEngine::StartEngine() {}
 
 StartEngine::StartEngine(int height, int width, int libChoice, std::string name)
-		: _libChoice(libChoice), _height(height), _width(width), _name(name)
+		: _libChoice(libChoice), _height(height), _width(width), _name(name), _sound()
 {
 	// this->_dl_handler = dlopen("bin/glfw.so", RTLD_LAZY | RTLD_LOCAL);
 }
@@ -38,7 +38,9 @@ StartEngine::StartEngine(StartEngine const &src)
 	*this = src;
 }
 
-StartEngine::~StartEngine() {}
+StartEngine::~StartEngine() {
+	this->_sound.join();
+}
 
 StartEngine const &StartEngine::operator=(StartEngine const &rhs)
 {
@@ -67,8 +69,9 @@ static char *getDtTm(char *buff)
 	return buff;
 }
 
-void setScore(std::string name, int score)
+void 	StartEngine::setScore(std::string name, int score)
 {
+	this->_sound = (std::thread([=]() {gonBeThread();}));
 	char buff[DTTMSZ];
 	std::ofstream file;
 
@@ -86,6 +89,11 @@ void setScore(std::string name, int score)
 
 	system("clear && echo Highscores");
 	system("cat highscore/highscores.txt");
+}
+
+void	StartEngine::gonBeThread()
+{
+	system("afplay Assets/sound/death.wav");
 }
 
 void StartEngine::mainControl()

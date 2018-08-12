@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 08:44:28 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/11 17:52:16 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/12 08:33:07 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "IGraphicsMain.hpp"
 #include <dlfcn.h>
 #include <time.h>
+#include <thread>
 
 class StartEngine
 {
@@ -25,6 +26,7 @@ class StartEngine
     int           _width;
     std::string   _name;
     void          *_dl_handler;
+    std::thread   _sound;
 
   public:
     StartEngine(void);
@@ -36,5 +38,7 @@ class StartEngine
     void *switchLib(int libChoice = 1);
     void mainControl();
     void dlerror_wrapper(void);
+    static void	gonBeThread();
+    void setScore(std::string name, int score);
 };
 #endif
