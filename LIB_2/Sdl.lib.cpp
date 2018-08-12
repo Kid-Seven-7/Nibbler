@@ -212,9 +212,9 @@ int Sdl_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y, bo
 		SDL_DestroyTexture(spriteBodyTexture);
 
 		//Keyboard input
-		if (state[SDL_SCANCODE_F1])
+		if (state[SDL_SCANCODE_1])
 			return (300);
-		else if (state[SDL_SCANCODE_F3])
+		else if (state[SDL_SCANCODE_3])
 			return (302);
 		else if (state[SDL_SCANCODE_UP] && direction != DOWN)
 			direction = UP;
