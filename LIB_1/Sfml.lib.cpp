@@ -104,20 +104,20 @@ void Sfml_Class::destroyWindow(){
 	this->_window.close();
 }
 
-bool isInRange(int x, int y, int foodX, int foodY)
+bool isInRange(int x, int y, int foodX, int foodY, int range)
 {
 	int isX = 0;
 	int isY = 0;
-	isX = ((x < foodX + 25) && (x > foodX - 25)) ? 1 : 0;
-	isY = ((y < foodY + 25) && (y > foodY - 25)) ? 1 : 0;
+	isX = ((x < foodX + range) && (x > foodX - range)) ? 1 : 0;
+	isY = ((y < foodY + range) && (y > foodY - range)) ? 1 : 0;
 	return (isX == 1 && isY == 1) ? true : false;
 }
 
 int Sfml_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y, bool bonus)
 {
-	(void)bonus;
+	// (void)bonus;
 	static int dir = UP;
-	static bool foodOnScreen = false;
+	// static bool foodOnScreen = false;
 	sf::Vector2f pos;
 
 	//creating background texture
@@ -125,8 +125,8 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y, b
 	sf::Texture food;
 	sf::Texture bonusFood;
 	std::vector<sf::Sprite> snakeSprites;
-
-	int x, y, foodX, foodY, food_choice;
+	static int foodX, foodY, food_choice;
+	int x, y;
 	sf::Texture snakeHead;
 	sf::Texture Body;
 
@@ -141,12 +141,14 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y, b
 		}
 	}
 
-	if (!(foodOnScreen))
-	{
-		foodX = food_x;
-		foodY = food_y;
-		food_choice = rand() % 5 + 1;
-	}
+	// if (!())
+	// {
+		if (!(foodX == food_x)){
+			foodX = food_x;
+			foodY = food_y;
+			food_choice = rand() % 5 + 1;
+		}
+	// }
 
 	if (!snakeHead.loadFromFile("assets/sprites/head.bmp"))
 		return -1;
@@ -239,11 +241,11 @@ int Sfml_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y, b
 	}else{
 		this->_window.draw(food_sprite);
 	}
-
-	foodOnScreen = true;
-	if (isInRange(Snake.at(0).x, Snake.at(0).y, pos.x, pos.y))
-	{
-		foodOnScreen = false;
+	if (bonus){
+		if (isInRange(Snake.at(0).x, Snake.at(0).y, pos.x, pos.y, 50))
+		return 200;
+	}else{
+		if (isInRange(Snake.at(0).x, Snake.at(0).y, pos.x, pos.y, 25))
 		return 200;
 	}
 

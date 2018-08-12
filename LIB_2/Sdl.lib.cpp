@@ -75,13 +75,13 @@ void Sdl_Class::destroyWindow()
 	SDL_DestroyWindow(this->_window);
 }
 
-bool isInRange(int x, int y, int foodX, int foodY)
+bool isInRange(int x, int y, int foodX, int foodY, int range)
 {
 	int isX = 0;
 	int isY = 0;
 
-	isX = ((x < foodX + 15) && (x > foodX - 15)) ? 1 : 0;
-	isY = ((y < foodY + 15) && (y > foodY - 15)) ? 1 : 0;
+	isX = ((x < foodX + range) && (x > foodX - range)) ? 1 : 0;
+	isY = ((y < foodY + range) && (y > foodY - range)) ? 1 : 0;
 
 	return (isX == 1 && isY == 1) ? true : false;
 }
@@ -93,7 +93,7 @@ int Sdl_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y, bo
 	int x, y;
 	static int foodX, foodY;
 	static int direction = UP;
-	static bool foodOnScreen = false;
+	// static bool foodOnScreen = false;
 	std::vector<SDL_Rect> snakeSprites;
 	//SDL variables
 	SDL_Event event;
@@ -121,11 +121,11 @@ int Sdl_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y, bo
 	if (!spriteFood)
 		return -1;
 
-	if (!(foodOnScreen))
-	{
+	// if (!(foodOnScreen))
+	// {
 		foodX = food_x;
 		foodY = food_y;
-	}
+	// }
 
 	dstrectF.x = foodX;
 	dstrectF.y = foodY;
@@ -182,12 +182,15 @@ int Sdl_Class::updateWindow(std::vector<Part> &Snake, int food_x, int food_y, bo
 		}else{
 			SDL_RenderCopy(this->_renderer, foodTexture, NULL, &dstrectF);
 		}
-		foodOnScreen = true;
-		if (isInRange(Snake.at(0).x, Snake.at(0).y, dstrectF.x, dstrectF.y))
-		{
-			foodOnScreen = false;
+
+		if (bonus){
+			if (isInRange(Snake.at(0).x, Snake.at(0).y, dstrectF.x, dstrectF.y, 40))
+			return 200;
+		}else{
+			if (isInRange(Snake.at(0).x, Snake.at(0).y, dstrectF.x, dstrectF.y, 20))
 			return 200;
 		}
+		
 		for (size_t i = 0; i < Snake.size(); ++i)
 		{
 			//Drawing Snake
