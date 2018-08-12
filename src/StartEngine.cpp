@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 08:58:33 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/12 08:33:28 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/12 09:04:40 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ static char *getDtTm(char *buff)
 void 	StartEngine::setScore(std::string name, int score)
 {
 	this->_sound = (std::thread([=]() {gonBeThread();}));
+	std::cout << "GAME OVER!!!" << std::endl;
 	char buff[DTTMSZ];
 	std::ofstream file;
 

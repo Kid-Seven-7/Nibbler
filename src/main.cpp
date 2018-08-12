@@ -6,7 +6,7 @@
 /*   By: amatshiy <amatshiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 11:47:02 by amatshiy          #+#    #+#             */
-/*   Updated: 2018/08/12 07:44:09 by amatshiy         ###   ########.fr       */
+/*   Updated: 2018/08/12 09:04:54 by amatshiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int main(int ac, char **av)
     } while (name.size() != 3);
     try
     {
-      std::cout << "AC: " << ac << std::endl;
       checkScreenSize(std::stoi(av[1]), std::stoi(av[2]));
       if (ac == 3)
       {
