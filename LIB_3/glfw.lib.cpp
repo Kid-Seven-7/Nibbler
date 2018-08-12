@@ -154,7 +154,7 @@ void			Glfw_Class::drawCell(float x, float y, int head)
 		if (head == 5)
 		{
 			radius = 0.2f;
-			glColor3f  (r, r, r);
+			glColor3f  (b, g, r);
 		}
 		else
 			glColor3f  (r, r, r);
@@ -166,7 +166,7 @@ void			Glfw_Class::drawCell(float x, float y, int head)
 			b = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); //0.0 to 1.0 :)
 
 			if (head == 5)
-				glColor3f  (b, b, b);
+				glColor3f  (r, b, g);
 			else
 				glColor3f  (g, g, r);
 			glVertex2f(
